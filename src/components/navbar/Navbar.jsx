@@ -12,7 +12,6 @@ export const Navbar = () => {
     { name: 'About Us', href: '#about' },
     { name: 'Projects', href: '#projects' },
     { name: 'Pricing', href: '#pricing' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   useEffect(() => {
