@@ -21,24 +21,25 @@ export const Hero = () => {
         <div className="meta-tag">COLOMBO / SRI LANKA</div>
       </div>
 
-      {/* Full-Cover Title Container using Official Vector SVG Assets */}
-      <div className="hero__title-container">
-        <div className="hero__title-asset-wrapper">
-          <img
-            src="/assets/wordmark-white.svg"
-            alt="STUDIO L!BERNY"
-            className="hero__title-img title-dark-mode"
-          />
-          <img
-            src="/assets/wordmark-black.svg"
-            alt="STUDIO L!BERNY"
-            className="hero__title-img title-light-mode"
-          />
-        </div>
-      </div>
-
-      {/* Center Stage Area with Official Purple Vector SVG Logo Asset */}
+      {/* Center Stage Area: Title Wordmark & Logo Layered on the Exact Same Center Axis */}
       <div className="hero__asset-stage">
+        {/* Title Wordmark Container (Layered Behind Logo) */}
+        <div className="hero__title-container">
+          <div className="hero__title-asset-wrapper">
+            <img
+              src="/assets/wordmark-white.svg"
+              alt="STUDIO L!BERNY"
+              className="hero__title-img title-dark-mode"
+            />
+            <img
+              src="/assets/wordmark-black.svg"
+              alt="STUDIO L!BERNY"
+              className="hero__title-img title-light-mode"
+            />
+          </div>
+        </div>
+
+        {/* 3D Purple Logo & Floating Micro Badges Wrapper */}
         <div className="asset__wrapper">
           <div className="hero__logo-glow-bg"></div>
 
@@ -50,13 +51,15 @@ export const Hero = () => {
 
           <div className="moro-asset-shadow"></div>
 
-          {/* Symmetrical High-Visibility Floating Glass Badges */}
-          {pills.map((pill, idx) => (
-            <div key={idx} className={`hero__micro-pill pill-${pill.pos}`}>
-              <span className="micro-dot">•</span>
-              <span className="micro-text">{pill.label}</span>
-            </div>
-          ))}
+          {/* Micro Glass Badges Wrapper */}
+          <div className="hero__pills-wrapper">
+            {pills.map((pill, idx) => (
+              <div key={idx} className={`hero__micro-pill pill-${pill.pos}`}>
+                <span className="micro-dot">•</span>
+                <span className="micro-text">{pill.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
