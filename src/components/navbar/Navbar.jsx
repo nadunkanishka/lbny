@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 import './Navbar.css';
 
@@ -6,12 +7,12 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
-  const [activeTab, setActiveTab] = useState('About Us');
+  const location = useLocation();
 
   const navItems = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Pricing', href: '#pricing' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Pricing', href: '/pricing' },
   ];
 
   useEffect(() => {
@@ -21,6 +22,12 @@ export const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Scroll to top and close dropdown menu on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   const toggleTheme = () => {
     const nextDarkState = !isDarkMode;
@@ -39,11 +46,16 @@ export const Navbar = () => {
         {/* Top Navbar Row */}
         <div className="header__main">
           {/* Logo inside Navbar */}
-          <a href="#" className="header__logo-link" aria-label="Home">
+          <Link
+            to="/"
+            className="header__logo-link"
+            aria-label="Home"
+            onClick={() => setMenuOpen(false)}
+          >
             <div className="header__logo">
               <Logo size={32} />
             </div>
-          </a>
+          </Link>
 
           {/* Menu Trigger Button */}
           <button
@@ -107,9 +119,13 @@ export const Navbar = () => {
           </button>
 
           {/* Contact CTA Button */}
-          <a href="#contact" className="btn-primary">
+          <Link
+            to="/contact"
+            className="btn-primary"
+            onClick={() => setMenuOpen(false)}
+          >
             <span>Contact</span>
-          </a>
+          </Link>
         </div>
 
         {/* Height Expandable Section */}
@@ -118,19 +134,16 @@ export const Navbar = () => {
             <div className="dropdown__shade-box">
               <div className="dropdown__list">
                 {navItems.map((item, idx) => (
-                  <a
+                  <Link
                     key={item.name}
-                    href={item.href}
-                    className={`dropdown__link ${activeTab === item.name ? 'is-active' : ''}`}
+                    to={item.href}
+                    className={`dropdown__link ${location.pathname === item.href ? 'is-active' : ''}`}
                     style={{ '--item-index': idx }}
-                    onClick={() => {
-                      setActiveTab(item.name);
-                      setMenuOpen(false);
-                    }}
+                    onClick={() => setMenuOpen(false)}
                   >
                     <span className="dropdown__link-dot"></span>
                     <span className="dropdown__link-text">{item.name}</span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

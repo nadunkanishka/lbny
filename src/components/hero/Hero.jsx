@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 export const Hero = () => {
@@ -66,15 +67,15 @@ export const Hero = () => {
         </p>
 
         <div className="hero__cta-group">
-          <a href="#projects" className="hero-cta-btn primary">
+          <Link to="/projects" className="hero-cta-btn primary">
             <span>Explore Projects</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
               <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </a>
-          <a href="#contact" className="hero-cta-btn secondary">
+          </Link>
+          <Link to="/contact" className="hero-cta-btn secondary">
             <span>Contact Us</span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
