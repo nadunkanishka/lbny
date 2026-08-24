@@ -226,9 +226,45 @@ a.cm-info-value:hover {
   margin-top: 0.15rem;
 }
 
-.cm-submit-btn:hover {
+.cm-submit-btn:hover:not(:disabled) {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 8px 30px color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+.cm-submit-btn:disabled,
+.cm-submit-btn.is-sending {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Spinner inside button ── */
+@keyframes cm-spin {
+  to { transform: rotate(360deg); }
+}
+
+.cm-spinner {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: cm-spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+/* ── Error message ── */
+.cm-error-msg {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #f87171;
+  margin: 0;
+  line-height: 1.5;
+}
+
+html.light-theme .cm-error-msg {
+  color: #dc2626;
 }
 
 /* ── Success state ── */
