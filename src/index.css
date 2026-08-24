@@ -6,6 +6,19 @@
   --card-bg: rgba(255, 255, 255, 0.03);
   --border-color: rgba(255, 255, 255, 0.09);
   --accent-color: #8b5cf6;
+
+  /* Semantic tokens */
+  --muted-color: #6b7280;
+  --placeholder-color: rgba(255, 255, 255, 0.18);
+  --input-border: rgba(255, 255, 255, 0.75);
+  --surface-subtle: rgba(255, 255, 255, 0.06);
+  --surface-hover: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --btn-border: rgba(255, 255, 255, 0.28);
+  --btn-text: rgba(255, 255, 255, 0.78);
+  --btn-border-hover: rgba(255, 255, 255, 0.65);
+  --btn-text-hover: #ffffff;
+  --divider-color: rgba(255, 255, 255, 0.08);
 }
 
 html.light-theme {
@@ -14,7 +27,21 @@ html.light-theme {
   --card-bg: #ffffff;
   --border-color: rgba(0, 0, 0, 0.08);
   --accent-color: #7c3aed;
+
+  /* Semantic tokens — light overrides */
+  --muted-color: #9ca3af;
+  --placeholder-color: rgba(0, 0, 0, 0.22);
+  --input-border: rgba(0, 0, 0, 0.7);
+  --surface-subtle: rgba(0, 0, 0, 0.04);
+  --surface-hover: rgba(0, 0, 0, 0.08);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --btn-border: rgba(0, 0, 0, 0.22);
+  --btn-text: rgba(0, 0, 0, 0.62);
+  --btn-border-hover: rgba(0, 0, 0, 0.5);
+  --btn-text-hover: var(--text-color);
+  --divider-color: rgba(0, 0, 0, 0.07);
 }
+
 
 html, body {
   margin: 0;
@@ -43,12 +70,13 @@ html, body {
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hero-placeholder {
-  min-height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 8rem 2rem 4rem;
-  box-sizing: border-box;
+/* Mobile View Lock: Prevent Vertical Page Scroll */
+@media (max-width: 768px) {
+  html, body, #root, .app-main-wrapper {
+    overflow: hidden !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    touch-action: pan-x;
+  }
 }

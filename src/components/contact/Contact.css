@@ -1,0 +1,405 @@
+/* ════════════════════════════════════════════
+   Get In Touch – no-scroll, centered layout
+   ════════════════════════════════════════════ */
+
+/* ── Section: fills viewport, no overflow ── */
+.cm-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── Inner block: hero + body grouped and centered ── */
+.cm-inner {
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 3.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Hero: same width as the form columns below it ── */
+.cm-hero {
+  width: 100%;
+}
+
+.cm-hero-title {
+  font-size: clamp(3.5rem, 9vw, 11rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.035em;
+  color: var(--text-color);
+  margin: 0;
+  white-space: nowrap;
+  width: 100%;
+  display: block;
+}
+
+/* ── Two-column body grid ── */
+.cm-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: start;
+}
+
+/* ═══════════════════════
+   LEFT COLUMN – INFO
+   ═══════════════════════ */
+.cm-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 0.2rem;
+}
+
+.cm-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.cm-info-label {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  opacity: 0.8;
+}
+
+.cm-info-value {
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a.cm-info-value:hover {
+  opacity: 0.55;
+}
+
+.cm-info-tz {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted-color);
+  display: inline-block;
+  margin-top: 0.1rem;
+}
+
+/* ═══════════════════════
+   RIGHT COLUMN – FORM
+   ═══════════════════════ */
+.cm-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.cm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Name row: two fields side by side */
+.cm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Single field container */
+.cm-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Label */
+.cm-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted-color);
+  pointer-events: none;
+}
+
+/* Input & Textarea: underline-only */
+.cm-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.4rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-color);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.22s ease;
+}
+
+.cm-input:focus {
+  border-bottom-color: var(--accent-color);
+}
+
+.cm-input::placeholder {
+  color: var(--placeholder-color);
+}
+
+/* Textarea */
+.cm-textarea {
+  resize: none;
+  line-height: 1.65;
+}
+
+/* ── Budget selector ── */
+.cm-budget-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-top: 0.15rem;
+}
+
+.cm-budget-btn {
+  padding: 0.45rem 0.2rem;
+  background: var(--surface-subtle);
+  border: 1px solid var(--btn-border);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--btn-text);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cm-budget-btn:hover {
+  background: var(--surface-hover);
+  border-color: var(--btn-border-hover);
+  color: var(--btn-text-hover);
+}
+
+.cm-budget-btn.is-active {
+  background: var(--text-color);
+  border-color: var(--text-color);
+  color: var(--bg-color);
+  font-weight: 800;
+}
+
+/* ── Submit button ── */
+.cm-submit-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.75rem;
+  background: var(--text-color);
+  color: var(--bg-color);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0.15rem;
+}
+
+.cm-submit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--accent-color) 40%, transparent);
+}
+
+/* ── Success state ── */
+.cm-success {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1rem 0;
+}
+
+.cm-success-msg {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE — purpose-built mobile layout
+   ══════════════════════════════════════════ */
+
+/* ── Tablet (≤ 860px): begin transitioning ── */
+@media (max-width: 860px) {
+  .cm-inner {
+    max-width: 100%;
+    padding: 0 2rem;
+    gap: 1.75rem;
+  }
+
+  .cm-body {
+    gap: 2.5rem;
+  }
+}
+
+/* ── Mobile (≤ 680px): purpose-built layout ── */
+@media (max-width: 680px) {
+
+  /* Section stays non-scrollable, full screen */
+  .cm-section {
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .cm-inner {
+    padding: 0 1.5rem;
+    gap: 1.4rem;
+    justify-content: center;
+  }
+
+  /* ── Hero: prominent but right-sized for mobile ── */
+  .cm-hero {
+    margin-bottom: 0;
+  }
+
+  .cm-hero-title {
+    font-size: clamp(2.6rem, 11vw, 4.5rem);
+    white-space: normal;
+    line-height: 0.93;
+    letter-spacing: -0.04em;
+  }
+
+  /* ── Body: single column, form first on mobile ── */
+  .cm-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.25rem;
+  }
+
+  /* ── Info: one slim horizontal strip, just the essentials ── */
+  .cm-info {
+    grid-row: 2;
+    /* push below form */
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0 2.5rem;
+    padding-top: 0;
+    border-top: 1px solid var(--divider-color);
+    padding-top: 1rem;
+  }
+
+  .cm-info-block {
+    gap: 0.1rem;
+  }
+
+  /* Hide the address block on mobile — saves significant vertical space */
+  .cm-info-block:last-child {
+    display: none;
+  }
+
+  .cm-info-label {
+    font-size: 0.58rem;
+    letter-spacing: 1.4px;
+  }
+
+  .cm-info-value {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  /* ── Form column: roomy, comfortable to fill out ── */
+  .cm-form-col {
+    grid-row: 1;
+    /* form comes first */
+  }
+
+  .cm-form {
+    gap: 1rem;
+  }
+
+  /* Name row stays side-by-side on mobile */
+  .cm-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .cm-field {
+    gap: 0.35rem;
+  }
+
+  .cm-label {
+    font-size: 0.6rem;
+  }
+
+  .cm-input {
+    padding: 0.45rem 0;
+    font-size: 0.88rem;
+  }
+
+  /* Textarea: fixed height instead of rows attribute */
+  .cm-textarea {
+    max-height: 4.5rem;
+    overflow-y: auto;
+  }
+
+  .cm-budget-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.45rem;
+  }
+
+  .cm-budget-btn {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.15rem;
+  }
+
+  .cm-submit-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 1.5rem;
+    margin-top: 0.1rem;
+  }
+}
+
+/* ── Very small phones (≤ 390px) ── */
+@media (max-width: 390px) {
+  .cm-inner {
+    padding: 0 1.25rem;
+    gap: 1.1rem;
+  }
+
+  .cm-hero-title {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+  }
+
+  .cm-form {
+    gap: 0.85rem;
+  }
+
+  .cm-budget-btn {
+    font-size: 0.6rem;
+    padding: 0.35rem 0.1rem;
+  }
+}
