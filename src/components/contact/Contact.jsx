@@ -37,7 +37,9 @@ export const Contact = () => {
       await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       setStatus('success');
     } catch (err) {
-      console.error('EmailJS error:', err);
+      console.error('EmailJS error — status:', err?.status);
+      console.error('EmailJS error — text:',   err?.text);
+      console.error('EmailJS error — full:',   err);
       setStatus('error');
     }
   };
