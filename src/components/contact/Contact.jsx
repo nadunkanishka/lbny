@@ -9,7 +9,7 @@ export const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const budgetTiers = ['< $5,000', '$5k – $10k', '$10k – $25k', '$25k+'];
+  const budgetTiers = ['< $1,000', '$1k – $5k', '$5k – $15k', '$15k+'];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ export const Contact = () => {
 
         {/* ── Hero Row ── */}
         <div className="cm-hero">
-          <h1 className="cm-hero-title">Get in touch</h1>
+          <h1 className="cm-hero-title">Work With Us</h1>
         </div>
 
         {/* ── Two-Column Body ── */}
@@ -43,24 +43,22 @@ export const Contact = () => {
           <div className="cm-info">
             <div className="cm-info-block">
               <span className="cm-info-label">Email</span>
-              <a href="mailto:hello@studioliberny.com" className="cm-info-value">
-                hello@studioliberny.com
+              <a href="mailto:dumindu.kavishkaluvi@gmail.com" className="cm-info-value">
+                dumindu.kavishkaluvi@gmail.com
               </a>
             </div>
 
             <div className="cm-info-block">
               <span className="cm-info-label">Phone</span>
-              <a href="tel:+15555555555" className="cm-info-value">
-                +1 (555) 555-5555
+              <a href="tel:+945282820" className="cm-info-value">
+                +(94) 528 2820
               </a>
             </div>
 
             <div className="cm-info-block">
               <span className="cm-info-label">Address</span>
               <span className="cm-info-value">
-                123 Demo Street<br />
                 Colombo, Sri Lanka<br />
-                <span className="cm-info-tz">GMT +5:30</span>
               </span>
             </div>
           </div>
