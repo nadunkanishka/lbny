@@ -2,18 +2,18 @@ import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
-const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export const Contact = () => {
   const formRef = useRef(null);
 
-  const [firstName,      setFirstName]      = useState('');
-  const [lastName,       setLastName]        = useState('');
-  const [email,          setEmail]           = useState('');
-  const [selectedBudget, setSelectedBudget]  = useState('');
-  const [message,        setMessage]         = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [selectedBudget, setSelectedBudget] = useState('');
+  const [message, setMessage] = useState('');
 
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
@@ -26,11 +26,11 @@ export const Contact = () => {
     setStatus('sending');
 
     const templateParams = {
-      from_name:   `${firstName} ${lastName}`.trim(),
-      from_email:  email,
-      budget:      selectedBudget || 'Not specified',
+      from_name: `${firstName} ${lastName}`.trim(),
+      from_email: email,
+      budget: selectedBudget || 'Not specified',
       message,
-      to_email:    'info@studioliberny.com',
+      to_email: 'info@studioliberny.com',
     };
 
     try {
@@ -38,8 +38,8 @@ export const Contact = () => {
       setStatus('success');
     } catch (err) {
       console.error('EmailJS error — status:', err?.status);
-      console.error('EmailJS error — text:',   err?.text);
-      console.error('EmailJS error — full:',   err);
+      console.error('EmailJS error — text:', err?.text);
+      console.error('EmailJS error — full:', err);
       setStatus('error');
     }
   };
@@ -78,8 +78,8 @@ export const Contact = () => {
 
             <div className="cm-info-block">
               <span className="cm-info-label">Phone</span>
-              <a href="tel:+945282820" className="cm-info-value">
-                +(94) 528 2820
+              <a href="https://wa.me/94705282820" className="cm-info-value">
+                +(94)70 528 2820
               </a>
             </div>
 
