@@ -9,6 +9,16 @@
   flex-direction: column;
 }
 
+/* Contact page: strip all page-wrapper spacing — cm-section owns the layout */
+.page-wrapper.contact-page {
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
 .page-wrapper.empty-page {
   justify-content: center;
   align-items: center;
@@ -20,20 +30,20 @@
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: center center;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 90%);
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 60%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 60%);
   pointer-events: none;
   z-index: 0;
 }
 
 html.light-theme .page-bg-grid {
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
 }
 
 .page-container {

@@ -4,7 +4,7 @@ import './Pages.css';
 
 export const ContactPage = () => {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper contact-page">
       <div className="page-bg-grid"></div>
       <Contact />
     </div>
