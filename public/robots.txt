@@ -1,0 +1,6 @@
+# Allow all crawlers to index all pages
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://studioliberny.com/sitemap.xml
