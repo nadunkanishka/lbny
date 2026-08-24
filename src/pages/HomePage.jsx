@@ -4,7 +4,6 @@ import { useSEO } from '../hooks/useSEO';
 
 export const HomePage = () => {
   useSEO({
-    title: 'Creative Design Studio',
     description:
       'Studio Liberny crafts premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients. Explore our work.',
     path: '/',

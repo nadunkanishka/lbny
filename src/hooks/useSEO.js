@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const BASE_URL = 'https://studioliberny.com';
-const DEFAULT_TITLE = 'Studio Liberny | Creative Design Studio';
+const DEFAULT_TITLE = 'Studio Liberny';
 const DEFAULT_DESCRIPTION =
   'Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients.';
 
