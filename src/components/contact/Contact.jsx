@@ -1,19 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
 export const Contact = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [selectedBudget, setSelectedBudget] = useState('');
-  const [message, setMessage] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef(null);
+
+  const [firstName,      setFirstName]      = useState('');
+  const [lastName,       setLastName]        = useState('');
+  const [email,          setEmail]           = useState('');
+  const [selectedBudget, setSelectedBudget]  = useState('');
+  const [message,        setMessage]         = useState('');
+
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const budgetTiers = ['< $1,000', '$1k – $5k', '$5k – $15k', '$15k+'];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    if (status === 'sending') return;
+
+    setStatus('sending');
+
+    const templateParams = {
+      from_name:   `${firstName} ${lastName}`.trim(),
+      from_email:  email,
+      budget:      selectedBudget || 'Not specified',
+      message,
+      to_email:    'info@studioliberny.com',
+    };
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      setStatus('success');
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setStatus('error');
+    }
   };
 
   const resetForm = () => {
@@ -22,7 +48,7 @@ export const Contact = () => {
     setEmail('');
     setSelectedBudget('');
     setMessage('');
-    setIsSubmitted(false);
+    setStatus('idle');
   };
 
   return (
@@ -43,8 +69,8 @@ export const Contact = () => {
           <div className="cm-info">
             <div className="cm-info-block">
               <span className="cm-info-label">Email</span>
-              <a href="mailto:dumindu.kavishkaluvi@gmail.com" className="cm-info-value">
-                dumindu.kavishkaluvi@gmail.com
+              <a href="mailto:info@studioliberny.com" className="cm-info-value">
+                info@studioliberny.com
               </a>
             </div>
 
@@ -65,15 +91,20 @@ export const Contact = () => {
 
           {/* RIGHT: Form */}
           <div className="cm-form-col">
-            {isSubmitted ? (
+
+            {/* ── Success ── */}
+            {status === 'success' ? (
               <div className="cm-success">
-                <p className="cm-success-msg">✓ &nbsp;Message sent. We'll be in touch within 24&nbsp;hours.</p>
+                <p className="cm-success-msg">
+                  ✓ &nbsp;Message sent — we'll be in touch within 24&nbsp;hours.
+                </p>
                 <button type="button" className="cm-submit-btn" onClick={resetForm}>
                   Send Another
                 </button>
               </div>
+
             ) : (
-              <form className="cm-form" onSubmit={handleSubmit} noValidate>
+              <form ref={formRef} className="cm-form" onSubmit={handleSubmit} noValidate>
 
                 {/* Name Row */}
                 <div className="cm-row">
@@ -117,7 +148,7 @@ export const Contact = () => {
                   />
                 </div>
 
-                {/* Budget — below Email */}
+                {/* Budget */}
                 <div className="cm-field">
                   <label className="cm-label">Budget</label>
                   <div className="cm-budget-grid">
@@ -147,9 +178,25 @@ export const Contact = () => {
                   />
                 </div>
 
-                {/* Submit — pill style matching hero CTA */}
-                <button type="submit" className="cm-submit-btn">
-                  Submit
+                {/* Error */}
+                {status === 'error' && (
+                  <p className="cm-error-msg">
+                    Something went wrong. Please try again or email us directly.
+                  </p>
+                )}
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className={`cm-submit-btn${status === 'sending' ? ' is-sending' : ''}`}
+                  disabled={status === 'sending'}
+                >
+                  {status === 'sending' ? (
+                    <>
+                      <span className="cm-spinner" />
+                      Sending…
+                    </>
+                  ) : 'Send Message'}
                 </button>
 
               </form>
