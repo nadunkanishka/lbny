@@ -1,0 +1,201 @@
+/* ===== Process Section ===== */
+.process-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4.5rem, 9vw, 7rem) clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.process-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1220px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(3rem, 6vw, 4.8rem);
+}
+
+.process-topline {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.process-topline.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-title {
+  font-family: 'Space Mono', monospace;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: 0;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.process-kicker {
+  color: var(--accent-color);
+  font-size: clamp(0.75rem, 1.2vw, 0.92rem);
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+  transform: translateY(0.4rem);
+}
+
+.process-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+  gap: clamp(3rem, 8vw, 7rem);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease 0.08s, transform 0.7s ease 0.08s;
+}
+
+.process-body.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.process-steps {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.3rem);
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 10px 2.8rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  padding: 0;
+  text-align: left;
+  position: relative;
+  color: color-mix(in srgb, var(--text-color) 48%, transparent);
+  transition: color 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.process-step.is-active,
+.process-step:hover {
+  color: var(--text-color);
+  transform: translateX(6px);
+}
+
+.step-marker {
+  width: 10px;
+  height: 10px;
+  margin-top: 0.55rem;
+  background: transparent;
+  border: 1px solid currentColor;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.process-step.is-active .step-marker,
+.process-step:hover .step-marker {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.step-number {
+  margin-top: 0.18rem;
+  color: currentColor;
+  font-size: clamp(0.82rem, 1vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.72;
+}
+
+.step-copy {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.step-chip {
+  font-size: clamp(1.45rem, 2.9vw, 2rem);
+  font-weight: 700;
+  color: currentColor;
+  line-height: 1.08;
+  margin: 0;
+}
+
+.step-desc {
+  font-size: clamp(0.88rem, 1.35vw, 1rem);
+  color: currentColor;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 38rem;
+  opacity: 0.72;
+}
+
+.process-visual {
+  min-height: clamp(420px, 52vw, 660px);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background:
+    linear-gradient(135deg, rgba(117, 59, 189, 0.12), transparent 45%),
+    rgba(217, 217, 214, 0.035);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.process-visual::before {
+  content: '';
+  position: absolute;
+  inset: 1.25rem;
+  border: 1px solid rgba(117, 59, 189, 0.24);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.process-visual img {
+  width: min(62%, 360px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 48px rgba(0, 0, 0, 0.34));
+  transform: translateY(8px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .process-body {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .process-visual {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .process-topline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .process-kicker {
+    transform: none;
+  }
+
+  .process-step {
+    grid-template-columns: 10px 2.2rem minmax(0, 1fr);
+  }
+
+  .process-visual {
+    min-height: 300px;
+  }
+
+  .process-visual img {
+    width: min(72%, 300px);
+  }
+}
