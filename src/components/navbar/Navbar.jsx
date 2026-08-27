@@ -6,7 +6,10 @@ import './Navbar.css';
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = window.localStorage.getItem('studio-liberny-theme');
+    return savedTheme ? savedTheme === 'dark' : !document.documentElement.classList.contains('light-theme');
+  });
   const location = useLocation();
 
   const navItems = [
@@ -23,6 +26,11 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle('light-theme', !isDarkMode);
+    window.localStorage.setItem('studio-liberny-theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+
   // Scroll to top and close dropdown menu on route change
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,13 +38,7 @@ export const Navbar = () => {
   }, [location.pathname]);
 
   const toggleTheme = () => {
-    const nextDarkState = !isDarkMode;
-    setIsDarkMode(nextDarkState);
-    if (nextDarkState) {
-      document.documentElement.classList.remove('light-theme');
-    } else {
-      document.documentElement.classList.add('light-theme');
-    }
+    setIsDarkMode((current) => !current);
   };
 
   return (

@@ -1,0 +1,194 @@
+/* ===== Stats Section ===== */
+.stats-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4rem, 9vw, 7rem) clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.stats-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.92fr) minmax(320px, 1.36fr) minmax(220px, 1.08fr);
+  grid-template-rows: repeat(2, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 520px;
+}
+
+.stat-card {
+  position: relative;
+  min-width: 0;
+  padding: clamp(1.35rem, 2.2vw, 1.85rem);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+    var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(139, 92, 246, 0.24), transparent 42%),
+    radial-gradient(circle at 85% 15%, rgba(96, 165, 250, 0.13), transparent 34%);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-color);
+  border-radius: 9999px;
+  box-shadow: 0 0 18px rgba(139, 92, 246, 0.7);
+}
+
+html.light-theme .stat-card {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 249, 252, 0.76)),
+    var(--card-bg);
+  box-shadow: 0 18px 50px rgba(15, 16, 21, 0.08);
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 24px 70px rgba(139, 92, 246, 0.16);
+}
+
+.stat-card--tall {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background:
+    linear-gradient(145deg, rgba(139, 92, 246, 0.28), rgba(9, 10, 15, 0.86)),
+    #191821;
+  color: #ffffff;
+}
+
+html.light-theme .stat-card--tall {
+  background:
+    linear-gradient(145deg, rgba(124, 58, 237, 0.16), rgba(255, 255, 255, 0.9)),
+    #ffffff;
+  color: var(--text-color);
+}
+
+.stat-card--hero {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.stat-card--small {
+  grid-column: 3;
+}
+
+.stat-card--small:nth-of-type(3) {
+  grid-row: 1;
+}
+
+.stat-card--small:nth-of-type(4) {
+  grid-row: 2;
+}
+
+.stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 0.08em;
+  line-height: 1;
+  margin-bottom: 0.7rem;
+}
+
+.stat-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(5.4rem, 12vw, 10rem);
+  font-weight: 700;
+  color: currentColor;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.stat-card--small .stat-number {
+  font-size: clamp(3.6rem, 7.2vw, 6.8rem);
+}
+
+.stat-suffix {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.4rem, 5vw, 5.4rem);
+  font-weight: 700;
+  color: currentColor;
+  line-height: 1;
+}
+
+.stat-card--small .stat-suffix {
+  font-size: clamp(1.5rem, 3vw, 3.2rem);
+}
+
+.stat-label {
+  font-size: clamp(0.92rem, 1.65vw, 1.1rem);
+  color: currentColor;
+  font-weight: 600;
+  margin: 0;
+  opacity: 0.68;
+  line-height: 1.25;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .stats-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    min-height: 0;
+    gap: 1rem;
+  }
+
+  .stat-card,
+  .stat-card--tall,
+  .stat-card--hero,
+  .stat-card--small {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 300px;
+  }
+
+  .stat-card--tall,
+  .stat-card--hero {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-section {
+    padding-inline: 1rem;
+  }
+
+  .stats-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card,
+  .stat-card--tall,
+  .stat-card--hero,
+  .stat-card--small {
+    min-height: 260px;
+  }
+}
