@@ -1,11 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
 :root {
+  --grid-unit: 50px;
   --bg-color: #090a0f;
   --text-color: #f3f4f6;
+  --text-muted: #a1a1aa;
+  --text-soft: rgba(255, 255, 255, 0.66);
   --card-bg: rgba(255, 255, 255, 0.03);
+  --card-bg-strong: rgba(255, 255, 255, 0.075);
   --border-color: rgba(255, 255, 255, 0.09);
+  --grid-color: rgba(255, 255, 255, 0.025);
   --accent-color: #8b5cf6;
+  --accent-strong: #a78bfa;
+  --accent-soft: rgba(139, 92, 246, 0.14);
+  --accent-border: rgba(139, 92, 246, 0.34);
+  --cyan-accent: #60a5fa;
+  --gold-accent: #f59e0b;
 
   /* Semantic tokens */
   --muted-color: #6b7280;
@@ -24,9 +34,18 @@
 html.light-theme {
   --bg-color: #f8f9fc;
   --text-color: #0f1015;
+  --text-muted: #64748b;
+  --text-soft: rgba(15, 16, 21, 0.66);
   --card-bg: #ffffff;
+  --card-bg-strong: rgba(255, 255, 255, 0.86);
   --border-color: rgba(0, 0, 0, 0.08);
+  --grid-color: rgba(0, 0, 0, 0.03);
   --accent-color: #7c3aed;
+  --accent-strong: #6d28d9;
+  --accent-soft: rgba(124, 58, 237, 0.1);
+  --accent-border: rgba(124, 58, 237, 0.22);
+  --cyan-accent: #0284c7;
+  --gold-accent: #d97706;
 
   /* Semantic tokens — light overrides */
   --muted-color: #9ca3af;
@@ -49,8 +68,23 @@ html, body {
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: var(--grid-unit) var(--grid-unit);
+  background-position: center center;
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 60%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 60%);
+  pointer-events: none;
 }
 
 #root {
@@ -60,6 +94,9 @@ html, body {
   border: none;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .page-wrapper {
@@ -70,13 +107,13 @@ html, body {
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Mobile View Lock: Prevent Vertical Page Scroll */
+/* Mobile View Lock: Only lock specific single-screen pages */
 @media (max-width: 768px) {
-  html, body, #root, .app-main-wrapper {
+  html:has(.contact-page) body,
+  html:has(.contact-page) #root {
     overflow: hidden !important;
     height: 100vh !important;
     height: 100dvh !important;
     max-height: 100dvh !important;
-    touch-action: pan-x;
   }
 }

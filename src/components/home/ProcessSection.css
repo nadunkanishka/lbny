@@ -32,7 +32,7 @@
 }
 
 .process-title {
-  font-family: 'Space Mono', monospace;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.8rem, 7vw, 6rem);
   font-weight: 700;
   line-height: 0.95;

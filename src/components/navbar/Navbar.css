@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
 /* Fourmula Header Outer Layout */
 .fourmula-header {
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: flex-start;
   pointer-events: none;
-  font-family: 'Space Mono', monospace;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   padding: 0 0.75rem;
   box-sizing: border-box;
 }
