@@ -2,9 +2,8 @@ import React from 'react';
 import Hero from '../components/hero/Hero';
 import StatsSection from '../components/home/StatsSection';
 import ProcessSection from '../components/home/ProcessSection';
-import ClientGetsSection from '../components/home/ClientGetsSection';
+import ClientsSection from '../components/home/ClientsSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
-import CaseStudiesSection from '../components/home/CaseStudiesSection';
 import { useSEO } from '../hooks/useSEO';
 import './HomePage.css';
 
@@ -20,8 +19,7 @@ export const HomePage = () => {
       <Hero />
       <StatsSection />
       <ProcessSection />
-      <ClientGetsSection />
-      <CaseStudiesSection />
+      <ClientsSection />
       <TestimonialsSection />
     </div>
   );
