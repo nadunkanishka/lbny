@@ -1,0 +1,220 @@
+/* ═══════════════════════════════════════════════
+   ServicesSection — What we bring to life
+   Centered Layout with Increased Scale
+   ═══════════════════════════════════════════════ */
+
+.services-section {
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: clamp(5rem, 10vh, 9rem) clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-section__inner {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── Header Row ── */
+.services-section__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+}
+
+.services-section__title-wrap {
+  flex: 1;
+}
+
+.services-section__title {
+  font-size: clamp(2.85rem, 5.8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.services-section__title-accent {
+  color: #7c3aed;
+  display: inline-block;
+}
+
+html:not(.light-theme) .services-section__title-accent {
+  color: #8b5cf6;
+}
+
+.services-section__desc-wrap {
+  flex-shrink: 0;
+  max-width: 420px;
+  padding-top: clamp(0.5rem, 1.2vh, 1rem);
+}
+
+.services-section__lead {
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  font-weight: 450;
+  line-height: 1.62;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Divider ── */
+.services-section__divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+  margin-bottom: clamp(4rem, 8vh, 6.5rem);
+}
+
+/* ── Centered Services Wrapper ── */
+.services-section__centered-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(4.5rem, 8.5vh, 7.5rem);
+  width: 100%;
+}
+
+/* Row 1: Items 01 & 02 symmetrically centered */
+.services-section__row--top {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(3rem, 7vw, 7.5rem);
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Row 2: Item 03 perfectly centered */
+.services-section__row--bottom {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* ── Individual Service Card (Increased Scale) ── */
+.service-card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1.5rem, 2.8vw, 2.75rem);
+  width: 100%;
+  max-width: 540px;
+  flex: 1;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Give 03 enough breathing room so "Web Design &" never wraps onto 3 lines */
+.service-card--03 {
+  max-width: 660px;
+}
+
+/* Big Number (Significantly Increased Size) */
+.service-card__number {
+  font-size: clamp(4.2rem, 7.5vw, 6.8rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  color: var(--text-color);
+  flex-shrink: 0;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-card__number {
+  color: var(--accent-color, #7c3aed);
+  transform: translateY(-3px);
+}
+
+/* Card Content */
+.service-card__content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Title (Strict 2 Lines) */
+.service-card__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(2.2rem, 3.6vw, 3.35rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text-color);
+  margin: 0 0 clamp(0.85rem, 1.6vh, 1.35rem);
+}
+
+.service-card__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+/* Card Description (Increased Size & Line-Height) */
+.service-card__description {
+  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 380px;
+  margin: 0;
+}
+
+/* ── Responsive Collapse ── */
+@media (max-width: 900px) {
+  .services-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .services-section__header {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .services-section__desc-wrap {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .services-section__divider {
+    margin-bottom: 3.5rem;
+  }
+
+  .services-section__centered-wrap {
+    gap: 3.5rem;
+  }
+
+  .services-section__row--top,
+  .services-section__row--bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3.5rem;
+    max-width: 100%;
+  }
+
+  .service-card {
+    max-width: 100%;
+    gap: 1.5rem;
+  }
+
+  .service-card__description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .service-card__title-line {
+    white-space: normal;
+  }
+}

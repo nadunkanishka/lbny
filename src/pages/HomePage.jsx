@@ -1,9 +1,6 @@
 import React from 'react';
 import Hero from '../components/hero/Hero';
-import StatsSection from '../components/home/StatsSection';
-import ProcessSection from '../components/home/ProcessSection';
-import ClientsSection from '../components/home/ClientsSection';
-import TestimonialsSection from '../components/home/TestimonialsSection';
+import ServicesSection from '../components/home/ServicesSection';
 import { useSEO } from '../hooks/useSEO';
 import './HomePage.css';
 
@@ -17,10 +14,7 @@ export const HomePage = () => {
   return (
     <div className="home-page">
       <Hero />
-      <StatsSection />
-      <ProcessSection />
-      <ClientsSection />
-      <TestimonialsSection />
+      <ServicesSection />
     </div>
   );
 };
