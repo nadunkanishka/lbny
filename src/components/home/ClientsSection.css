@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════
+   ClientsSection — Logo Grid Layout
+   ═══════════════════════════════════════════════ */
+
+.clients-section {
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: clamp(5rem, 10vh, 9rem) clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.clients-section__inner {
+  width: 100%;
+  max-width: 1200px;
+  display: block; /* Removed flex and gap to fix double-spacing */
+}
+
+/* ── Header Row ── */
+.clients-section__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 4rem);
+  margin-bottom: clamp(2.5rem, 5vh, 4rem);
+  width: 100%;
+}
+
+.clients-section__title-wrap {
+  flex: 1;
+}
+
+.clients-section__title {
+  font-size: clamp(2.85rem, 5.8vw, 5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.clients-section__title-accent {
+  color: #7c3aed;
+  display: inline-block;
+}
+
+html:not(.light-theme) .clients-section__title-accent {
+  color: #8b5cf6;
+}
+
+/* Removed empty desc classes */
+
+/* ── Divider ── */
+.clients-section__divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-color);
+  margin-bottom: clamp(4rem, 8vh, 6.5rem);
+}
+
+/* ── Grid ── */
+.clients-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.client-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4rem) 1rem;
+}
+
+.client-logo-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  opacity: 0.6;
+  filter: grayscale(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.client-logo-wrapper:hover .client-logo-img {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .clients-section__header {
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .clients-section__desc-wrap {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .clients-section__divider {
+    margin-bottom: 3.5rem;
+  }
+
+  .clients-section__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .clients-section__grid {
+    /* Keep 2 columns on mobile so the two logos sit side-by-side nicely */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .client-logo-wrapper {
+    padding: 1rem 0.5rem;
+  }
+  
+  .client-logo-img {
+    max-width: 140px; /* Prevent them from getting too huge on small screens */
+  }
+}
