@@ -100,7 +100,7 @@ export default function Footer() {
       <div className="footer__inner footer__inner--bottom">
         {/* ── Bottom bar ── */}
         <div className="footer__bottom">
-          <p className="footer__copy">&copy; {currentYear} Liberny</p>
+          <p className="footer__copy">&copy; {currentYear} Studio Liberny</p>
           <div className="footer__legal">
             <Link to="/terms" className="footer__legal-link">Terms &amp; Conditions</Link>
             <Link to="/privacy" className="footer__legal-link">Privacy Policy</Link>

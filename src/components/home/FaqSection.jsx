@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     question: 'How long does a project take?',
-    answer: 'Timelines vary based on scope, but a typical engagement ranges from 4 to 8 weeks from kickoff to launch.',
+    answer: 'Timelines vary based on scope, but a typical engagement ranges from 2 to 8 weeks from kickoff to launch.',
   },
 ];
 
@@ -34,7 +34,7 @@ export const FaqSection = () => {
   return (
     <section className="faq-section" ref={sectionRef}>
       <div className="faq-section__inner">
-        
+
         {/* Left Column: Title & Intro */}
         <div className={`faq-section__header reveal reveal--left ${sectionVisible ? 'is-visible' : ''}`}>
           <h2 className="faq-section__title">
@@ -49,21 +49,21 @@ export const FaqSection = () => {
         {/* Right Column: FAQ Accordion */}
         <div className="faq-section__list">
           {faqs.map((faq, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className={`faq-item reveal reveal-d${index + 1} ${sectionVisible ? 'is-visible' : ''} ${openIndex === index ? 'faq-item--open' : ''}`}
             >
-              <button 
-                className="faq-item__trigger" 
+              <button
+                className="faq-item__trigger"
                 onClick={() => toggleFaq(index)}
                 aria-expanded={openIndex === index}
               >
                 <span className="faq-item__question">{faq.question}</span>
                 <span className="faq-item__icon" aria-hidden="true"></span>
               </button>
-              <div 
+              <div
                 className="faq-item__content"
-                style={{ 
+                style={{
                   maxHeight: openIndex === index ? '200px' : '0',
                   opacity: openIndex === index ? '1' : '0',
                 }}

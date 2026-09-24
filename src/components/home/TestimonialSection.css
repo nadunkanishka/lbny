@@ -82,19 +82,20 @@
 .testimonial-card {
   background-color: #DFF36B;
   flex: 1;
-  max-width: 800px;
-  /* Enforce a strict height so it NEVER shifts between quotes */
-  height: clamp(380px, 45vh, 480px);
-  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 5rem);
+  width: 100%;
+  max-width: 780px;
+  /* Fixed height so all cards are the exact same size across quotes */
+  height: 360px;
+  padding: 2.25rem clamp(1.75rem, 4vw, 3.5rem) 2.25rem;
   box-sizing: border-box;
   text-align: center;
-  /* Hard drop shadow matching the screenshot */
-  box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+  /* Hard drop shadow matching the reference image */
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border: 2px solid #000000;
   /* Whole-card entry animation — re-triggers every time key changes */
   animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -109,16 +110,19 @@
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
   }
 }
 
 .testimonial-card__company {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
   font-weight: 800;
   color: #000000;
-  margin: 0 0 clamp(1rem, 2vw, 1.75rem);
-  letter-spacing: -0.02em;
+  margin: 0;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-align: center;
+  max-width: 100%;
   animation: testimonialFadeUp 0.4s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -133,37 +137,52 @@
   }
 }
 
-/* ── Big decorative quote mark ── */
+/* ── Card Body (Quote Mark + Text) ── */
+.testimonial-card__body {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+}
+
+/* ── Decorative quote mark ── */
 .testimonial-card__quote-mark {
-  font-size: clamp(6rem, 12vw, 10rem);
-  font-weight: 900;
+  font-size: clamp(2.4rem, 4vw, 3.25rem);
+  font-weight: 800;
   color: #000000;
-  line-height: 0.55;
+  line-height: 0.85;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+  pointer-events: none;
   align-self: flex-start;
-  margin-left: -0.25rem;
-  margin-bottom: 0.5rem;
-  font-family: 'Playfair Display', Georgia, serif;
+  margin-left: clamp(0.5rem, 1.5vw, 1.5rem);
+  margin-bottom: 0.35rem;
   animation: testimonialFadeUp 0.4s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .testimonial-card__text {
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.55;
   color: #000000;
-  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
-  max-width: 600px;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 580px;
+  text-align: center;
+  word-break: normal;
+  overflow-wrap: break-word;
   animation: testimonialFadeUp 0.45s 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .testimonial-card__author {
-  font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
   font-weight: 500;
   color: #000000;
   margin: 0;
+  text-align: center;
   animation: testimonialFadeUp 0.45s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
