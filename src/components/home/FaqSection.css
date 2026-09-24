@@ -97,7 +97,27 @@ html:not(.light-theme) .faq-item:first-child {
   font-family: inherit;
   cursor: pointer;
   text-align: left;
-  transition: color 0.3s ease;
+  border-radius: 4px;
+  transition:
+    color 0.3s ease,
+    padding-left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-item__trigger:hover {
+  color: #7c3aed;
+  padding-left: 0.5rem;
+}
+
+html:not(.light-theme) .faq-item__trigger:hover {
+  color: #8b5cf6;
+}
+
+.faq-item--open .faq-item__trigger {
+  color: #7c3aed;
+}
+
+html:not(.light-theme) .faq-item--open .faq-item__trigger {
+  color: #8b5cf6;
 }
 
 .faq-item__question {

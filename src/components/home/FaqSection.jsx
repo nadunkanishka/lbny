@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './FaqSection.css';
 
 const faqs = [
@@ -22,17 +23,20 @@ const faqs = [
 
 export const FaqSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [sectionRef, sectionVisible] = useScrollReveal(0.1);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const delayClasses = ['reveal-d1', 'reveal-d2', 'reveal-d3', 'reveal-d4'];
+
   return (
-    <section className="faq-section">
+    <section className="faq-section" ref={sectionRef}>
       <div className="faq-section__inner">
         
         {/* Left Column: Title & Intro */}
-        <div className="faq-section__header">
+        <div className={`faq-section__header reveal reveal--left ${sectionVisible ? 'is-visible' : ''}`}>
           <h2 className="faq-section__title">
             <span className="faq-section__title-line">Before we</span>
             <span className="faq-section__title-line faq-section__title-accent">begin.</span>
@@ -47,7 +51,7 @@ export const FaqSection = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`faq-item ${openIndex === index ? 'faq-item--open' : ''}`}
+              className={`faq-item reveal reveal-d${index + 1} ${sectionVisible ? 'is-visible' : ''} ${openIndex === index ? 'faq-item--open' : ''}`}
             >
               <button 
                 className="faq-item__trigger" 

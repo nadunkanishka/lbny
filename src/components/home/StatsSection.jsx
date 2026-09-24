@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './StatsSection.css';
 
 const stats = [
@@ -27,10 +28,10 @@ function useCountUp(target, duration = 1600, start = false) {
   return count;
 }
 
-function StatCard({ stat, animate }) {
+function StatCard({ stat, animate, delayClass }) {
   const count = useCountUp(stat.value, 1600, animate);
   return (
-    <article className="stats-card">
+    <article className={`stats-card reveal reveal--scale ${delayClass} ${animate ? 'is-visible' : ''}`}>
       <p className="stats-card__value">
         <span className="stats-card__number">{count}</span>
         <span className="stats-card__suffix">{stat.suffix}</span>
@@ -41,43 +42,52 @@ function StatCard({ stat, animate }) {
 }
 
 export const StatsSection = () => {
-  const ref = useRef(null);
+  const [sectionRef, sectionVisible] = useScrollReveal(0.15);
+  // We still track a separate ref for the grid to trigger count-ups
+  const gridRef = useRef(null);
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setAnimate(true); },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
-    if (ref.current) observer.observe(ref.current);
+    if (gridRef.current) observer.observe(gridRef.current);
     return () => observer.disconnect();
   }, []);
 
+  const delayClasses = ['reveal-d1', 'reveal-d2', 'reveal-d3', 'reveal-d4'];
+
   return (
-    <section className="stats-section" ref={ref}>
+    <section className="stats-section" ref={sectionRef}>
       <div className="stats-section__inner">
 
         {/* Headline */}
         <div className="stats-section__header">
-          <h2 className="stats-section__headline">
+          <h2 className={`stats-section__headline reveal ${sectionVisible ? 'is-visible' : ''}`}>
             Good work begins<br />
             with <span className="stats-section__headline-accent">good people</span>.
           </h2>
-          <p className="stats-section__subtext">
+          <p className={`stats-section__subtext reveal reveal-d2 ${sectionVisible ? 'is-visible' : ''}`}>
             We work closely with founders and teams who care about the details.
             Every collaboration begins with listening, then making something useful and distinct together.
           </p>
         </div>
 
         {/* Stats Grid */}
-        <div className="stats-section__grid">
-          {stats.map((stat) => (
-            <StatCard key={stat.label} stat={stat} animate={animate} />
+        <div className="stats-section__grid" ref={gridRef}>
+          {stats.map((stat, i) => (
+            <StatCard
+              key={stat.label}
+              stat={stat}
+              animate={animate}
+              delayClass={delayClasses[i]}
+            />
           ))}
         </div>
 
         {/* CTA */}
-        <div className="stats-section__cta">
+        <div className={`stats-section__cta reveal reveal-d2 ${animate ? 'is-visible' : ''}`}>
           <Link to="/contact" className="stats-section__cta-btn">
             <span>Contact Us</span>
             <svg

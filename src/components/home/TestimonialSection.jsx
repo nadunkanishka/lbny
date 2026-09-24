@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './TestimonialSection.css';
 
 const testimonials = [
@@ -21,6 +22,7 @@ const testimonials = [
 
 export const TestimonialSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [sectionRef, sectionVisible] = useScrollReveal(0.1);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
@@ -33,13 +35,13 @@ export const TestimonialSection = () => {
   const { company, quote, author } = testimonials[currentIndex];
 
   return (
-    <section className="testimonial-section">
+    <section className="testimonial-section" ref={sectionRef}>
       <div className="testimonial-section__inner">
-        <h2 className="testimonial-section__title">
+        <h2 className={`testimonial-section__title reveal reveal--left ${sectionVisible ? 'is-visible' : ''}`}>
           In their<br />own words.
         </h2>
 
-        <div className="testimonial-section__slider">
+        <div className={`testimonial-section__slider reveal reveal--scale reveal-d2 ${sectionVisible ? 'is-visible' : ''}`}>
           
           <button className="testimonial-section__btn testimonial-section__btn--prev" onClick={handlePrev} aria-label="Previous testimonial">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -48,9 +50,9 @@ export const TestimonialSection = () => {
             </svg>
           </button>
 
-          <div className="testimonial-card">
+          <div className="testimonial-card" key={currentIndex}>
             <h3 className="testimonial-card__company">{company}</h3>
-            <div className="testimonial-card__quote-mark">“</div>
+            <div className="testimonial-card__quote-mark">"</div>
             <p className="testimonial-card__text">{quote}</p>
             <p className="testimonial-card__author">{author}</p>
           </div>

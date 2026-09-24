@@ -112,7 +112,37 @@ html:not(.light-theme) .services-section__title-accent {
   width: 100%;
   max-width: 540px;
   flex: 1;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+  padding: clamp(1.25rem, 2vw, 2rem) 0;
+  border-bottom: 1px solid transparent;
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+  position: relative;
+}
+
+/* Animated underline indicator */
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7c3aed;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html:not(.light-theme) .service-card::after {
+  background-color: #8b5cf6;
+}
+
+.service-card:hover {
+  transform: translateX(6px);
+}
+
+.service-card:hover::after {
+  width: 100%;
 }
 
 /* Give 03 enough breathing room so "Web Design &" never wraps onto 3 lines */
@@ -129,18 +159,29 @@ html:not(.light-theme) .services-section__title-accent {
   color: var(--text-color);
   flex-shrink: 0;
   user-select: text;
-  transition: color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition:
+    color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .service-card:hover .service-card__number {
-  color: var(--accent-color, #7c3aed);
-  transform: translateY(-3px);
+  color: #7c3aed;
+  transform: translateY(-4px) scale(1.04);
+}
+
+html:not(.light-theme) .service-card:hover .service-card__number {
+  color: #8b5cf6;
 }
 
 /* Card Content */
 .service-card__content {
   display: flex;
   flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-card__content {
+  transform: translateY(-2px);
 }
 
 /* Card Title (Strict 2 Lines) */
@@ -153,6 +194,15 @@ html:not(.light-theme) .services-section__title-accent {
   line-height: 1.1;
   color: var(--text-color);
   margin: 0 0 clamp(0.85rem, 1.6vh, 1.35rem);
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-card__title {
+  color: #7c3aed;
+}
+
+html:not(.light-theme) .service-card:hover .service-card__title {
+  color: #8b5cf6;
 }
 
 .service-card__title-line {
@@ -168,6 +218,11 @@ html:not(.light-theme) .services-section__title-accent {
   color: var(--text-muted);
   max-width: 380px;
   margin: 0;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .service-card__description {
+  color: var(--text-color);
 }
 
 /* ── Responsive Collapse ── */

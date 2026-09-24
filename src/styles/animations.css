@@ -1,0 +1,72 @@
+/* ═══════════════════════════════════════════════════════════
+   Scroll-Reveal Animation System
+   MOTION_INTENSITY: 6 — CSS transitions + IntersectionObserver
+   All animations use transform + opacity only (GPU-composited).
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Base hidden state ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.72s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+/* Slide from left */
+.reveal--left {
+  transform: translateX(-36px);
+}
+
+/* Slide from right */
+.reveal--right {
+  transform: translateX(36px);
+}
+
+/* Scale up subtly */
+.reveal--scale {
+  transform: translateY(20px) scale(0.97);
+}
+
+/* ── Visible state (applied via JS) ── */
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Stagger delays (children use these via style or class) ── */
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+.reveal-d6 { transition-delay: 0.48s; }
+
+/* ── Divider line draw animation ── */
+.reveal-line {
+  transform-origin: left center;
+  transform: scaleX(0);
+  opacity: 0;
+  transition:
+    opacity 0.5s ease,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-line.is-visible {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* ── Reduce motion: respect user preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--scale,
+  .reveal-line {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
