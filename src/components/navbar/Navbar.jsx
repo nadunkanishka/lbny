@@ -8,7 +8,7 @@ export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const savedTheme = window.localStorage.getItem('studio-liberny-theme');
-    return savedTheme ? savedTheme === 'dark' : !document.documentElement.classList.contains('light-theme');
+    return savedTheme ? savedTheme === 'dark' : false; // Default to light mode
   });
   const location = useLocation();
 
