@@ -95,21 +95,36 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #000000;
+  /* Whole-card entry animation — re-triggers every time key changes */
+  animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cardSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+  }
 }
 
 .testimonial-card__company {
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   color: #000000;
-  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0 0 clamp(1rem, 2vw, 1.75rem);
   letter-spacing: -0.02em;
-  animation: testimonialFadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: testimonialFadeUp 0.4s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes testimonialFadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -117,17 +132,29 @@
   }
 }
 
+/* ── Big decorative quote mark ── */
+.testimonial-card__quote-mark {
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 900;
+  color: #000000;
+  line-height: 0.6;
+  align-self: flex-start;
+  margin-left: -0.5rem;
+  margin-bottom: 0.75rem;
+  animation: testimonialFadeUp 0.4s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 .testimonial-card__text {
   font-size: clamp(1rem, 1.4vw, 1.25rem);
   font-weight: 500;
   line-height: 1.6;
   color: #000000;
-  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
   max-width: 600px;
   flex-grow: 1;
   display: flex;
   align-items: center;
-  animation: testimonialFadeUp 0.55s 0.08s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: testimonialFadeUp 0.45s 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .testimonial-card__author {
@@ -135,7 +162,7 @@
   font-weight: 500;
   color: #000000;
   margin: 0;
-  animation: testimonialFadeUp 0.55s 0.16s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: testimonialFadeUp 0.45s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* ── Responsive ── */

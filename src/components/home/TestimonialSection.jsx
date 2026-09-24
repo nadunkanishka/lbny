@@ -50,12 +50,14 @@ export const TestimonialSection = () => {
             </svg>
           </button>
 
-          <div className="testimonial-card" key={currentIndex}>
-            <h3 className="testimonial-card__company">{company}</h3>
-            <div className="testimonial-card__quote-mark">"</div>
-            <p className="testimonial-card__text">{quote}</p>
-            <p className="testimonial-card__author">{author}</p>
-          </div>
+          <React.Fragment key={currentIndex}>
+            <div className="testimonial-card">
+              <h3 className="testimonial-card__company">{company}</h3>
+              <div className="testimonial-card__quote-mark">"</div>
+              <p className="testimonial-card__text">{quote}</p>
+              <p className="testimonial-card__author">{author}</p>
+            </div>
+          </React.Fragment>
 
           <button className="testimonial-section__btn testimonial-section__btn--next" onClick={handleNext} aria-label="Next testimonial">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
