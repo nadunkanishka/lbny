@@ -78,8 +78,8 @@ export const Contact = () => {
 
             <div className="cm-info-block">
               <span className="cm-info-label">Phone</span>
-              <a href="https://wa.me/94705282820" className="cm-info-value">
-                +(94)70 528 2820
+              <a href="https://wa.me/94779760339" className="cm-info-value">
+                +(94)77 976 0339
               </a>
             </div>
 

@@ -1,38 +1,44 @@
 import { useEffect } from 'react';
 
 const BASE_URL = 'https://studioliberny.com';
-const DEFAULT_TITLE = 'Studio Liberny';
+const DEFAULT_TITLE = 'Studio Liberny | Creative Design Studio';
 const DEFAULT_DESCRIPTION =
   'Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients.';
+const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 /**
- * useSEO — dynamically updates the page title, meta description,
- * og:title, og:description, og:url, and the canonical link on every route.
+ * useSEO — dynamically updates the document title, meta descriptions,
+ * robots directives, Open Graph, Twitter cards, and canonical link per route.
  *
  * @param {Object} options
- * @param {string} options.title       - Page-specific title (appended with " | Studio Liberny")
- * @param {string} options.description - Page-specific meta description (max ~160 chars)
- * @param {string} options.path        - Relative path, e.g. "/about" (defaults to current pathname)
+ * @param {string} [options.title]       - Page title (appended with " | Studio Liberny" if not included)
+ * @param {string} [options.description] - Page meta description (150-160 chars recommended)
+ * @param {string} [options.path]        - Canonical path, e.g. "/about" (defaults to window.location.pathname)
+ * @param {string} [options.image]       - Social preview image URL (defaults to /og-image.png)
+ * @param {boolean} [options.noindex]    - Set to true only if page should NOT be indexed (default false)
  */
-export function useSEO({ title, description, path } = {}) {
+export function useSEO({ title, description, path, image, noindex = false } = {}) {
   useEffect(() => {
-    const fullTitle = title ? `${title} | Studio Liberny` : DEFAULT_TITLE;
+    const fullTitle = title
+      ? (title.includes('Studio Liberny') ? title : `${title} | Studio Liberny`)
+      : DEFAULT_TITLE;
     const fullDescription = description || DEFAULT_DESCRIPTION;
     const canonicalUrl = `${BASE_URL}${path || window.location.pathname}`;
+    const socialImage = image || DEFAULT_IMAGE;
+    const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 
     // Title
     document.title = fullTitle;
 
     // Helper: find or create a <meta> tag
-    const setMeta = (selector, attr, value) => {
+    const setMeta = (selector, attrName, attrValue, content) => {
       let el = document.querySelector(selector);
       if (!el) {
         el = document.createElement('meta');
-        const [attrName, attrValue] = attr.split('=');
-        el.setAttribute(attrName, attrValue.replace(/"/g, ''));
+        el.setAttribute(attrName, attrValue);
         document.head.appendChild(el);
       }
-      el.setAttribute('content', value);
+      el.setAttribute('content', content);
     };
 
     // Helper: find or create a <link> tag
@@ -46,23 +52,31 @@ export function useSEO({ title, description, path } = {}) {
       el.setAttribute('href', href);
     };
 
-    // Primary meta
-    setMeta('meta[name="title"]', 'name=title', fullTitle);
-    setMeta('meta[name="description"]', 'name=description', fullDescription);
+    // Primary meta tags
+    setMeta('meta[name="title"]', 'name', 'title', fullTitle);
+    setMeta('meta[name="description"]', 'name', 'description', fullDescription);
+    setMeta('meta[name="robots"]', 'name', 'robots', robotsContent);
 
     // Open Graph
-    setMeta('meta[property="og:title"]', 'property=og:title', fullTitle);
-    setMeta('meta[property="og:description"]', 'property=og:description', fullDescription);
-    setMeta('meta[property="og:url"]', 'property=og:url', canonicalUrl);
+    setMeta('meta[property="og:title"]', 'property', 'og:title', fullTitle);
+    setMeta('meta[property="og:description"]', 'property', 'og:description', fullDescription);
+    setMeta('meta[property="og:url"]', 'property', 'og:url', canonicalUrl);
+    setMeta('meta[property="og:image"]', 'property', 'og:image', socialImage);
+    setMeta('meta[property="og:image:width"]', 'property', 'og:image:width', '1200');
+    setMeta('meta[property="og:image:height"]', 'property', 'og:image:height', '630');
+    setMeta('meta[property="og:image:alt"]', 'property', 'og:image:alt', fullTitle);
 
-    // Twitter
-    setMeta('meta[name="twitter:title"]', 'name=twitter:title', fullTitle);
-    setMeta('meta[name="twitter:description"]', 'name=twitter:description', fullDescription);
-    setMeta('meta[name="twitter:url"]', 'name=twitter:url', canonicalUrl);
+    // Twitter Card
+    setMeta('meta[name="twitter:card"]', 'name', 'twitter:card', 'summary_large_image');
+    setMeta('meta[name="twitter:title"]', 'name', 'twitter:title', fullTitle);
+    setMeta('meta[name="twitter:description"]', 'name', 'twitter:description', fullDescription);
+    setMeta('meta[name="twitter:url"]', 'name', 'twitter:url', canonicalUrl);
+    setMeta('meta[name="twitter:image"]', 'name', 'twitter:image', socialImage);
+    setMeta('meta[name="twitter:image:alt"]', 'name', 'twitter:image:alt', fullTitle);
 
-    // Canonical
+    // Canonical Link
     setLink('canonical', canonicalUrl);
-  }, [title, description, path]);
+  }, [title, description, path, image, noindex]);
 }
 
 export default useSEO;

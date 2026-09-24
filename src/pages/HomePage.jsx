@@ -1,6 +1,12 @@
 import React from 'react';
 import Hero from '../components/hero/Hero';
+import StatsSection from '../components/home/StatsSection';
+import ServicesSection from '../components/home/ServicesSection';
+import ClientsSection from '../components/home/ClientsSection';
+import TestimonialSection from '../components/home/TestimonialSection';
+import FaqSection from '../components/home/FaqSection';
 import { useSEO } from '../hooks/useSEO';
+import './HomePage.css';
 
 export const HomePage = () => {
   useSEO({
@@ -9,7 +15,16 @@ export const HomePage = () => {
     path: '/',
   });
 
-  return <Hero />;
+  return (
+    <div className="home-page">
+      <Hero />
+      <ServicesSection />
+      <StatsSection />
+      <ClientsSection />
+      <TestimonialSection />
+      <FaqSection />
+    </div>
+  );
 };
 
 export default HomePage;

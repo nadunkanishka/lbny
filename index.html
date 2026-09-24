@@ -1,18 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light-theme">
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="src\assets\SVG\Icon Purple.svg" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="/logo.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/logo.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Search Console Verification Placeholder -->
+  <!-- Replace content with your verification code from Google Search Console -->
+  <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_TOKEN" />
+
+  <!-- Preconnect to Google Fonts for Core Web Vitals optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
   <!-- Primary Meta Tags -->
-  <title>Studio Liberny</title>
+  <title>Studio Liberny | Creative Design Studio</title>
   <meta name="title" content="Studio Liberny | Creative Design Studio" />
   <meta name="description"
-    content="Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients." />
+    content="Premium brand identity, creative strategy, and web design for forward-thinking founders and teams. Studio Liberny crafts work that makes ideas impossible to ignore." />
   <meta name="keywords"
-    content="design studio, creative studio, branding, UI design, digital design, web design, Studio Liberny" />
+    content="design studio, creative studio, branding, brand identity, UI design, digital design, web design, Studio Liberny, Sri Lanka" />
   <meta name="author" content="Studio Liberny" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://studioliberny.com/" />
@@ -22,33 +37,149 @@
   <meta property="og:url" content="https://studioliberny.com/" />
   <meta property="og:title" content="Studio Liberny | Creative Design Studio" />
   <meta property="og:description"
-    content="Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients." />
-  <meta property="og:image" content="https://studioliberny.com/logo.png" />
+    content="Premium brand identity, creative strategy, and web design for forward-thinking founders and teams. Studio Liberny crafts work that makes ideas impossible to ignore." />
+  <meta property="og:image" content="https://studioliberny.com/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Studio Liberny — Creative Design Studio" />
   <meta property="og:site_name" content="Studio Liberny" />
+  <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://studioliberny.com/" />
   <meta name="twitter:title" content="Studio Liberny | Creative Design Studio" />
   <meta name="twitter:description"
-    content="Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients." />
-  <meta name="twitter:image" content="https://studioliberny.com/logo.png" />
+    content="Premium brand identity, creative strategy, and web design for forward-thinking founders and teams." />
+  <meta name="twitter:image" content="https://studioliberny.com/og-image.png" />
+  <meta name="twitter:image:alt" content="Studio Liberny — Creative Design Studio" />
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Studio Liberny",
-    "url": "https://studioliberny.com",
-    "logo": "https://studioliberny.com/logo.png",
-    "description": "Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients.",
-    "sameAs": [],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "url": "https://studioliberny.com/contact"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://studioliberny.com/#organization",
+        "name": "Studio Liberny",
+        "url": "https://studioliberny.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://studioliberny.com/logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "description": "Studio Liberny is a creative design studio crafting premium brand identities, digital experiences, and thoughtful branding for forward-thinking clients.",
+        "foundingDate": "2018",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Colombo",
+          "addressCountry": "LK"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+94-77-976-0339",
+          "email": "info@studioliberny.com",
+          "contactType": "customer support",
+          "url": "https://studioliberny.com/contact"
+        },
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://studioliberny.com/#website",
+        "url": "https://studioliberny.com",
+        "name": "Studio Liberny",
+        "publisher": { "@id": "https://studioliberny.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://studioliberny.com/#webpage",
+        "url": "https://studioliberny.com",
+        "name": "Studio Liberny | Creative Design Studio",
+        "isPartOf": { "@id": "https://studioliberny.com/#website" },
+        "about": { "@id": "https://studioliberny.com/#organization" },
+        "description": "Premium brand identity, creative strategy, and web design for forward-thinking founders and teams.",
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://studioliberny.com/#service",
+        "name": "Studio Liberny",
+        "url": "https://studioliberny.com",
+        "priceRange": "$$",
+        "areaServed": "Worldwide",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Design Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand Identity",
+                "description": "Distinctive brand systems that express who you are and where you are going."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Creative Strategy",
+                "description": "Clear thinking to connect your ambition with the people you want to reach."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Web Design and Development",
+                "description": "Digital experiences that look sharp and work beautifully."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What can Studio Liberny help with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We specialize in brand identity, creative strategy, and web design and development to elevate your digital presence."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you handle both brand and website?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we provide end-to-end services, ensuring your brand identity seamlessly translates into a high-performing digital experience."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does a project start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every project begins with a discovery phase where we listen to your goals, understand your audience, and align on a strategic direction."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a project take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Timelines vary based on scope, but a typical engagement ranges from 4 to 8 weeks from kickoff to launch."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
