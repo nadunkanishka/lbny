@@ -6,7 +6,7 @@ export const PricingPage = () => {
   useSEO({
     title: 'Pricing',
     description:
-      'View Studio Liberny\'s transparent pricing and membership options. Find the perfect plan for your design needs — from one-off projects to ongoing creative partnerships.',
+      'Explore Studio Liberny\'s transparent pricing and flexible creative memberships — from tailored brand identity to full-service digital design partnerships.',
     path: '/pricing',
   });
 
