@@ -9,14 +9,14 @@
   flex-direction: column;
 }
 
-/* Contact page: strip all page-wrapper spacing — cm-section owns the layout */
+/* Contact page: full-screen section that scrolls to full-screen footer */
 .page-wrapper.contact-page {
   padding: 0;
-  min-height: 100vh;
-  min-height: 100dvh;
   height: 100vh;
   height: 100dvh;
-  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: visible;
 }
 
 .page-wrapper.empty-page {
@@ -115,3 +115,66 @@ html.light-theme .page-badge {
 html.light-theme .page-subtitle {
   color: #64748b;
 }
+
+/* Legal & Informational content styling */
+.page-content-card {
+  max-width: 820px;
+  margin: 3rem auto 0;
+  padding: 2.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: var(--text-color);
+  line-height: 1.75;
+}
+
+.page-content-card h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+}
+
+.page-content-card h2:first-of-type {
+  margin-top: 0;
+}
+
+.page-content-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+  font-size: 0.98rem;
+}
+
+.page-content-card ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-muted);
+}
+
+.page-content-card li {
+  margin-bottom: 0.5rem;
+}
+
+.not-found-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--accent-color);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.not-found-cta:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+

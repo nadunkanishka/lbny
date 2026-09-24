@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 @import './styles/animations.css';
 
 :root {
@@ -101,6 +100,7 @@ body::before {
 }
 
 .page-wrapper {
+  scroll-snap-align: start;
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg-color);
@@ -108,15 +108,19 @@ body::before {
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Mobile View Lock: Only lock specific single-screen pages */
-@media (max-width: 768px) {
-  html:has(.contact-page) body,
-  html:has(.contact-page) #root {
-    overflow: hidden !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-  }
+
+
+
+/* Full-screen Two-Slide Snap Scroll for Contact Page + Footer */
+html:has(.contact-page) {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.page-wrapper.contact-page,
+html:has(.contact-page) .footer {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 /* Navbar Contact CTA Button — DFF36B Lime Green */
@@ -134,4 +138,17 @@ html.light-theme .btn-primary.header__contact-btn:hover {
   color: #0a0a0a !important;
   transform: translateY(-1px) scale(1.03) !important;
   box-shadow: 0 6px 24px rgba(223, 243, 107, 0.5) !important;
+}
+
+/* ── Accessibility: Visually-hidden screen-reader text ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

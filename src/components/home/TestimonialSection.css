@@ -2,6 +2,7 @@
    TestimonialSection — In their own words.
    ═══════════════════════════════════════════════ */
 
+
 .testimonial-section {
   width: 100%;
   min-height: 100dvh;
@@ -134,13 +135,14 @@
 
 /* ── Big decorative quote mark ── */
 .testimonial-card__quote-mark {
-  font-size: clamp(5rem, 10vw, 8rem);
+  font-size: clamp(6rem, 12vw, 10rem);
   font-weight: 900;
   color: #000000;
-  line-height: 0.6;
+  line-height: 0.55;
   align-self: flex-start;
-  margin-left: -0.5rem;
-  margin-bottom: 0.75rem;
+  margin-left: -0.25rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', Georgia, serif;
   animation: testimonialFadeUp 0.4s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 

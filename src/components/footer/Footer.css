@@ -312,45 +312,110 @@
 /* ── Responsive adjustments ── */
 @media (max-width: 900px) {
   .footer {
-    min-height: auto;
-    padding-top: 20px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-top: 12px;
   }
 
   .footer__inner {
-    padding: 36px 24px 0;
+    padding: clamp(20px, 3vh, 32px) 20px 0;
+    justify-content: space-around;
   }
 
   .footer__top {
     flex-direction: column;
-    gap: 32px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: clamp(12px, 2vh, 20px);
+  }
+
+  .footer__eyebrow {
+    font-size: 11px;
+    margin: 0 0 8px;
+  }
+
+  .footer__headline {
+    font-size: clamp(34px, 8vw, 48px);
+    line-height: 1.05;
+  }
+
+  .footer__top-right {
+    display: flex;
   }
 
   .footer__cta-circle {
-    width: 136px;
-    height: 136px;
+    width: 104px;
+    height: 104px;
+    gap: 4px;
+  }
+
+  .footer__cta-label {
+    font-size: 11px;
+    line-height: 1.15;
+  }
+
+  .footer__cta-arrow-box {
+    width: 22px;
+    height: 22px;
+  }
+
+  .footer__nav {
+    gap: 18px;
+    margin-bottom: clamp(10px, 1.5vh, 16px);
+  }
+
+  .footer__nav-link {
+    font-size: 15px;
   }
 
   .footer__contact-row {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
-    padding-bottom: 20px;
+    gap: 8px;
+    padding-bottom: clamp(10px, 1.5vh, 16px);
+  }
+
+  .footer__contact-item {
+    font-size: 13px;
   }
 
   .footer__contact-left {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 6px;
+  }
+
+  .footer__wordmark-wrap {
+    padding: 4px 0 0;
+  }
+
+  .footer__wordmark-img {
+    max-height: 18vh;
   }
 
   .footer__inner--bottom {
-    padding: 0 24px 20px;
+    padding: 0 20px clamp(12px, 2vh, 18px);
   }
 
   .footer__bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .footer__copy,
+  .footer__legal-link {
+    font-size: 11px;
+  }
+
+  .footer__legal {
+    gap: 18px;
   }
 }

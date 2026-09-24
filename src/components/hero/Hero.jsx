@@ -24,13 +24,21 @@ export const Hero = () => {
           <div className="hero__title-asset-wrapper">
             <img
               src="/assets/wordmark-white.svg"
-              alt="STUDIO L!BERNY"
+              alt="Studio Liberny Wordmark"
               className="hero__title-img title-dark-mode"
+              width="1000"
+              height="408"
+              fetchPriority="high"
+              decoding="async"
             />
             <img
               src="/assets/wordmark-black.svg"
-              alt="STUDIO L!BERNY"
+              alt="Studio Liberny Wordmark"
               className="hero__title-img title-light-mode"
+              width="1000"
+              height="408"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>
@@ -41,8 +49,11 @@ export const Hero = () => {
 
           <img
             src="/assets/icon-purple.svg"
-            alt="Studio Liberny Logo"
+            alt="Studio Liberny 3D Logo Icon"
             className="moro-logo-asset"
+            width="240"
+            height="240"
+            decoding="async"
           />
 
           <div className="moro-asset-shadow"></div>

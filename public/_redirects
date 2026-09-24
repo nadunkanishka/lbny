@@ -1,1 +1,7 @@
+# HTTPS & www canonical redirects (Netlify / Cloudflare Pages)
+http://studioliberny.com/* https://studioliberny.com/:splat 301!
+http://www.studioliberny.com/* https://studioliberny.com/:splat 301!
+https://www.studioliberny.com/* https://studioliberny.com/:splat 301!
+
+# SPA Fallback for client-side routing (prevents 404 on deep links)
 /* /index.html 200

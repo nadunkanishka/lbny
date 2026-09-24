@@ -37,7 +37,10 @@ export const ClientsSection = () => {
                 src={client.src}
                 alt={`${client.name} logo`}
                 className="client-logo-img"
+                width="180"
+                height="50"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           ))}

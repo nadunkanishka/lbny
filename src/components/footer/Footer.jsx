@@ -22,10 +22,10 @@ export default function Footer() {
           </div>
 
           <div className="footer__top-right">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="footer__cta-circle"
-              aria-label="Start a project with us"
+              aria-label="Start a project with Studio Liberny"
             >
               <span className="footer__cta-ripple" aria-hidden="true" />
               <div className="footer__cta-arrow-box" aria-hidden="true">
@@ -59,22 +59,22 @@ export default function Footer() {
                 </svg>
               </div>
               <span className="footer__cta-label">Start a project<br />with us</span>
-            </a>
+            </Link>
           </div>
         </div>
 
         {/* ── Nav links ── */}
         <nav className="footer__nav" aria-label="Footer navigation">
           <Link to="/about" className="footer__nav-link">About us</Link>
-          <Link to="/projects" className="footer__nav-link">Work</Link>
+          <Link to="/projects" className="footer__nav-link">Projects</Link>
           <Link to="/pricing" className="footer__nav-link">Pricing</Link>
         </nav>
 
         {/* ── Contact row ── */}
         <div className="footer__contact-row">
           <div className="footer__contact-left">
-            <a href="tel:+94779760339" className="footer__contact-item">+94 77 976 0339</a>
-            <a href="mailto:info@studioliberny.com" className="footer__contact-item">info@studioliberny.com</a>
+            <a href="tel:+94779760339" className="footer__contact-item" aria-label="Call Studio Liberny">+94 77 976 0339</a>
+            <a href="mailto:info@studioliberny.com" className="footer__contact-item" aria-label="Email Studio Liberny">info@studioliberny.com</a>
           </div>
           <div className="footer__contact-right">
             <span className="footer__contact-item">Colombo, Sri Lanka</span>
@@ -87,9 +87,13 @@ export default function Footer() {
       <div className="footer__wordmark-wrap" aria-hidden="true">
         <img
           src={wordmarkSvg}
-          alt="LIBERNY"
+          alt="Studio Liberny"
           className="footer__wordmark-img"
           draggable="false"
+          width="1800"
+          height="450"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
@@ -98,8 +102,8 @@ export default function Footer() {
         <div className="footer__bottom">
           <p className="footer__copy">&copy; {currentYear} Liberny</p>
           <div className="footer__legal">
-            <a href="/terms" className="footer__legal-link">Terms &amp; Conditions</a>
-            <a href="/privacy" className="footer__legal-link">Privacy Policy</a>
+            <Link to="/terms" className="footer__legal-link">Terms &amp; Conditions</Link>
+            <Link to="/privacy" className="footer__legal-link">Privacy Policy</Link>
           </div>
         </div>
       </div>
