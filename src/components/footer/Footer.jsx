@@ -63,21 +63,24 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Nav links ── */}
-        <nav className="footer__nav" aria-label="Footer navigation">
-          <Link to="/about" className="footer__nav-link">About us</Link>
-          <Link to="/projects" className="footer__nav-link">Projects</Link>
-          <Link to="/pricing" className="footer__nav-link">Pricing</Link>
-        </nav>
+        {/* ── Middle: Nav & Contact ── */}
+        <div className="footer__middle">
+          {/* ── Nav links ── */}
+          <nav className="footer__nav" aria-label="Footer navigation">
+            <Link to="/about" className="footer__nav-link">About us</Link>
+            <Link to="/projects" className="footer__nav-link">Projects</Link>
+            <Link to="/pricing" className="footer__nav-link">Pricing</Link>
+          </nav>
 
-        {/* ── Contact row ── */}
-        <div className="footer__contact-row">
-          <div className="footer__contact-left">
-            <a href="tel:+94779760339" className="footer__contact-item" aria-label="Call Studio Liberny">+94 77 976 0339</a>
-            <a href="mailto:info@studioliberny.com" className="footer__contact-item" aria-label="Email Studio Liberny">info@studioliberny.com</a>
-          </div>
-          <div className="footer__contact-right">
-            <span className="footer__contact-item">Colombo, Sri Lanka</span>
+          {/* ── Contact row ── */}
+          <div className="footer__contact-row">
+            <div className="footer__contact-left">
+              <a href="tel:+94779760339" className="footer__contact-item" aria-label="Call Studio Liberny">+94 77 976 0339</a>
+              <a href="mailto:info@studioliberny.com" className="footer__contact-item" aria-label="Email Studio Liberny">info@studioliberny.com</a>
+            </div>
+            <div className="footer__contact-right">
+              <span className="footer__contact-item">Colombo, Sri Lanka</span>
+            </div>
           </div>
         </div>
 
