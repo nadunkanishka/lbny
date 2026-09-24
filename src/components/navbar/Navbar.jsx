@@ -123,7 +123,7 @@ export const Navbar = () => {
           {/* Contact CTA Button */}
           <Link
             to="/contact"
-            className="btn-primary"
+            className="btn-primary header__contact-btn"
             onClick={() => setMenuOpen(false)}
           >
             <span>Contact</span>

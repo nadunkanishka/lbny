@@ -117,3 +117,20 @@ body::before {
     max-height: 100dvh !important;
   }
 }
+
+/* Navbar Contact CTA Button — DFF36B Lime Green */
+.btn-primary.header__contact-btn,
+html.light-theme .btn-primary.header__contact-btn {
+  background: #DFF36B !important;
+  color: #0a0a0a !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 18px rgba(223, 243, 107, 0.35) !important;
+}
+
+.btn-primary.header__contact-btn:hover,
+html.light-theme .btn-primary.header__contact-btn:hover {
+  background: #ebff77 !important;
+  color: #0a0a0a !important;
+  transform: translateY(-1px) scale(1.03) !important;
+  box-shadow: 0 6px 24px rgba(223, 243, 107, 0.5) !important;
+}

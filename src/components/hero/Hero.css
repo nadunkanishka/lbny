@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
-/* High-Impact Hero Container */
+/* High-Impact Hero Container (Centered) */
 .moro-hero {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   min-height: 100vh;
-  padding: clamp(4.5rem, 10vh, 7rem) clamp(0.5rem, 3vw, 1.5rem) 2.5rem;
+  min-height: 100dvh;
+  padding: clamp(6.5rem, 12vh, 9rem) clamp(1rem, 3vw, 2rem) clamp(3.5rem, 6vh, 5rem);
+  gap: clamp(2rem, 4.5vh, 3.75rem);
   box-sizing: border-box;
   width: 100%;
   max-width: 1360px;
   margin: 0 auto;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
-  user-select: none;
 }
 
 /* Ambient Technical Grid Background */
@@ -84,8 +85,8 @@ html.light-theme .meta-tag {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: clamp(240px, 42vh, 500px);
-  margin: 0.5rem 0;
+  min-height: clamp(220px, 34vh, 440px);
+  margin: 0;
 }
 
 /* Title Container Positioned 100% Centered Relative to Stage & Logo */
@@ -281,81 +282,111 @@ html.light-theme .micro-dot {
   animation-delay: 2.4s;
 }
 
-/* Bottom Content: Subtitle Tagline & CTA Group */
+/* Bottom Content: Headline, Subtitle & CTA Group */
 .hero__bottom-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.25rem;
+  gap: clamp(1rem, 2.5vh, 1.75rem);
   z-index: 10;
-  margin-top: 0.5rem;
+  margin-top: 0;
   width: 100%;
 }
 
+/* Make it matter. Headline */
+.hero__headline {
+  font-size: clamp(3.2rem, 6.8vw, 5.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.hero__headline-accent {
+  color: #7c3aed;
+  font-style: normal;
+}
+
+html:not(.light-theme) .hero__headline-accent {
+  color: #8b5cf6;
+}
+
 .hero__description {
-  font-size: clamp(0.82rem, 1.9vw, 1.1rem);
-  font-weight: 400;
-  color: #a1a1aa;
-  max-width: 680px;
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  font-weight: 450;
+  color: #4b5563;
+  max-width: 620px;
   margin: 0;
   line-height: 1.55;
   padding: 0 0.5rem;
   box-sizing: border-box;
 }
 
-html.light-theme .hero__description {
-  color: #4b5563;
+html:not(.light-theme) .hero__description {
+  color: #a1a1aa;
 }
 
 .hero__cta-group {
   display: flex;
   align-items: center;
-  gap: clamp(0.5rem, 1.5vw, 1rem);
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
   width: 100%;
   justify-content: center;
   flex-direction: row;
+  margin-top: 0.5rem;
 }
 
 .hero-cta-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.55rem;
-  padding: clamp(0.6rem, 1.6vw, 0.8rem) clamp(1rem, 2.8vw, 1.8rem);
-  font-size: clamp(0.75rem, 1.6vw, 0.92rem);
-  font-weight: 600;
+  padding: clamp(0.75rem, 1.8vh, 0.95rem) clamp(1.6rem, 2.8vw, 2.25rem);
+  font-size: clamp(0.78rem, 1vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
   border-radius: 9999px;
   text-decoration: none;
+  text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
   white-space: nowrap;
 }
 
-.hero-cta-btn.primary {
-  background: var(--text-color);
-  color: var(--bg-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+/* Explore Projects: Black button with white text */
+.hero-cta-btn--explore {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
 }
 
-.hero-cta-btn.primary:hover {
+.hero-cta-btn--explore:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
 }
 
-.hero-cta-btn.secondary {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-color);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+/* About Us: DFF36B Lime Green button with black text & arrow */
+.hero-cta-btn--about {
+  background-color: #DFF36B;
+  color: #0a0a0a;
+  box-shadow: 0 4px 18px rgba(223, 243, 107, 0.3);
 }
 
-html.light-theme .hero-cta-btn.secondary {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.08);
+.hero-cta-btn--about:hover {
+  background-color: #ebff77;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(223, 243, 107, 0.5);
 }
 
-.hero-cta-btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-2px);
+.hero-cta-btn--about svg {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-cta-btn--about:hover svg {
+  transform: translate(2px, -2px);
 }
 
 /* Animations */
@@ -394,12 +425,14 @@ html.light-theme .hero-cta-btn.secondary {
   }
 
   .moro-hero {
-    height: 100vh !important;
-    height: 100dvh !important;
-    max-height: 100dvh !important;
-    overflow: hidden !important;
-    padding: 4.8rem 0.75rem 1.8rem;
-    justify-content: space-evenly;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 5.5rem 1rem 2.5rem;
+    justify-content: center;
+    gap: 2rem;
   }
 
   /* Exact Centering Alignment of Title Wordmark & Logo */

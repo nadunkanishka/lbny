@@ -16,10 +16,6 @@ export const Hero = () => {
       <div className="hero__bg-grid"></div>
       <div className="hero__bg-aura"></div>
 
-      {/* Top Meta Tag */}
-      <div className="hero__top-meta">
-        <div className="meta-tag">COLOMBO / SRI LANKA</div>
-      </div>
 
       {/* Center Stage Area: Title Wordmark & Logo Layered on the Exact Same Center Axis */}
       <div className="hero__asset-stage">
@@ -63,21 +59,36 @@ export const Hero = () => {
         </div>
       </div>
 
-      {/* Subtitle Tagline & CTA Group */}
+      {/* Headline, Subtitle & CTA Group */}
       <div className="hero__bottom-content">
+        <h1 className="hero__headline">
+          Make it <span className="hero__headline-accent">matter.</span>
+        </h1>
+
         <p className="hero__description">
-          Studio Liberny builds cohesive brands and high-performance digital platforms from strategy through execution to drive measurable results.
+          We shape brand identities and digital experiences that make an idea impossible to ignore.
         </p>
 
         <div className="hero__cta-group">
-          <Link to="/projects" className="hero-cta-btn primary">
-            <span>Explore Projects</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-              <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+          <Link to="/projects" className="hero-cta-btn hero-cta-btn--explore">
+            <span>EXPLORE PROJECTS</span>
           </Link>
-          <Link to="/contact" className="hero-cta-btn secondary">
-            <span>Contact Us</span>
+          <Link to="/about" className="hero-cta-btn hero-cta-btn--about">
+            <span>ABOUT US</span>
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
           </Link>
         </div>
       </div>
