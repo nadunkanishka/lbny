@@ -78,7 +78,13 @@ export const Contact = () => {
 
             <div className="cm-info-block">
               <span className="cm-info-label">Phone</span>
-              <a href="https://wa.me/94779760339" className="cm-info-value">
+              <a
+                href="https://wa.me/94779760339"
+                className="cm-info-value"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Chat with Studio Liberny on WhatsApp"
+              >
                 +(94)77 976 0339
               </a>
             </div>

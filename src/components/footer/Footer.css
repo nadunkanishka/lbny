@@ -310,40 +310,53 @@
   color: #ffffff;
 }
 
+/* ── Middle: Nav & Contact group ── */
+.footer__middle {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ── Responsive adjustments ── */
 @media (max-width: 900px) {
   .footer {
-    min-height: 100vh;
-    min-height: 100dvh;
-    height: 100vh;
-    height: 100dvh;
+    min-height: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     box-sizing: border-box;
-    overflow: hidden;
-    padding-top: 12px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-top: 0;
   }
 
   .footer__inner {
-    padding: clamp(20px, 3vh, 32px) 20px 0;
-    justify-content: space-around;
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(68px, 9vh, 92px) clamp(20px, 5vw, 32px) 0;
+    box-sizing: border-box;
+    justify-content: flex-start;
   }
 
   .footer__top {
+    display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: clamp(12px, 2vh, 20px);
+    align-items: flex-start;
+    gap: clamp(16px, 2.5vh, 24px);
+    margin-top: 0;
+    margin-bottom: clamp(28px, 4vh, 36px);
   }
 
   .footer__eyebrow {
-    font-size: 11px;
-    margin: 0 0 8px;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    margin: 0 0 10px;
   }
 
   .footer__headline {
-    font-size: clamp(34px, 8vw, 48px);
-    line-height: 1.05;
+    font-size: clamp(36px, 8.5vw, 50px);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
   }
 
   .footer__top-right {
@@ -351,72 +364,131 @@
   }
 
   .footer__cta-circle {
-    width: 104px;
-    height: 104px;
-    gap: 4px;
+    width: 110px;
+    height: 110px;
+    gap: 5px;
   }
 
   .footer__cta-label {
-    font-size: 11px;
-    line-height: 1.15;
+    font-size: 10.5px;
+    line-height: 1.25;
+    letter-spacing: 0.08em;
   }
 
   .footer__cta-arrow-box {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
+  }
+
+  /* ── Middle 2-column layout on mobile ── */
+  .footer__middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: clamp(28px, 4vh, 36px);
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .footer__nav {
-    gap: 18px;
-    margin-bottom: clamp(10px, 1.5vh, 16px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 0;
+    flex-shrink: 0;
   }
 
   .footer__nav-link {
-    font-size: 15px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
   }
 
   .footer__contact-row {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding-bottom: clamp(10px, 1.5vh, 16px);
-  }
-
-  .footer__contact-item {
-    font-size: 13px;
+    align-items: flex-end;
+    gap: 14px;
+    padding-bottom: 0;
+    text-align: right;
   }
 
   .footer__contact-left {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+    align-items: flex-end;
+    gap: 14px;
   }
 
+  .footer__contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .footer__contact-item {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  /* ── Wordmark with breathing room ── */
   .footer__wordmark-wrap {
-    padding: 4px 0 0;
+    width: 100%;
+    padding: clamp(12px, 2vh, 20px) 0 clamp(8px, 1.5vh, 16px);
+    margin-top: 0;
   }
 
   .footer__wordmark-img {
-    max-height: 18vh;
+    max-height: clamp(52px, 12vh, 85px);
   }
 
+  /* ── Bottom bar ── */
   .footer__inner--bottom {
-    padding: 0 20px clamp(12px, 2vh, 18px);
+    flex: none;
+    padding: 0 clamp(20px, 5vw, 32px) clamp(20px, 3vh, 32px);
   }
 
   .footer__bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding-top: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: clamp(12px, 1.8vh, 16px);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .footer__copy,
   .footer__legal-link {
-    font-size: 11px;
+    font-size: 11.5px;
+    letter-spacing: 0.04em;
   }
 
   .footer__legal {
-    gap: 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .footer__middle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer__contact-row,
+  .footer__contact-left,
+  .footer__contact-right {
+    align-items: flex-start;
+    text-align: left;
   }
 }
