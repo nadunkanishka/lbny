@@ -70,13 +70,13 @@ export const ServicesSection = () => {
 
         {/* Centered Services Section */}
         <div className="services-section__centered-wrap" ref={cardsRef}>
-          {/* Top row: 01 and 02 centered */}
+          {/* Top row: 01 and 02 */}
           <div className="services-section__row services-section__row--top">
             {renderServiceCard(service1, 'reveal-d1')}
             {renderServiceCard(service2, 'reveal-d2')}
           </div>
 
-          {/* Bottom row: 03 centered */}
+          {/* Bottom row: 03 centered, same width as 01 and 02 */}
           <div className="services-section__row services-section__row--bottom">
             {renderServiceCard(service3, 'reveal-d3')}
           </div>

@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════
    ServicesSection — What we bring to life
-   Centered Layout with Increased Scale
+   Centered Layout with Equal-Size Cards
    ═══════════════════════════════════════════════ */
 
 .services-section {
@@ -76,6 +76,9 @@ html:not(.light-theme) .services-section__title-accent {
 
 /* ── Centered Services Wrapper ── */
 .services-section__centered-wrap {
+  --card-w: 540px;
+  --card-gap: clamp(3rem, 7vw, 7.5rem);
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,35 +86,33 @@ html:not(.light-theme) .services-section__title-accent {
   width: 100%;
 }
 
-/* Row 1: Items 01 & 02 symmetrically centered */
-.services-section__row--top {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: clamp(3rem, 7vw, 7.5rem);
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-}
-
-/* Row 2: Item 03 perfectly centered */
+/* Both rows share the exact same two-column track size */
+.services-section__row--top,
 .services-section__row--bottom {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, var(--card-w)));
+  column-gap: var(--card-gap);
   justify-content: center;
-  align-items: flex-start;
+  align-items: start;
   width: 100%;
-  max-width: 1180px;
+  max-width: calc(var(--card-w) * 2 + var(--card-gap));
   margin: 0 auto;
 }
 
-/* ── Individual Service Card (Increased Scale) ── */
+/* Card 03 is centered and gets exactly one column's width */
+.services-section__row--bottom .service-card {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc((100% - var(--card-gap)) / 2);
+}
+
+/* ── Individual Service Card ── */
 .service-card {
   display: flex;
   align-items: flex-start;
   gap: clamp(1.5rem, 2.8vw, 2.75rem);
   width: 100%;
-  max-width: 540px;
-  flex: 1;
+  min-width: 0;
   cursor: default;
   padding: clamp(1.25rem, 2vw, 2rem) 0;
   border-bottom: 1px solid transparent;
@@ -145,12 +146,7 @@ html:not(.light-theme) .service-card::after {
   width: 100%;
 }
 
-/* Give 03 enough breathing room so "Web Design &" never wraps onto 3 lines */
-.service-card--03 {
-  max-width: 660px;
-}
-
-/* Big Number (Significantly Increased Size) */
+/* Big Number */
 .service-card__number {
   font-size: clamp(4.2rem, 7.5vw, 6.8rem);
   font-weight: 800;
@@ -210,7 +206,7 @@ html:not(.light-theme) .service-card:hover .service-card__title {
   white-space: nowrap;
 }
 
-/* Card Description (Increased Size & Line-Height) */
+/* Card Description */
 .service-card__description {
   font-size: clamp(1.02rem, 1.25vw, 1.2rem);
   font-weight: 400;
@@ -252,14 +248,18 @@ html:not(.light-theme) .service-card:hover .service-card__title {
 
   .services-section__row--top,
   .services-section__row--bottom {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 3.5rem;
     max-width: 100%;
   }
 
+  .services-section__row--bottom .service-card {
+    width: 100%;
+  }
+
   .service-card {
-    max-width: 100%;
     gap: 1.5rem;
   }
 
@@ -273,4 +273,3 @@ html:not(.light-theme) .service-card:hover .service-card__title {
     white-space: normal;
   }
 }
-
