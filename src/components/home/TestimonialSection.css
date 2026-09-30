@@ -5,9 +5,11 @@
 
 .testimonial-section {
   width: 100%;
-  min-height: 100dvh;
-  background-color: #D9C2FA; /* Lavender background from screenshot */
-  padding: clamp(3rem, 6vh, 6rem) clamp(1.5rem, 4vw, 3rem);
+  /* Height now follows the content instead of filling the whole screen */
+  min-height: 0;
+  background-color: #D9C2FA;
+  /* Lavender background from screenshot */
+  padding: clamp(2.5rem, 5vh, 4rem) clamp(1.5rem, 4vw, 3rem);
   box-sizing: border-box;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   overflow: hidden;
@@ -23,8 +25,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: clamp(3rem, 6vh, 5rem);
-  min-height: calc(100dvh - clamp(6rem, 12vh, 12rem));
+  gap: clamp(2rem, 4vh, 3rem);
+  min-height: 0;
 }
 
 .testimonial-section__title {
@@ -35,7 +37,8 @@
   letter-spacing: -0.04em;
   color: #000000;
   margin: 0;
-  padding-left: clamp(0rem, 5vw, 6rem); /* Align roughly with the edge of the card */
+  padding-left: clamp(0rem, 5vw, 6rem);
+  /* Align roughly with the edge of the card */
 }
 
 /* ── Slider Layout ── */
@@ -60,7 +63,7 @@
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+  box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   transition:
     transform 0.15s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1),
@@ -70,12 +73,12 @@
 .testimonial-section__btn:hover {
   background-color: #f5ffb3;
   transform: scale(1.08);
-  box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
 }
 
 .testimonial-section__btn:active {
   transform: translate(4px, 4px) scale(0.96);
-  box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 1);
 }
 
 /* ── Testimonial Card ── */
@@ -90,7 +93,7 @@
   box-sizing: border-box;
   text-align: center;
   /* Hard drop shadow matching the reference image */
-  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+  box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -105,12 +108,13 @@
   from {
     opacity: 0;
     transform: translateY(24px) scale(0.97);
-    box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+    box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
-    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   }
 }
 
@@ -131,6 +135,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -188,20 +193,29 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
+  .testimonial-section {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .testimonial-section__inner {
+    gap: 1.75rem;
+  }
+
   .testimonial-section__title {
     padding-left: 0;
   }
-  
+
   .testimonial-section__slider {
     position: relative;
-    padding-bottom: 6rem; /* Make room for absolute buttons */
+    padding-bottom: 5.5rem;
+    /* Make room for absolute buttons */
   }
 
   /* On smaller screens, card takes full width and buttons move below */
   .testimonial-card {
     width: 100%;
     margin: 0 auto;
-    box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 1);
   }
 
   .testimonial-section__btn {
