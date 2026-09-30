@@ -22,7 +22,7 @@ export const ClientsSection = () => {
         <div className="clients-section__header">
           <div className={`clients-section__title-wrap reveal reveal--left ${sectionVisible ? 'is-visible' : ''}`}>
             <h2 className="clients-section__title">
-              Our <span className="clients-section__title-accent">clients.</span>
+              <span className="clients-section__title-accent">Clients</span> we've worked with.
             </h2>
           </div>
         </div>
