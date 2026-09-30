@@ -97,8 +97,8 @@
   transform-origin: center center;
   animation: footerCtaFloat 4s ease-in-out infinite;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.3s ease,
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 0.3s ease,
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Ripple aura ring */
@@ -113,9 +113,12 @@
 
 /* Floating animation at rest */
 @keyframes footerCtaFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-5px);
   }
@@ -127,10 +130,12 @@
     transform: scale(0.96);
     opacity: 0.8;
   }
+
   60% {
     transform: scale(1.15);
     opacity: 0;
   }
+
   100% {
     transform: scale(1.15);
     opacity: 0;
@@ -380,8 +385,12 @@
     height: 24px;
   }
 
-  /* ── Middle 2-column layout on mobile ── */
+  /* ── Middle 2-column layout on mobile ──
+     Every nav link and contact item shares the same fixed row height,
+     so rows line up perfectly across both columns. */
   .footer__middle {
+    --footer-row-h: 34px;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -395,45 +404,48 @@
   .footer__nav {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 0;
     margin-bottom: 0;
     flex-shrink: 0;
   }
 
   .footer__nav-link {
-    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    height: var(--footer-row-h);
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    line-height: 1.4;
+    letter-spacing: 0.1em;
+    line-height: 1;
   }
 
   .footer__contact-row {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 14px;
+    justify-content: flex-start;
+    gap: 0;
     padding-bottom: 0;
     text-align: right;
   }
 
-  .footer__contact-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 14px;
-  }
-
+  .footer__contact-left,
   .footer__contact-right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    gap: 0;
   }
 
   .footer__contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: var(--footer-row-h);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    line-height: 1.4;
+    line-height: 1;
     white-space: nowrap;
   }
 
@@ -490,5 +502,9 @@
   .footer__contact-right {
     align-items: flex-start;
     text-align: left;
+  }
+
+  .footer__contact-item {
+    justify-content: flex-start;
   }
 }
