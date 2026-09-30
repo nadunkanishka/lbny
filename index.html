@@ -7,16 +7,16 @@
   <link rel="alternate icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ffffff" />
 
-  <!-- Google Search Console Verification Placeholder -->
-  <!-- Replace content with your verification code from Google Search Console -->
-  <meta name="google-site-verification" content="GOOGLE_SEARCH_CONSOLE_VERIFICATION_TOKEN" />
+  <!-- Google Search Console verification (token only, without the "google-site-verification=" prefix) -->
+  <meta name="google-site-verification" content="PqE60uZt5R4Gpj-dCf-6iYXgehi4kXYYUwZ0eWux--4" />
 
   <!-- Preconnect to Google Fonts for Core Web Vitals optimization -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@400..800&display=swap"
     rel="stylesheet" />
 
   <!-- Primary Meta Tags -->
@@ -24,10 +24,9 @@
   <meta name="title" content="Studio Liberny | Creative Design Studio" />
   <meta name="description"
     content="Studio Liberny crafts premium brand identities, creative strategy, and digital experiences that make bold ideas impossible to ignore. Working worldwide." />
-  <meta name="keywords"
-    content="design studio, creative studio, branding, brand identity, UI design, digital design, web design, Studio Liberny, Sri Lanka" />
   <meta name="author" content="Studio Liberny" />
   <meta name="robots" content="index, follow" />
+  <!-- Homepage canonical. Override per route (e.g. with react-helmet-async) so other pages don't point here. -->
   <link rel="canonical" href="https://studioliberny.com/" />
 
   <!-- Open Graph / Facebook -->
@@ -46,10 +45,9 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://studioliberny.com/" />
   <meta name="twitter:title" content="Studio Liberny | Creative Design Studio" />
   <meta name="twitter:description"
-    content="Premium brand identity, creative strategy, and web design for forward-thinking founders and teams." />
+    content="Studio Liberny crafts premium brand identities, creative strategy, and digital experiences that make bold ideas impossible to ignore. Working worldwide." />
   <meta name="twitter:image" content="https://studioliberny.com/og-image.png" />
   <meta name="twitter:image:alt" content="Studio Liberny — Creative Design Studio" />
 
@@ -59,7 +57,7 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ProfessionalService"],
         "@id": "https://studioliberny.com/#organization",
         "name": "Studio Liberny",
         "url": "https://studioliberny.com",
@@ -69,6 +67,7 @@
           "width": 512,
           "height": 512
         },
+        "image": "https://studioliberny.com/og-image.png",
         "description": "Studio Liberny is a creative design studio crafting premium brand identities, digital experiences, and thoughtful branding for forward-thinking clients.",
         "foundingDate": "2018",
         "address": {
@@ -76,6 +75,8 @@
           "addressLocality": "Colombo",
           "addressCountry": "LK"
         },
+        "telephone": "+94-77-976-0339",
+        "email": "info@studioliberny.com",
         "contactPoint": {
           "@type": "ContactPoint",
           "telephone": "+94-77-976-0339",
@@ -83,30 +84,6 @@
           "contactType": "customer support",
           "url": "https://studioliberny.com/contact"
         },
-        "sameAs": []
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://studioliberny.com/#website",
-        "url": "https://studioliberny.com",
-        "name": "Studio Liberny",
-        "publisher": { "@id": "https://studioliberny.com/#organization" }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://studioliberny.com/#webpage",
-        "url": "https://studioliberny.com",
-        "name": "Studio Liberny | Creative Design Studio",
-        "isPartOf": { "@id": "https://studioliberny.com/#website" },
-        "about": { "@id": "https://studioliberny.com/#organization" },
-        "description": "Premium brand identity, creative strategy, and web design for forward-thinking founders and teams.",
-        "inLanguage": "en-US"
-      },
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://studioliberny.com/#service",
-        "name": "Studio Liberny",
-        "url": "https://studioliberny.com",
         "priceRange": "$$",
         "areaServed": "Worldwide",
         "hasOfferCatalog": {
@@ -139,6 +116,23 @@
             }
           ]
         }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://studioliberny.com/#website",
+        "url": "https://studioliberny.com",
+        "name": "Studio Liberny",
+        "publisher": { "@id": "https://studioliberny.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://studioliberny.com/#webpage",
+        "url": "https://studioliberny.com",
+        "name": "Studio Liberny | Creative Design Studio",
+        "isPartOf": { "@id": "https://studioliberny.com/#website" },
+        "about": { "@id": "https://studioliberny.com/#organization" },
+        "description": "Premium brand identity, creative strategy, and web design for forward-thinking founders and teams.",
+        "inLanguage": "en-US"
       },
       {
         "@type": "FAQPage",
@@ -183,7 +177,17 @@
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <noscript>
+      <h1>Studio Liberny | Creative Design Studio</h1>
+      <p>
+        Studio Liberny crafts premium brand identities, creative strategy, and digital experiences
+        that make bold ideas impossible to ignore. Working worldwide.
+      </p>
+      <p>Please enable JavaScript to view the full site.</p>
+      <p>Contact: <a href="mailto:info@studioliberny.com">info@studioliberny.com</a> · +94 77 976 0339</p>
+    </noscript>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
