@@ -1,22 +1,38 @@
 /* ════════════════════════════════════════════
-   Get In Touch – no-scroll, centered layout
+   Contact page
    ════════════════════════════════════════════ */
 
-/* ── Section: fills viewport, no overflow ── */
 .cm-section {
+  --cm-card-bg: #ffffff;
+  --cm-ink: #000000;
+  --cm-field-bg: #f4f4f0;
+  --cm-error: #c8102e;
+
+  /* Spacing scale: follows viewport height so everything fits one screen */
+  --cm-space-s: clamp(0.5rem, 1.2vh, 0.75rem);
+  --cm-space-m: clamp(0.9rem, 2.2vh, 1.4rem);
+  --cm-space-l: clamp(1.5rem, 4vh, 2.5rem);
+  --cm-edge: clamp(1.75rem, 4.5vh, 3rem);
+
   position: relative;
+  z-index: 1;
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
+  min-height: 100vh;
+  min-height: 100dvh;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
   justify-content: center;
+  padding: clamp(7rem, 12.5vh, 8.5rem) 0 calc(var(--cm-edge) + 8px);
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* ── Inner block: hero + body grouped and centered ── */
+html:not(.light-theme) .cm-section {
+  --cm-card-bg: #14151c;
+  --cm-ink: #f3f4f6;
+  --cm-field-bg: rgba(255, 255, 255, 0.06);
+  --cm-error: #ff6b81;
+}
+
 .cm-inner {
   width: 100%;
   max-width: 1280px;
@@ -24,84 +40,197 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  flex: 1;
 }
 
-/* ── Hero: same width as the form columns below it ── */
-.cm-hero {
-  width: 100%;
+/* ── Headline ── */
+.cm-info-top {
+  display: flex;
+  flex-direction: column;
 }
 
-.cm-hero-title {
-  font-size: clamp(3.5rem, 9vw, 11rem);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.035em;
+.cm-title {
+  margin: 0 0 var(--cm-space-l);
+  font-size: clamp(2rem, min(14cqw, 9vh), 5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
   color: var(--text-color);
-  margin: 0;
-  white-space: nowrap;
-  width: 100%;
-  display: block;
 }
 
-/* ── Two-column body grid ── */
+.cm-title-accent {
+  display: block;
+  color: var(--accent-color);
+}
+
+/* ── Two-column body ── */
 .cm-body {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: clamp(2rem, 4vw, 4.5rem);
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  flex: 1;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: stretch;
 }
 
-/* ═══════════════════════
-   LEFT COLUMN – INFO
-   ═══════════════════════ */
+/* ── Left: info ── */
 .cm-info {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding-top: 0.2rem;
-}
-
-.cm-info-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .cm-info-label {
-  font-size: 0.6rem;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
   text-transform: uppercase;
-  color: var(--accent-color);
-  opacity: 0.8;
+  color: var(--text-color);
+  margin-bottom: var(--cm-space-s);
 }
 
-.cm-info-value {
-  font-size: 0.88rem;
-  font-weight: 500;
-  line-height: 1.6;
+.cm-info-email {
+  display: block;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--text-color);
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  overflow-wrap: anywhere;
+  transition: color 160ms ease-out;
 }
 
-a.cm-info-value:hover {
-  opacity: 0.55;
+@media (hover: hover) and (pointer: fine) {
+  .cm-info-email:hover {
+    color: var(--accent-color);
+  }
 }
 
-.cm-info-tz {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--muted-color);
-  display: inline-block;
-  margin-top: 0.1rem;
+.cm-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: var(--cm-space-m);
 }
 
-/* ═══════════════════════
-   RIGHT COLUMN – FORM
-   ═══════════════════════ */
-.cm-form-col {
+.cm-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem 0.55rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cm-social-pill:active {
+  transform: scale(0.97);
+}
+
+.cm-social-pill svg:first-child {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.cm-social-pill--instagram {
+  background: #000;
+  color: #fff;
+}
+
+.cm-social-pill--whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cm-social-pill:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.cm-location {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-color);
+}
+
+.cm-location-city {
+  display: block;
+  color: var(--accent-color);
+}
+
+/* What happens next */
+.cm-steps {
+  margin-top: var(--cm-space-l);
+}
+
+.cm-steps-title {
+  margin: 0 0 var(--cm-space-m);
+  font-size: clamp(1.1rem, 2.4vh, 1.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.cm-steps-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cm-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: var(--cm-space-m) 0;
+  border-top: 2px solid var(--cm-ink);
+}
+
+.cm-step-num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: #dff36b;
+  border: 2px solid var(--cm-ink);
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #0a0a0a;
+}
+
+.cm-step-title {
+  margin: 0;
+  font-size: clamp(0.95rem, 2vh, 1.1rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-color);
+}
+
+.cm-step-text {
+  margin: 0.15rem 0 0;
+  font-size: clamp(0.82rem, 1.7vh, 0.95rem);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* ── Right: form card ── */
+.cm-card {
+  box-sizing: border-box;
+  padding: clamp(1.1rem, min(3vw, 3.6vh), 2.5rem);
+  background: var(--cm-card-bg);
+  border: 2px solid var(--cm-ink);
+  border-radius: 28px;
+  box-shadow: 8px 8px 0 var(--cm-ink);
   display: flex;
   flex-direction: column;
 }
@@ -109,117 +238,148 @@ a.cm-info-value:hover {
 .cm-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  flex: 1;
+  gap: var(--cm-space-m);
 }
 
-/* Name row: two fields side by side */
 .cm-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
-/* Single field container */
 .cm-field {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: clamp(0.35rem, 0.9vh, 0.6rem);
+  min-width: 0;
 }
 
-/* Label */
+.cm-field--grow {
+  flex: 1;
+}
+
 .cm-label {
-  font-size: 0.6rem;
+  font-size: clamp(0.78rem, 1.6vh, 0.92rem);
   font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--muted-color);
-  pointer-events: none;
+  color: var(--text-color);
 }
 
-/* Input & Textarea: underline-only */
+.cm-label-opt {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Inputs */
 .cm-input {
   width: 100%;
   box-sizing: border-box;
-  padding: 0.4rem 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--input-border);
-  border-radius: 0;
+  height: clamp(2.5rem, 5.2vh, 3.3rem);
+  padding: 0 1rem;
+  background: var(--cm-field-bg);
+  border: 2px solid transparent;
+  border-radius: 14px;
   font-family: inherit;
-  font-size: 0.85rem;
-  font-weight: 400;
+  font-size: clamp(0.88rem, 1.7vh, 1rem);
   color: var(--text-color);
   outline: none;
   appearance: none;
   -webkit-appearance: none;
-  transition: border-color 0.22s ease;
-}
-
-.cm-input:focus {
-  border-bottom-color: var(--accent-color);
+  transition: border-color 160ms ease-out, background-color 160ms ease-out;
 }
 
 .cm-input::placeholder {
-  color: var(--placeholder-color);
+  color: var(--text-muted);
+  opacity: 0.8;
 }
 
-/* Textarea */
+.cm-input:focus {
+  border-color: var(--accent-color);
+}
+
+.cm-input.has-error {
+  border-color: var(--cm-error);
+}
+
 .cm-textarea {
-  resize: none;
-  line-height: 1.65;
+  height: auto;
+  min-height: 4.5rem;
+  flex: 1;
+  padding: 0.85rem 1rem;
+  resize: vertical;
+  line-height: 1.5;
 }
 
-/* ── Budget selector ── */
-.cm-budget-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin-top: 0.15rem;
+.cm-field-error {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--cm-error);
 }
 
-.cm-budget-btn {
-  padding: 0.45rem 0.2rem;
-  background: var(--surface-subtle);
-  border: 1px solid var(--btn-border);
-  border-radius: 8px;
+.cm-field-error:empty {
+  display: none;
+}
+
+/* Pills */
+.cm-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.4rem, 1vh, 0.6rem);
+}
+
+.cm-pill {
+  padding: clamp(0.4rem, 1.1vh, 0.65rem) clamp(0.85rem, 1.5vw, 1.1rem);
+  background: transparent;
+  border: 2px solid var(--cm-ink);
+  border-radius: 9999px;
   font-family: inherit;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--btn-text);
+  font-size: clamp(0.8rem, 1.6vh, 0.95rem);
+  font-weight: 500;
+  color: var(--text-color);
   cursor: pointer;
-  text-align: center;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 140ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 140ms ease-out, color 140ms ease-out;
 }
 
-.cm-budget-btn:hover {
-  background: var(--surface-hover);
-  border-color: var(--btn-border-hover);
-  color: var(--btn-text-hover);
+.cm-pill:active {
+  transform: scale(0.97);
 }
 
-.cm-budget-btn.is-active {
-  background: var(--text-color);
-  border-color: var(--text-color);
-  color: var(--bg-color);
-  font-weight: 800;
+.cm-pill.is-active {
+  background: var(--accent-color);
+  border-color: var(--cm-ink);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 3px 3px 0 var(--cm-ink);
 }
 
-/* ── Submit button ── */
+.cm-pill:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cm-pill:not(.is-active):hover {
+    background: var(--surface-hover);
+  }
+}
+
+/* Submit */
 .cm-submit-btn {
   align-self: flex-start;
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
 }
 
-/* ── Spinner inside button ── */
 @keyframes cm-spin {
   to { transform: rotate(360deg); }
 }
 
 .cm-spinner {
   display: inline-block;
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border: 2px solid currentColor;
   border-top-color: transparent;
   border-radius: 50%;
@@ -227,187 +387,133 @@ a.cm-info-value:hover {
   flex-shrink: 0;
 }
 
-/* ── Error message ── */
-.cm-error-msg {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: #f87171;
-  margin: 0;
-  line-height: 1.5;
-}
-
-html.light-theme .cm-error-msg {
-  color: #dc2626;
-}
-
-/* ── Success state ── */
+/* Success */
 .cm-success {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  align-items: flex-start;
+  gap: 1.5rem;
   padding: 1rem 0;
 }
 
 .cm-success-msg {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-color);
   margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
   line-height: 1.6;
+  color: var(--text-color);
 }
 
-/* ══════════════════════════════════════════
-   RESPONSIVE — purpose-built mobile layout
-   ══════════════════════════════════════════ */
-
-/* ── Tablet (≤ 860px): begin transitioning ── */
-@media (max-width: 860px) {
+/* ── Tablet ── */
+@media (max-width: 960px) {
   .cm-inner {
-    max-width: 100%;
     padding: 0 2rem;
-    gap: 1.75rem;
   }
 
   .cm-body {
-    gap: 2.5rem;
-  }
-}
-
-/* ── Mobile (≤ 680px): purpose-built layout ── */
-@media (max-width: 680px) {
-
-  /* Section stays non-scrollable, full screen */
-  .cm-section {
-    align-items: stretch;
-    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    align-content: start;
+    gap: 2rem;
   }
 
-  .cm-inner {
-    padding: 0 1.5rem;
-    gap: 1.4rem;
-    justify-content: center;
+  /* Flatten the left column so its parts can be re-ordered around the form:
+     headline → contact → form → what happens next → location */
+  .cm-info,
+  .cm-info-top {
+    display: contents;
   }
 
-  /* ── Hero: prominent but right-sized for mobile ── */
-  .cm-hero {
+  .cm-title {
+    order: 1;
     margin-bottom: 0;
   }
 
-  .cm-hero-title {
-    font-size: clamp(2.6rem, 11vw, 4.5rem);
-    white-space: normal;
-    line-height: 0.93;
-    letter-spacing: -0.04em;
+  .cm-contact {
+    order: 2;
   }
 
-  /* ── Body: single column, form first on mobile ── */
-  .cm-body {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    gap: 1.25rem;
+  .cm-card {
+    order: 3;
   }
 
-  /* ── Info: one slim horizontal strip, just the essentials ── */
-  .cm-info {
-    grid-row: 2;
-    /* push below form */
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    gap: 0 2.5rem;
-    padding-top: 0;
-    border-top: 1px solid var(--divider-color);
-    padding-top: 1rem;
+  .cm-steps {
+    order: 4;
+    margin-top: 0;
   }
 
-  .cm-info-block {
-    gap: 0.1rem;
+  .cm-location {
+    order: 5;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .cm-section {
+    padding: 6.5rem 0 3.5rem;
   }
 
-  /* Hide the address block on mobile — saves significant vertical space */
-  .cm-info-block:last-child {
-    display: none;
+  .cm-inner {
+    padding: 0 1.25rem;
   }
 
-  .cm-info-label {
-    font-size: 0.58rem;
-    letter-spacing: 1.4px;
-  }
-
-  .cm-info-value {
-    font-size: 0.8rem;
-    line-height: 1.4;
-  }
-
-  /* ── Form column: roomy, comfortable to fill out ── */
-  .cm-form-col {
-    grid-row: 1;
-    /* form comes first */
-  }
-
-  .cm-form {
-    gap: 1rem;
-  }
-
-  /* Name row stays side-by-side on mobile */
   .cm-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
   }
 
-  .cm-field {
-    gap: 0.35rem;
+  .cm-card {
+    border-radius: 22px;
+    box-shadow: 5px 5px 0 var(--cm-ink);
   }
 
-  .cm-label {
-    font-size: 0.6rem;
-  }
-
-  .cm-input {
-    padding: 0.45rem 0;
-    font-size: 0.88rem;
-  }
-
-  /* Textarea: fixed height instead of rows attribute */
-  .cm-textarea {
-    max-height: 4.5rem;
-    overflow-y: auto;
-  }
-
-  .cm-budget-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.45rem;
-  }
-
-  .cm-budget-btn {
-    font-size: 0.68rem;
-    padding: 0.4rem 0.15rem;
+  .cm-pill {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.95rem;
   }
 
   .cm-submit-btn {
     width: 100%;
-    justify-content: center;
-    margin-top: 0.1rem;
   }
 }
 
-/* ── Very small phones (≤ 390px) ── */
-@media (max-width: 390px) {
-  .cm-inner {
-    padding: 0 1.25rem;
-    gap: 1.1rem;
+/* ── Short desktop viewports: keep the whole form on one screen ── */
+@media (min-width: 961px) and (max-height: 760px) {
+  .cm-section {
+    --cm-space-s: 0.4rem;
+    --cm-space-m: 0.55rem;
+    --cm-space-l: 0.9rem;
+    --cm-edge: 1.1rem;
+    padding-top: 7rem;
   }
 
-  .cm-hero-title {
-    font-size: clamp(2.2rem, 12vw, 3.5rem);
+  .cm-title {
+    font-size: 2.6rem;
   }
 
-  .cm-form {
-    gap: 0.85rem;
+  .cm-step-num {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.75rem;
   }
 
-  .cm-budget-btn {
-    font-size: 0.6rem;
-    padding: 0.35rem 0.1rem;
+  .cm-step-text {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .cm-card {
+    padding: 0.9rem 1.5rem;
+  }
+
+  .cm-input {
+    height: 2.3rem;
+  }
+
+  .cm-textarea {
+    min-height: 3.25rem;
+  }
+
+  .cm-pill {
+    padding: 0.28rem 0.85rem;
   }
 }
