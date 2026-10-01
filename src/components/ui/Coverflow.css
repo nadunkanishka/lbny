@@ -1,0 +1,64 @@
+/* Shared coverflow carousel controls (see CoverflowNav.jsx). Hidden above the mobile breakpoint. */
+
+.lb-cf-nav {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .lb-cf-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+  .lb-cf-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .lb-cf-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--text-color);
+    opacity: 0.2;
+    transition: opacity 200ms ease-out, transform 200ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .lb-cf-dot.is-active {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+
+  .lb-cf-arrow {
+    --lb-cf-shadow: #000;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    background: #dff36b;
+    color: #0a0a0a;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 3px 3px 0 var(--lb-cf-shadow);
+    cursor: pointer;
+    transition: transform 140ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 140ms cubic-bezier(0.23, 1, 0.32, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html:not(.light-theme) .lb-cf-arrow {
+    --lb-cf-shadow: #f3f4f6;
+  }
+
+  .lb-cf-arrow:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--lb-cf-shadow);
+  }
+
+  .lb-cf-arrow:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+  }
+}

@@ -21,7 +21,18 @@ const faqs = [
   },
 ];
 
-export const FaqSection = () => {
+const DEFAULT_INTRO = 'A few useful answers about working together.';
+
+/**
+ * FAQ accordion. Defaults to the home page content; pass `items`
+ * ({ question, answer }), `titleLines` (last line is the purple accent) and `intro` to reuse it.
+ */
+export const FaqSection = ({
+  items = faqs,
+  titleLines = ['Before we', 'begin.'],
+  intro = DEFAULT_INTRO,
+  className = '',
+}) => {
   const [openIndex, setOpenIndex] = useState(null);
   const [sectionRef, sectionVisible] = useScrollReveal(0.1);
 
@@ -32,23 +43,29 @@ export const FaqSection = () => {
   const delayClasses = ['reveal-d1', 'reveal-d2', 'reveal-d3', 'reveal-d4'];
 
   return (
-    <section className="faq-section" ref={sectionRef}>
+    <section className={`faq-section ${className}`} ref={sectionRef}>
       <div className="faq-section__inner">
 
         {/* Left Column: Title & Intro */}
         <div className={`faq-section__header reveal reveal--left ${sectionVisible ? 'is-visible' : ''}`}>
           <h2 className="faq-section__title">
-            <span className="faq-section__title-line">Before we</span>
-            <span className="faq-section__title-line faq-section__title-accent">begin.</span>
+            {titleLines.map((line, i) => (
+              <span
+                key={line}
+                className={`faq-section__title-line${i === titleLines.length - 1 ? ' faq-section__title-accent' : ''}`}
+              >
+                {line}
+              </span>
+            ))}
           </h2>
           <p className="faq-section__intro">
-            A few useful answers about working together.
+            {intro}
           </p>
         </div>
 
         {/* Right Column: FAQ Accordion */}
         <div className="faq-section__list">
-          {faqs.map((faq, index) => (
+          {items.map((faq, index) => (
             <div
               key={index}
               className={`faq-item reveal reveal-d${index + 1} ${sectionVisible ? 'is-visible' : ''} ${openIndex === index ? 'faq-item--open' : ''}`}

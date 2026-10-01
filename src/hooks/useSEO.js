@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 
 const BASE_URL = 'https://studioliberny.com';
-const DEFAULT_TITLE = 'Studio Liberny | Creative Design Studio';
+const DEFAULT_TITLE = 'Studio Liberny | Brand Identity & Web Design Studio';
 const DEFAULT_DESCRIPTION =
   'Studio Liberny is a creative design studio crafting premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients.';
-const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
+const DEFAULT_IMAGE = `${BASE_URL}/og-image.jpg`;
 
 /**
  * useSEO — dynamically updates the document title, meta descriptions,
@@ -14,7 +14,7 @@ const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
  * @param {string} [options.title]       - Page title (appended with " | Studio Liberny" if not included)
  * @param {string} [options.description] - Page meta description (150-160 chars recommended)
  * @param {string} [options.path]        - Canonical path, e.g. "/about" (defaults to window.location.pathname)
- * @param {string} [options.image]       - Social preview image URL (defaults to /og-image.png)
+ * @param {string} [options.image]       - Social preview image URL (defaults to /og-image.jpg)
  * @param {boolean} [options.noindex]    - Set to true only if page should NOT be indexed (default false)
  */
 export function useSEO({ title, description, path, image, noindex = false } = {}) {

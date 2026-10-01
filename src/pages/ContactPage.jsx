@@ -5,9 +5,9 @@ import { useSEO } from '../hooks/useSEO';
 
 export const ContactPage = () => {
   useSEO({
-    title: 'Contact',
+    title: 'Contact Studio Liberny | Start Your Brand or Website Project',
     description:
-      'Get in touch with Studio Liberny. Whether you have a project in mind or just want to say hello, we\'d love to hear from you.',
+      'Tell us about your brand or website project. Studio Liberny replies within one working day. Based in Colombo, working worldwide.',
     path: '/contact',
   });
 

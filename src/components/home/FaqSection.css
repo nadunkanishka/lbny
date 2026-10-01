@@ -29,7 +29,7 @@
 }
 
 .faq-section__title {
-  font-size: clamp(3.2rem, 7.5vw, 6.8rem);
+  font-size: clamp(2.8rem, 5.6vw, 5rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -58,7 +58,7 @@ html:not(.light-theme) .faq-section__title-accent {
   line-height: 1.6;
   color: var(--text-muted);
   margin: 0;
-  max-width: 360px;
+  max-width: 28rem;
 }
 
 /* ── Right Column (Accordion) ── */

@@ -79,6 +79,17 @@
   cursor: not-allowed;
 }
 
+/* Dark mode: a black shadow disappears into the page, so the offset shadow flips to light */
+html:not(.light-theme) .lb-btn {
+  --lb-btn-shadow: #f3f4f6;
+}
+
+html:not(.light-theme) .lb-btn--secondary {
+  --lb-btn-bg: #fff;
+  --lb-btn-ink: #0a0a0a;
+  --lb-btn-shadow: var(--accent-color, #8b5cf6);
+}
+
 @media (max-width: 600px) {
   .lb-btn:not(.lb-btn--sm) {
     padding: 0.85rem 1.6rem;

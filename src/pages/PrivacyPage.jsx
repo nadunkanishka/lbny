@@ -4,7 +4,7 @@ import { useSEO } from '../hooks/useSEO';
 
 export const PrivacyPage = () => {
   useSEO({
-    title: 'Privacy Policy',
+    title: 'Privacy Policy | Studio Liberny',
     description:
       'Learn about how Studio Liberny collects, uses, and protects your personal and project information.',
     path: '/privacy',
