@@ -4,7 +4,7 @@ import { useSEO } from '../hooks/useSEO';
 
 export const TermsPage = () => {
   useSEO({
-    title: 'Terms & Conditions',
+    title: 'Terms & Conditions | Studio Liberny',
     description:
       'Review the terms and conditions for engaging Studio Liberny creative design and development services.',
     path: '/terms',

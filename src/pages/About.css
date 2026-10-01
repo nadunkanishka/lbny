@@ -35,33 +35,6 @@
   color: #dff36b;
 }
 
-/* ── Masked headline (lines rise into place) ── */
-.ab-mask-heading {
-  margin: 0;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--text-color);
-}
-
-.ab-mask {
-  display: block;
-  overflow: hidden;
-  /* room for descenders so the mask doesn't clip them */
-  padding-bottom: 0.2em;
-  margin-bottom: -0.2em;
-}
-
-.ab-mask__inner {
-  display: block;
-  transform: translateY(110%);
-  transition: transform 800ms var(--ab-ease);
-}
-
-.ab-mask-heading.is-visible .ab-mask__inner {
-  transform: translateY(0);
-}
-
 /* ═══════════ Hero ═══════════ */
 .ab-hero {
   display: flex;
@@ -196,7 +169,7 @@ html:not(.light-theme) .ab-rule {
   padding-bottom: clamp(3.5rem, 8vh, 6rem);
 }
 
-.ab-mean .ab-mask-heading {
+.ab-mean .lb-mask-heading {
   font-size: clamp(2.2rem, 4.2vw, 3.75rem);
 }
 
@@ -232,7 +205,7 @@ html:not(.light-theme) .ab-rule {
   margin-bottom: clamp(2.5rem, 6vh, 4.5rem);
 }
 
-.ab-process .ab-mask-heading {
+.ab-process .lb-mask-heading {
   color: #fff;
   font-size: clamp(2.4rem, 4.6vw, 4.25rem);
 }
@@ -327,7 +300,7 @@ html:not(.light-theme) .ab-rule {
   padding-bottom: clamp(3rem, 7vh, 5rem);
 }
 
-.ab-team .ab-mask-heading {
+.ab-team .lb-mask-heading {
   font-size: clamp(2.4rem, 4.6vw, 4.25rem);
 }
 
@@ -569,7 +542,6 @@ html:not(.light-theme) .ab-team__arrow {
 
 /* ═══════════ Reduced motion ═══════════ */
 @media (prefers-reduced-motion: reduce) {
-  .ab-mask__inner,
   .ab-hero__frame,
   .ab-hero__img,
   .ab-process__row,

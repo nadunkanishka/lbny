@@ -19,6 +19,12 @@
 /*.ico
   Cache-Control: public, max-age=31536000, immutable
 
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/*.webp
+  Cache-Control: public, max-age=2592000
+
 # Search Engine Crawl Files
 /sitemap.xml
   Cache-Control: public, max-age=86400

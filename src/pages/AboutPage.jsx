@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Button from '../components/ui/Button';
+import { Reveal, MaskLines } from '../components/ui/Motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useSEO } from '../hooks/useSEO';
 import './About.css';
@@ -21,42 +22,15 @@ const PROCESS = [
 
 // `photo` is optional; without one a neutral placeholder is shown.
 const TEAM = [
-  { name: 'Nadun Kanishka', role: 'Web Developer', photo: '/Nadun.png', text: 'Connects design and development to build digital experiences that work across devices.' },
-  { name: 'Dumindu Kavishka', role: 'Founder & Creative Director', photo: '/Dumindu.png', text: 'Shapes the visual identity and creative direction, from the first idea to the finest detail.' },
-  { name: 'Lassen Deenath', role: 'Sr. Web Developer', photo: '/Lassen.png', text: 'Brings industry experience to website development and technical problem-solving.' },
+  { name: 'Nadun Kanishka', role: 'Web Developer', photo: '/assets/about/nadun.webp', text: 'Connects design and development to build digital experiences that work across devices.' },
+  { name: 'Dumindu Kavishka', role: 'Founder & Creative Director', photo: '/assets/about/dumindu.webp', text: 'Shapes the visual identity and creative direction, from the first idea to the finest detail.' },
+  { name: 'Lassen Deenath', role: 'Sr. Web Developer', photo: '/assets/about/lassen.webp', text: 'Brings industry experience to website development and technical problem-solving.' },
 ];
 
 // Studio photo under the hero text.
-const HERO_PHOTO = '/studio-image.jpg';
+const HERO_PHOTO = '/assets/about/studio.webp';
 
 /* ─────────── Animation helpers ─────────── */
-
-/** Fade/slide in once when scrolled into view (uses the shared .reveal classes). */
-const Reveal = ({ as: Tag = 'div', variant = '', delay = 0, className = '', children, ...rest }) => {
-  const [ref, visible] = useScrollReveal(0.15);
-  const cls = [
-    'reveal',
-    variant && `reveal--${variant}`,
-    delay > 0 && `reveal-d${delay}`,
-    visible && 'is-visible',
-    className,
-  ].filter(Boolean).join(' ');
-  return <Tag ref={ref} className={cls} {...rest}>{children}</Tag>;
-};
-
-/** Headline whose lines rise out of a mask, one after another. */
-const MaskLines = ({ as: Tag = 'h2', className = '', lines }) => {
-  const [ref, visible] = useScrollReveal(0.3);
-  return (
-    <Tag ref={ref} className={`ab-mask-heading ${visible ? 'is-visible' : ''} ${className}`}>
-      {lines.map((line, i) => (
-        <span className="ab-mask" key={i}>
-          <span className="ab-mask__inner" style={{ transitionDelay: `${i * 90}ms` }}>{line}</span>
-        </span>
-      ))}
-    </Tag>
-  );
-};
 
 /** Counts from `from` up to `to` the first time it is seen. */
 const CountUp = ({ from = 0, to, className = '' }) => {
@@ -96,9 +70,9 @@ const ProcessRow = ({ item, index }) => {
 
 export const AboutPage = () => {
   useSEO({
-    title: 'About Us',
+    title: 'About Studio Liberny | Brand & Web Design Studio, Colombo',
     description:
-      'Learn about Studio Liberny — our story, our team, and our passion for creating premium digital experiences and meaningful design.',
+      'Studio Liberny is an independent creative studio in Colombo, Sri Lanka. Meet the team behind our brand identity, strategy and web design work.',
     path: '/about',
   });
 
@@ -140,7 +114,7 @@ export const AboutPage = () => {
         <figure ref={photoRef} className={`ab-hero__figure ${photoVisible ? 'is-visible' : ''}`}>
           <div className="ab-hero__frame">
             {HERO_PHOTO ? (
-              <img src={HERO_PHOTO} alt="Creative direction meets technical thinking at Studio Liberny" className="ab-hero__img" width="1672" height="941" fetchpriority="high" />
+              <img src={HERO_PHOTO} alt="Creative direction meets technical thinking at Studio Liberny" className="ab-hero__img" width="1400" height="788" fetchpriority="high" decoding="async" />
             ) : (
               <div className="ab-hero__img ab-placeholder" role="img" aria-label="Studio photo placeholder" />
             )}
@@ -222,7 +196,7 @@ export const AboutPage = () => {
                 <div className="ab-member__card">
                   <div className="ab-member__photo">
                     {m.photo ? (
-                      <img src={m.photo} alt={m.name} width="900" height="1125" loading="lazy" />
+                      <img src={m.photo} alt={m.name} width="900" height="1125" loading="lazy" decoding="async" />
                     ) : (
                       <div className="ab-placeholder" role="img" aria-label={`${m.name} photo placeholder`} />
                     )}
