@@ -1,0 +1,54 @@
+/* ═══════════ Story ═══════════ */
+.ab-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding-top: clamp(4rem, 9vh, 7rem);
+  padding-bottom: clamp(3rem, 7vh, 5rem);
+}
+
+.ab-story__text p {
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-color);
+}
+
+.ab-story__text p:last-child {
+  margin-bottom: 0;
+}
+
+.ab-story__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.ab-story__num {
+  display: flex;
+  align-items: flex-start;
+  font-size: clamp(5rem, 11vw, 9rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--accent-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.ab-story__quote {
+  font-size: 0.55em;
+  line-height: 1;
+  margin-right: 0.1em;
+}
+
+@media (max-width: 960px) {
+  .ab-story {
+    grid-template-columns: 1fr;
+  }
+
+  .ab-story__stat {
+    align-items: flex-start;
+  }
+}

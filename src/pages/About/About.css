@@ -1,0 +1,65 @@
+/* ════════════════════════════════════════════
+   About page (shell + styles shared by its sections)
+   ════════════════════════════════════════════ */
+
+.page-wrapper.about-page {
+  --ab-soft: #d9c2fa; /* stays the same in light and dark mode */
+  --ab-ease: cubic-bezier(0.23, 1, 0.32, 1);
+
+  padding: 0;
+  min-height: 0;
+  overflow: visible;
+  display: block;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.ab-wrap {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  box-sizing: border-box;
+}
+
+/* ── Accent colours ── */
+.ab-accent {
+  color: var(--accent-color);
+}
+
+.ab-accent--soft {
+  color: var(--ab-soft);
+}
+
+.ab-accent--lime {
+  color: #dff36b;
+}
+
+.ab-placeholder {
+  background: linear-gradient(135deg, rgba(128, 128, 128, 0.22), rgba(128, 128, 128, 0.12));
+}
+
+.ab-rule {
+  height: 1px;
+  background: var(--divider-color);
+  transform-origin: left center;
+}
+
+html:not(.light-theme) .ab-rule {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ═══════════ Responsive ═══════════ */
+@media (max-width: 960px) {
+  .ab-wrap {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .ab-wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
