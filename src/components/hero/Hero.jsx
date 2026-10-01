@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../ui/Button';
 import './Hero.css';
 
 export const Hero = () => {
@@ -81,26 +81,8 @@ export const Hero = () => {
         </p>
 
         <div className="hero__cta-group">
-          <Link to="/projects" className="hero-cta-btn hero-cta-btn--explore">
-            <span>EXPLORE PROJECTS</span>
-          </Link>
-          <Link to="/about" className="hero-cta-btn hero-cta-btn--about">
-            <span>ABOUT US</span>
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </Link>
+          <Button to="/projects" variant="secondary" arrow={false}>Explore Projects</Button>
+          <Button to="/about">About Us</Button>
         </div>
       </div>
     </section>

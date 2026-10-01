@@ -1,16 +1,74 @@
-# React + Vite
+# Studio Liberny
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Marketing website for [Studio Liberny](https://studioliberny.com), a creative design studio. Built with React 19, Vite and React Router.
 
-Currently, two official plugins are available:
+## Getting started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Requires Node.js 18+ (Vite 8 may require a newer version; check `npm install` warnings).
 
-## React Compiler
+```bash
+npm install
+npm run dev       # start the dev server with HMR
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Scripts
 
-## Expanding the Oxlint configuration
+| Command           | Description                         |
+| ----------------- | ----------------------------------- |
+| `npm run dev`     | Start the Vite dev server           |
+| `npm run build`   | Production build into `dist/`       |
+| `npm run preview` | Serve the production build locally  |
+| `npm run lint`    | Lint with Oxlint                    |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Environment variables
+
+The contact form sends email through [EmailJS](https://dashboard.emailjs.com). Create a `.env.local` file in the project root:
+
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+1. Create a free EmailJS account.
+2. Add an Email Service (e.g. Gmail) and copy the Service ID.
+3. Create an Email Template and copy the Template ID.
+4. Under Account → API Keys, copy the Public Key.
+
+Restart the dev server after changing these. `.env.local` should not be committed.
+
+## Project structure
+
+```
+public/                 Static files: logos, client images, favicons, og-image,
+                        robots.txt, sitemap.xml, _headers, _redirects
+src/
+  main.jsx              Entry point
+  App.jsx               Router and page layout (Navbar, routes, Footer)
+  pages/                Route-level pages (Home, About, Projects, Pricing,
+                        Contact, Terms, Privacy, NotFound)
+  components/
+    navbar/ hero/ footer/ contact/
+    home/               Home sections: Services, Clients, Stats,
+                        Testimonials, FAQ
+  hooks/
+    useSEO.js           Per-page title/meta management
+    useScrollReveal.js  Scroll-triggered reveal animations
+scratch/                One-off Python scripts used for logo conversion
+```
+
+Each component keeps its styles in a sibling `.css` file.
+
+## Routes
+
+`/`, `/about`, `/projects`, `/pricing`, `/contact`, `/terms`, `/privacy`, and a catch-all 404.
+
+## Deployment
+
+The site is a static SPA, deployed to a host that reads `public/_redirects` and `public/_headers` (Netlify / Cloudflare Pages style):
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- `_redirects` forces HTTPS and the non-`www` domain, and falls back to `index.html` so deep links work with client-side routing.
+- Remember to set the three `VITE_EMAILJS_*` variables in the host's environment settings.
+- `sitemap.xml` in `public/` should be updated when routes are added.

@@ -158,23 +158,3 @@ html.light-theme .page-subtitle {
   margin-bottom: 0.5rem;
 }
 
-.not-found-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  padding: 0.85rem 1.75rem;
-  background: var(--accent-color);
-  color: #ffffff;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.not-found-cta:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
-}
-

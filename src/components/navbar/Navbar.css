@@ -154,30 +154,6 @@
   transform: rotate(15deg) scale(1.1);
 }
 
-/* Primary Contact Button */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 42px;
-  padding: 0 1.45rem;
-  background: #ffffff;
-  color: #090a0f;
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 9999px;
-  text-decoration: none;
-  letter-spacing: 0.2px;
-  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.22);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-primary:hover {
-  background: #f0f0f5;
-  transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.38);
-}
-
 /* Height Expansion Wrapper */
 .header__expandable-wrapper {
   position: relative;
@@ -323,12 +299,6 @@ html.light-theme .header__theme {
   color: #0f1015;
 }
 
-html.light-theme .btn-primary {
-  background: #0f1015;
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(15, 16, 21, 0.2);
-}
-
 html.light-theme .dropdown__link {
   color: #4b5563;
 }
@@ -352,12 +322,6 @@ html.light-theme .dropdown__link.is-active {
 
   .header__menu-txt {
     display: none;
-  }
-
-  .btn-primary {
-    padding: 0 0.95rem;
-    font-size: 0.84rem;
-    height: 36px;
   }
 
   .header__navbar-card {

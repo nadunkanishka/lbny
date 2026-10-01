@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import Button from '../ui/Button';
 import './Contact.css';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -106,9 +107,7 @@ export const Contact = () => {
                 <p className="cm-success-msg">
                   ✓ &nbsp;Message sent — we'll be in touch within 24&nbsp;hours.
                 </p>
-                <button type="button" className="cm-submit-btn" onClick={resetForm}>
-                  Send Another
-                </button>
+                <Button onClick={resetForm}>Send Another</Button>
               </div>
 
             ) : (
@@ -194,18 +193,14 @@ export const Contact = () => {
                 )}
 
                 {/* Submit */}
-                <button
-                  type="submit"
-                  className={`cm-submit-btn${status === 'sending' ? ' is-sending' : ''}`}
-                  disabled={status === 'sending'}
-                >
+                <Button type="submit" loading={status === 'sending'} arrow={false} className="cm-submit-btn">
                   {status === 'sending' ? (
                     <>
                       <span className="cm-spinner" />
                       Sending…
                     </>
                   ) : 'Send Message'}
-                </button>
+                </Button>
 
               </form>
             )}
