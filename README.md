@@ -40,24 +40,30 @@ Restart the dev server after changing these. `.env.local` should not be committe
 ## Project structure
 
 ```
-public/                 Static files: logos, client images, favicons, og-image,
-                        robots.txt, sitemap.xml, _headers, _redirects
+public/                 Static files: favicons, og-image, robots.txt, sitemap.xml,
+                        _headers, _redirects
+  assets/brand/         Shared logos and wordmarks
+  assets/home/          Home page images (client logos)
+  assets/about/         About page photos
 src/
-  main.jsx              Entry point
-  App.jsx               Router and page layout (Navbar, routes, Footer)
-  pages/                Route-level pages (Home, About, Projects, Pricing,
-                        Contact, Terms, Privacy, NotFound)
+  main.jsx  App.jsx    Entry point; router and layout (Navbar, routes, Footer)
+  styles/               Global tokens, base styles, animations
+  hooks/                useSEO, useScrollReveal, useCoverflow
   components/
-    navbar/ hero/ footer/ contact/
-    home/               Home sections: Services, Clients, Stats,
-                        Testimonials, FAQ
-  hooks/
-    useSEO.js           Per-page title/meta management
-    useScrollReveal.js  Scroll-triggered reveal animations
+    layout/             Navbar, Footer, PageShell, PageHeader
+    ui/                 Button, Motion, CoverflowNav, CountUp
+    sections/           Reusable page sections: Hero, Services, Stats, Clients,
+                        Testimonial, Faq, Contact, LegalSection
+  pages/                One folder per route; the page file only composes sections
+    Home/ About/ Pricing/ Contact/ Projects/ NotFound/ Terms/ Privacy/
+    About/components/   Page-only sections (AboutHero, AboutStory, ...)
+    Pricing/components/ PricingPlans, PlanCard, PricingCustom
 scratch/                One-off Python scripts used for logo conversion
 ```
 
-Each component keeps its styles in a sibling `.css` file.
+Every component lives in its own folder with an `index.js`, its `.jsx`, and its own `.css`.
+Import with the `@` alias, e.g. `import Button from '@/components/ui/Button'`.
+Page content (copy, plans, team) lives in a `data.js` next to the page.
 
 ## Routes
 

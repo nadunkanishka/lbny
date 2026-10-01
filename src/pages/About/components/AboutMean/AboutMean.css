@@ -1,0 +1,36 @@
+/* ═══════════ Make it mean something ═══════════ */
+.ab-mean {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+  padding-top: clamp(3.5rem, 8vh, 6rem);
+  padding-bottom: clamp(3.5rem, 8vh, 6rem);
+}
+
+.ab-mean .lb-mask-heading {
+  font-size: clamp(2.2rem, 4.2vw, 3.75rem);
+}
+
+.ab-mean__small {
+  max-width: 24rem;
+  margin: 1.5rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-color);
+}
+
+.ab-mean__big {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+@media (max-width: 960px) {
+  .ab-mean {
+    grid-template-columns: 1fr;
+  }
+}

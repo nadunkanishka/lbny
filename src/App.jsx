@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/navbar/Navbar';
-import Footer from './components/footer/Footer';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import ProjectsPage from './pages/ProjectsPage';
-import PricingPage from './pages/PricingPage';
-import ContactPage from './pages/ContactPage';
-import TermsPage from './pages/TermsPage';
-import PrivacyPage from './pages/PrivacyPage';
-import NotFoundPage from './pages/NotFoundPage';
+import HomePage from '@/pages/Home';
+import AboutPage from '@/pages/About';
+import ProjectsPage from '@/pages/Projects';
+import PricingPage from '@/pages/Pricing';
+import ContactPage from '@/pages/Contact';
+import TermsPage from '@/pages/Terms';
+import PrivacyPage from '@/pages/Privacy';
+import NotFoundPage from '@/pages/NotFound';
 
 function App() {
   return (
