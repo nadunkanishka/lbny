@@ -4,7 +4,7 @@ export const Logo = ({ size = 32, className = '' }) => {
   return (
     <div className={`rekorder-logo-wrapper ${className}`} style={{ width: size, height: size, display: 'block' }}>
       <img
-        src="/assets/icon-purple.svg"
+        src="/assets/brand/icon-purple.svg"
         alt="Studio Liberny Logo"
         width={size}
         height={size}

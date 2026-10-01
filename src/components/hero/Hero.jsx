@@ -23,7 +23,7 @@ export const Hero = () => {
         <div className="hero__title-container">
           <div className="hero__title-asset-wrapper">
             <img
-              src="/assets/wordmark-white.svg"
+              src="/assets/brand/wordmark-white.svg"
               alt="Studio Liberny Wordmark"
               className="hero__title-img title-dark-mode"
               width="1000"
@@ -32,7 +32,7 @@ export const Hero = () => {
               decoding="async"
             />
             <img
-              src="/assets/wordmark-black.svg"
+              src="/assets/brand/wordmark-black.svg"
               alt="Studio Liberny Wordmark"
               className="hero__title-img title-light-mode"
               width="1000"
@@ -48,7 +48,7 @@ export const Hero = () => {
           <div className="hero__logo-glow-bg"></div>
 
           <img
-            src="/assets/icon-purple.svg"
+            src="/assets/brand/icon-purple.svg"
             alt="Studio Liberny 3D Logo Icon"
             className="moro-logo-asset"
             width="240"
