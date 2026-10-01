@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from '@/pages/About';
 import ProjectsPage from './pages/ProjectsPage';
-import PricingPage from './pages/PricingPage';
+import PricingPage from '@/pages/Pricing';
 import ContactPage from './pages/ContactPage';
 import TermsPage from './pages/TermsPage';
 import PrivacyPage from './pages/PrivacyPage';
