@@ -1,3 +1,4 @@
+import PageShell from '@/components/layout/PageShell';
 import FaqSection from '@/components/sections/Faq';
 import { useSEO } from '@/hooks/useSEO';
 import './Pricing.css';
@@ -14,7 +15,7 @@ export const PricingPage = () => {
   });
 
   return (
-    <div className="page-wrapper pricing-page">
+    <PageShell className="pricing-page" grid={false}>
       <PricingPlans />
       <PricingCustom />
       {/* Same component as the home page FAQ */}
@@ -24,7 +25,7 @@ export const PricingPage = () => {
         titleLines={['Good', 'questions.', 'Clear answers.']}
         intro="A few useful answers about working together."
       />
-    </div>
+    </PageShell>
   );
 };
 

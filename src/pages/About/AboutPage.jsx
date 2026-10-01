@@ -1,3 +1,4 @@
+import PageShell from '@/components/layout/PageShell';
 import { Reveal } from '@/components/ui/Motion';
 import { useSEO } from '@/hooks/useSEO';
 import './About.css';
@@ -17,7 +18,7 @@ export const AboutPage = () => {
   });
 
   return (
-    <div className="page-wrapper about-page">
+    <PageShell className="about-page" grid={false}>
       <AboutHero />
       <AboutStory />
       <div className="ab-wrap">
@@ -27,7 +28,7 @@ export const AboutPage = () => {
       <AboutProcess />
       <AboutTeam />
       <AboutClosing />
-    </div>
+    </PageShell>
   );
 };
 

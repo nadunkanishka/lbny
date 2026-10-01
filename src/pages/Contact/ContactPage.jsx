@@ -1,6 +1,5 @@
-import React from 'react';
+import PageShell from '@/components/layout/PageShell';
 import Contact from '@/components/sections/Contact';
-import './Pages.css';
 import { useSEO } from '@/hooks/useSEO';
 
 export const ContactPage = () => {
@@ -12,10 +11,9 @@ export const ContactPage = () => {
   });
 
   return (
-    <div className="page-wrapper contact-page">
-      <div className="page-bg-grid"></div>
+    <PageShell className="contact-page">
       <Contact />
-    </div>
+    </PageShell>
   );
 };
 
