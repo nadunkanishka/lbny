@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../components/ui/Button';
-import { Reveal, MaskLines } from '../components/ui/Motion';
-import FaqSection from '../components/home/FaqSection';
-import CoverflowNav from '../components/ui/CoverflowNav';
-import { useCoverflow } from '../hooks/useCoverflow';
-import { useSEO } from '../hooks/useSEO';
+import Button from '@/components/ui/Button';
+import { Reveal, MaskLines } from '@/components/ui/Motion';
+import FaqSection from '@/components/sections/Faq';
+import CoverflowNav from '@/components/ui/CoverflowNav';
+import { useCoverflow } from '@/hooks/useCoverflow';
+import { useSEO } from '@/hooks/useSEO';
 import './Pricing.css';
 
 const PLANS = [

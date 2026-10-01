@@ -1,5 +1,5 @@
 import React from 'react';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import './Motion.css';
 
 /** Fade/slide in once when scrolled into view (uses the shared .reveal classes). */

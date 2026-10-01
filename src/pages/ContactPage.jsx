@@ -1,7 +1,7 @@
 import React from 'react';
-import Contact from '../components/contact/Contact';
+import Contact from '@/components/sections/Contact';
 import './Pages.css';
-import { useSEO } from '../hooks/useSEO';
+import { useSEO } from '@/hooks/useSEO';
 
 export const ContactPage = () => {
   useSEO({

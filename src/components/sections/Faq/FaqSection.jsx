@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import './FaqSection.css';
 
 const faqs = [

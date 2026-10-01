@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import Button from '../ui/Button';
+import Button from '@/components/ui/Button';
 import './Contact.css';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;

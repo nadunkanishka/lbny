@@ -1,11 +1,11 @@
 import React from 'react';
-import Hero from '../components/hero/Hero';
-import StatsSection from '../components/home/StatsSection';
-import ServicesSection from '../components/home/ServicesSection';
-import ClientsSection from '../components/home/ClientsSection';
-import TestimonialSection from '../components/home/TestimonialSection';
-import FaqSection from '../components/home/FaqSection';
-import { useSEO } from '../hooks/useSEO';
+import Hero from '@/components/sections/Hero';
+import StatsSection from '@/components/sections/Stats';
+import ServicesSection from '@/components/sections/Services';
+import ClientsSection from '@/components/sections/Clients';
+import TestimonialSection from '@/components/sections/Testimonial';
+import FaqSection from '@/components/sections/Faq';
+import { useSEO } from '@/hooks/useSEO';
 import './HomePage.css';
 
 export const HomePage = () => {

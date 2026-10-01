@@ -1,5 +1,5 @@
 import React from 'react';
-import './Coverflow.css';
+import './CoverflowNav.css';
 
 const Arrow = ({ dir }) => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

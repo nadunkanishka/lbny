@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Button from '../ui/Button';
-import { useScrollReveal } from '../../hooks/useScrollReveal';
+import Button from '@/components/ui/Button';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import './StatsSection.css';
 
 const stats = [

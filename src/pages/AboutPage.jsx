@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Button from '../components/ui/Button';
-import { Reveal, MaskLines } from '../components/ui/Motion';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { useSEO } from '../hooks/useSEO';
+import Button from '@/components/ui/Button';
+import { Reveal, MaskLines } from '@/components/ui/Motion';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useSEO } from '@/hooks/useSEO';
 import './About.css';
 
 /* ─────────── Content ─────────── */

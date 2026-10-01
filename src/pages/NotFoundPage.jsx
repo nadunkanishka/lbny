@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../components/ui/Button';
+import Button from '@/components/ui/Button';
 import './Pages.css';
-import { useSEO } from '../hooks/useSEO';
+import { useSEO } from '@/hooks/useSEO';
 
 export const NotFoundPage = () => {
   useSEO({

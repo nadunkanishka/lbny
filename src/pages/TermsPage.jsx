@@ -1,6 +1,6 @@
 import React from 'react';
 import './Pages.css';
-import { useSEO } from '../hooks/useSEO';
+import { useSEO } from '@/hooks/useSEO';
 
 export const TermsPage = () => {
   useSEO({

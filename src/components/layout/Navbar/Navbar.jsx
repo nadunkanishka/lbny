@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
-import Button from '../ui/Button';
+import Button from '@/components/ui/Button';
 import './Navbar.css';
 
 export const Navbar = () => {
