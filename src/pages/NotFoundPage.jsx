@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../components/ui/Button';
 import './Pages.css';
 import { useSEO } from '../hooks/useSEO';
 
@@ -23,22 +23,7 @@ export const NotFoundPage = () => {
           <p className="page-subtitle">
             The page you are looking for doesn't exist, has been removed, or was moved to another URL.
           </p>
-          <Link to="/" className="not-found-cta">
-            <span>Return to Homepage</span>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </Link>
+          <Button to="/">Return to Homepage</Button>
         </div>
       </div>
     </div>

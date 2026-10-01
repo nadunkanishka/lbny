@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Button from '../ui/Button';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import './StatsSection.css';
 
@@ -88,23 +88,7 @@ export const StatsSection = () => {
 
         {/* CTA */}
         <div className={`stats-section__cta reveal reveal-d2 ${animate ? 'is-visible' : ''}`}>
-          <Link to="/contact" className="stats-section__cta-btn">
-            <span>Contact Us</span>
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <line x1="7" y1="17" x2="17" y2="7" />
-              <polyline points="7 7 17 7 17 17" />
-            </svg>
-          </Link>
+          <Button to="/contact">Contact Us</Button>
         </div>
 
       </div>

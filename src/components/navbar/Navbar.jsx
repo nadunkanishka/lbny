@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
+import Button from '../ui/Button';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -121,13 +122,7 @@ export const Navbar = () => {
           </button>
 
           {/* Contact CTA Button */}
-          <Link
-            to="/contact"
-            className="btn-primary header__contact-btn"
-            onClick={() => setMenuOpen(false)}
-          >
-            <span>Contact</span>
-          </Link>
+          <Button to="/contact" size="sm" onClick={() => setMenuOpen(false)}>Contact</Button>
         </div>
 
         {/* Height Expandable Section */}
