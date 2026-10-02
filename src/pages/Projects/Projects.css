@@ -1,0 +1,29 @@
+/* ════════════════════════════════════════════
+   Projects page (shell + tokens shared by its sections)
+   ════════════════════════════════════════════ */
+
+.page-wrapper.projects-page {
+  --pj-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --pj-lime: #dff36b;
+  --pj-lavender: #d9c2fa; /* same in light and dark mode */
+
+  padding: 0;
+  min-height: 0;
+  overflow: visible;
+  display: block;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Same container as the home page sections and Pricing */
+.pj-wrap {
+  width: 100%;
+  max-width: calc(1360px + 2 * clamp(1.5rem, 4vw, 3rem));
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+  padding-right: clamp(1.5rem, 4vw, 3rem);
+  box-sizing: border-box;
+}
+
+.pj-accent {
+  color: var(--accent-color);
+}
