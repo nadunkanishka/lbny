@@ -1,0 +1,5 @@
+/* Project page shell. Tokens (--pj-*) and .pj-wrap come from Projects.css. */
+.page-wrapper.project-detail {
+  /* the "next project" band meets the footer */
+  padding-bottom: 0;
+}

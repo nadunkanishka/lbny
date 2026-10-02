@@ -1,0 +1,97 @@
+.pd-hero {
+  padding-top: clamp(7rem, 12.5vh, 9rem);
+}
+
+.pd-hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.pd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pd-back svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 200ms var(--pj-ease);
+}
+
+.pd-back:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pd-back:hover svg {
+    transform: translateX(-4px);
+  }
+}
+
+.pd-hero__index {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.pd-title {
+  font-size: clamp(3rem, 9.5vw, 9rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+}
+
+.pd-hero__figure {
+  margin: clamp(2rem, 5vh, 3.5rem) 0 0;
+}
+
+/* The plate opens from an inset window, as on the About hero */
+.pd-hero__plate {
+  aspect-ratio: 21 / 9;
+  border-radius: 22px;
+  clip-path: inset(12% 12% 12% 12% round 22px);
+  opacity: 0;
+  transition: clip-path 1100ms var(--pj-ease), opacity 500ms ease-out;
+}
+
+.pd-hero__figure.is-visible .pd-hero__plate {
+  clip-path: inset(0 0 0 0 round 22px);
+  opacity: 1;
+}
+
+.pd-hero__plate .pj-plate__num {
+  font-size: clamp(8rem, 22vw, 20rem);
+}
+
+.pd-hero__plate .pj-plate__logo {
+  width: min(36%, 28rem);
+  max-height: 40%;
+}
+
+.pd-hero__plate .pj-plate__word {
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+}
+
+@media (max-width: 640px) {
+  .pd-hero__plate {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-hero__plate {
+    transition: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+}

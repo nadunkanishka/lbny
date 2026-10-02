@@ -1,0 +1,113 @@
+.pd-body {
+  padding-top: clamp(3rem, 8vh, 6rem);
+}
+
+/* Label on the left, content on the right: an editorial two-column rhythm */
+.pd-block {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: 1.5rem clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2rem, 5vh, 3.5rem) 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.pd-block__label {
+  margin: 0.6rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pd-statement {
+  margin: 0;
+  max-width: 52rem;
+  font-size: clamp(1.7rem, 3.6vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.pd-copy {
+  margin: 0;
+  max-width: 40rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+
+/* Scope: services as big type on hairlines */
+.pd-scope {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pd-scope__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 0.6rem 0;
+}
+
+.pd-scope__item + .pd-scope__item {
+  border-top: 1px solid var(--border-color);
+}
+
+.pd-scope__num {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pd-scope__name {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+/* Optional gallery: full-width images stacked with a slight stagger */
+.pd-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(2rem, 5vh, 3.5rem) 0;
+}
+
+.pd-gallery__item {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.pd-gallery__item:nth-child(even) {
+  width: 78%;
+  align-self: flex-end;
+}
+
+.pd-gallery__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pd-body__cta {
+  padding: clamp(2rem, 5vh, 3.5rem) 0 clamp(3rem, 8vh, 5rem);
+}
+
+@media (max-width: 760px) {
+  .pd-block {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-block__label {
+    margin-top: 0;
+  }
+
+  .pd-gallery__item:nth-child(even) {
+    width: 100%;
+  }
+}

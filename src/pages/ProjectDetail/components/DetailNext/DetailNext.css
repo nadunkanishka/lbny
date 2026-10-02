@@ -1,0 +1,78 @@
+.pd-next {
+  display: block;
+  background: var(--pj-c);
+  color: #0a0a0a;
+  text-decoration: none;
+  padding: clamp(3.5rem, 9vh, 6.5rem) 0;
+}
+
+.pd-next:focus-visible {
+  outline: 3px solid #0a0a0a;
+  outline-offset: -8px;
+}
+
+.pd-next__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 1rem 2rem;
+}
+
+.pd-next__label {
+  grid-column: 1 / -1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.pd-next__name {
+  font-size: clamp(2.6rem, 8vw, 7.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  overflow-wrap: anywhere;
+  transition: transform 260ms var(--pj-ease);
+}
+
+.pd-next__arrow {
+  display: grid;
+  place-items: center;
+  width: clamp(3rem, 6vw, 5rem);
+  aspect-ratio: 1;
+  border: 2px solid #0a0a0a;
+  border-radius: 50%;
+  transition: background-color 160ms ease, color 160ms ease, transform 260ms var(--pj-ease);
+}
+
+.pd-next__arrow svg {
+  width: 45%;
+  height: 45%;
+}
+
+.pd-next:active .pd-next__arrow {
+  transform: scale(0.95);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pd-next:hover .pd-next__name {
+    transform: translateX(14px);
+  }
+
+  .pd-next:hover .pd-next__arrow {
+    background: #0a0a0a;
+    color: var(--pj-c);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-next__name,
+  .pd-next__arrow {
+    transition: none !important;
+  }
+
+  .pd-next:hover .pd-next__name {
+    transform: none;
+  }
+}
