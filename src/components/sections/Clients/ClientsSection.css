@@ -93,10 +93,12 @@ html:not(.light-theme) .client-logo-img {
   filter: grayscale(100%) invert(1);
 }
 
-html:not(.light-theme) .client-logo-wrapper:hover .client-logo-img {
-  opacity: 1;
-  filter: grayscale(0%) invert(1);
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  html:not(.light-theme) .client-logo-wrapper:hover .client-logo-img {
+    opacity: 1;
+    filter: grayscale(0%) invert(1);
+    transform: scale(1.05);
+  }
 }
 
 /* ── Light mode: keep logos black ── */
@@ -104,10 +106,12 @@ html.light-theme .client-logo-img {
   filter: grayscale(100%);
 }
 
-html.light-theme .client-logo-wrapper:hover .client-logo-img {
-  opacity: 1;
-  filter: grayscale(0%);
-  transform: scale(1.05);
+@media (hover: hover) and (pointer: fine) {
+  html.light-theme .client-logo-wrapper:hover .client-logo-img {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
 }
 
 /* ── Responsive ── */

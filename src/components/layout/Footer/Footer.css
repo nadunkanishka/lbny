@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
   position: relative;
   overflow: hidden;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -142,11 +143,13 @@
   }
 }
 
-.footer__cta-circle:hover {
-  animation-play-state: paused;
-  transform: scale(1.09) rotate(3deg);
-  background-color: #ebff77;
-  box-shadow: 0 12px 35px rgba(223, 243, 107, 0.28);
+@media (hover: hover) and (pointer: fine) {
+  .footer__cta-circle:hover {
+    animation-play-state: paused;
+    transform: scale(1.09) rotate(3deg);
+    background-color: #ebff77;
+    box-shadow: 0 12px 35px rgba(223, 243, 107, 0.28);
+  }
 }
 
 .footer__cta-circle:active {
@@ -177,12 +180,16 @@
   transform: translate(-120%, 120%);
 }
 
-.footer__cta-circle:hover .footer__cta-arrow--base {
-  transform: translate(120%, -120%);
+@media (hover: hover) and (pointer: fine) {
+  .footer__cta-circle:hover .footer__cta-arrow--base {
+    transform: translate(120%, -120%);
+  }
 }
 
-.footer__cta-circle:hover .footer__cta-arrow--hover {
-  transform: translate(0, 0);
+@media (hover: hover) and (pointer: fine) {
+  .footer__cta-circle:hover .footer__cta-arrow--hover {
+    transform: translate(0, 0);
+  }
 }
 
 /* CTA label text — increased size */
@@ -216,9 +223,11 @@
   width: fit-content;
 }
 
-.footer__nav-link:hover {
-  color: #DFF36B;
-  transform: translateX(4px);
+@media (hover: hover) and (pointer: fine) {
+  .footer__nav-link:hover {
+    color: #DFF36B;
+    transform: translateX(4px);
+  }
 }
 
 /* ── Contact row — increased size ── */
@@ -246,9 +255,11 @@
   line-height: 1;
 }
 
-.footer__contact-item:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .footer__contact-item:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
 }
 
 /* ── Giant Wordmark (Full-Bleed & Never Cut Off) ── */
@@ -311,8 +322,10 @@
   transition: color 0.2s ease;
 }
 
-.footer__legal-link:hover {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .footer__legal-link:hover {
+    color: #ffffff;
+  }
 }
 
 /* ── Middle: Nav & Contact group ── */

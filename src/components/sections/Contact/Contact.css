@@ -57,6 +57,13 @@ html:not(.light-theme) .cm-card {
   flex: 1;
 }
 
+/* Inputs must be 16px on touch devices or iOS zooms the page on focus */
+@media (pointer: coarse) {
+  .cm-input {
+    font-size: 16px;
+  }
+}
+
 /* ── Headline ── */
 .cm-info-top {
   display: flex;

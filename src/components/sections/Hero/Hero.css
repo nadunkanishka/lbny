@@ -237,10 +237,12 @@ html.light-theme .hero__micro-pill {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
-.hero__micro-pill:hover {
-  transform: scale(1.08);
-  border-color: rgba(139, 92, 246, 0.65);
-  box-shadow: 0 14px 40px rgba(139, 92, 246, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .hero__micro-pill:hover {
+    transform: scale(1.08);
+    border-color: rgba(139, 92, 246, 0.65);
+    box-shadow: 0 14px 40px rgba(139, 92, 246, 0.45);
+  }
 }
 
 .micro-dot {

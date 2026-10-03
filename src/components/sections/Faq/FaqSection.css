@@ -103,13 +103,17 @@ html:not(.light-theme) .faq-item:first-child {
     padding-left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.faq-item__trigger:hover {
-  color: #7c3aed;
-  padding-left: 0.5rem;
+@media (hover: hover) and (pointer: fine) {
+  .faq-item__trigger:hover {
+    color: #7c3aed;
+    padding-left: 0.5rem;
+  }
 }
 
-html:not(.light-theme) .faq-item__trigger:hover {
-  color: #8b5cf6;
+@media (hover: hover) and (pointer: fine) {
+  html:not(.light-theme) .faq-item__trigger:hover {
+    color: #8b5cf6;
+  }
 }
 
 .faq-item--open .faq-item__trigger {

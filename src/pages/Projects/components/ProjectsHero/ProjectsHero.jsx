@@ -9,7 +9,9 @@ export const ProjectsHero = ({ count }) => (
       lines={['Selected', <span key="w" className="pj-accent">work.</span>]}
     />
     <Reveal as="p" delay={2} className="pj-head__lead">
-      {count} projects across brand identity and the web. Hover a name to peek, click to read the story.
+      {count} projects across brand identity and the web.{' '}
+      <span className="pj-hint pj-hint--hover">Hover a name to peek, click to read the story.</span>
+      <span className="pj-hint pj-hint--touch">Tap a project to read the story.</span>
     </Reveal>
   </header>
 );

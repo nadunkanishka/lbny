@@ -138,12 +138,16 @@ html:not(.light-theme) .service-card::after {
   background-color: #8b5cf6;
 }
 
-.service-card:hover {
-  transform: translateX(6px);
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover {
+    transform: translateX(6px);
+  }
 }
 
-.service-card:hover::after {
-  width: 100%;
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover::after {
+    width: 100%;
+  }
 }
 
 /* Big Number */
@@ -160,13 +164,17 @@ html:not(.light-theme) .service-card::after {
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-card__number {
-  color: #7c3aed;
-  transform: translateY(-4px) scale(1.04);
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover .service-card__number {
+    color: #7c3aed;
+    transform: translateY(-4px) scale(1.04);
+  }
 }
 
-html:not(.light-theme) .service-card:hover .service-card__number {
-  color: #8b5cf6;
+@media (hover: hover) and (pointer: fine) {
+  html:not(.light-theme) .service-card:hover .service-card__number {
+    color: #8b5cf6;
+  }
 }
 
 /* Card Content */
@@ -176,8 +184,10 @@ html:not(.light-theme) .service-card:hover .service-card__number {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.service-card:hover .service-card__content {
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover .service-card__content {
+    transform: translateY(-2px);
+  }
 }
 
 /* Card Title (Strict 2 Lines) */
@@ -193,12 +203,16 @@ html:not(.light-theme) .service-card:hover .service-card__number {
   transition: color 0.3s ease;
 }
 
-.service-card:hover .service-card__title {
-  color: #7c3aed;
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover .service-card__title {
+    color: #7c3aed;
+  }
 }
 
-html:not(.light-theme) .service-card:hover .service-card__title {
-  color: #8b5cf6;
+@media (hover: hover) and (pointer: fine) {
+  html:not(.light-theme) .service-card:hover .service-card__title {
+    color: #8b5cf6;
+  }
 }
 
 .service-card__title-line {
@@ -217,8 +231,10 @@ html:not(.light-theme) .service-card:hover .service-card__title {
   transition: color 0.3s ease;
 }
 
-.service-card:hover .service-card__description {
-  color: var(--text-color);
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover .service-card__description {
+    color: var(--text-color);
+  }
 }
 
 /* ── Responsive Collapse ── */

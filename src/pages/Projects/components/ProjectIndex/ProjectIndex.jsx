@@ -56,6 +56,10 @@ export const ProjectIndex = () => {
             onPointerLeave={() => setHovered((h) => (h === p.slug ? null : h))}
           >
             <Link className="pj-row__btn" to={`/projects/${p.slug}`}>
+              {/* Touch / small screens have no cursor-following preview, so the row carries its own thumbnail */}
+              <span className="pj-row__thumb" aria-hidden="true">
+                <ProjectPlate project={p} index={i} />
+              </span>
               <span className="pj-row__num">{String(i + 1).padStart(2, '0')}</span>
               <span className="pj-row__name">{p.name}</span>
               <span className="pj-row__tags">{p.disciplines.join(' · ')}</span>

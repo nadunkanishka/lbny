@@ -70,10 +70,12 @@
     background-color 0.2s ease;
 }
 
-.testimonial-section__btn:hover {
-  background-color: #f5ffb3;
-  transform: scale(1.08);
-  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .testimonial-section__btn:hover {
+    background-color: #f5ffb3;
+    transform: scale(1.08);
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
 }
 
 .testimonial-section__btn:active {

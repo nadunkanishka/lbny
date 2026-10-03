@@ -62,12 +62,34 @@ html.light-theme {
 }
 
 
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+}
+
+button, a, [role="button"], input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Controls are not selectable text; body copy stays selectable */
+button, [role="button"] {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* 16px minimum stops iOS Safari zooming into a focused field */
+input, textarea, select {
+  font-size: 16px;
+}
+
 html, body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -90,6 +112,7 @@ body::before {
 #root {
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   border: none;
   display: flex;
@@ -103,6 +126,7 @@ body::before {
   scroll-snap-align: start;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -112,15 +136,18 @@ body::before {
 
 
 /* Full-screen Two-Slide Snap Scroll for Contact Page + Footer */
-html:has(.contact-page) {
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-}
+/* Desktop only: mandatory snapping fights the tall form and the keyboard on phones */
+@media (min-width: 961px) {
+  html:has(.contact-page) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
 
-.page-wrapper.contact-page,
-html:has(.contact-page) .footer {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+  .page-wrapper.contact-page,
+  html:has(.contact-page) .footer {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 /* ── Accessibility: Visually-hidden screen-reader text ── */

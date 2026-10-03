@@ -20,6 +20,21 @@
   color: var(--text-color);
 }
 
+/* Hover wording only where there is a cursor to hover with */
+.pj-hint--touch {
+  display: none;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .pj-hint--hover {
+    display: none;
+  }
+
+  .pj-hint--touch {
+    display: inline;
+  }
+}
+
 @media (max-width: 760px) {
   .pj-head {
     flex-direction: column;
