@@ -11,7 +11,7 @@ import AboutClosing from './components/AboutClosing';
 
 export const AboutPage = () => {
   useSEO({
-    title: 'About Studio Liberny | Brand & Web Design Studio, Colombo',
+    title: 'About | Studio Liberny',
     description:
       'Studio Liberny is an independent creative studio in Colombo, Sri Lanka. Meet the team behind our brand identity, strategy and web design work.',
     path: '/about',

@@ -9,6 +9,7 @@ import './HomePage.css';
 
 export const HomePage = () => {
   useSEO({
+    title: 'Studio Liberny',
     description:
       'Studio Liberny crafts premium digital experiences, stunning visuals, and thoughtful branding for forward-thinking clients. Explore our work.',
     path: '/',

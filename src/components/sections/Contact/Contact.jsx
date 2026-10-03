@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Button from '@/components/ui/Button';
+import { Reveal } from '@/components/ui/Motion';
 import './Contact.css';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -123,11 +124,11 @@ export const Contact = () => {
           {/* LEFT: contact info */}
           <div className="cm-info">
             <div className="cm-info-top">
-              <h1 className="cm-title">
+              <Reveal as="h1" className="cm-title">
                 Your next idea.
                 <span className="cm-title-accent">Let&rsquo;s talk.</span>
-              </h1>
-              <div className="cm-contact">
+              </Reveal>
+              <Reveal className="cm-contact" delay={1}>
               <span className="cm-info-label">Get in touch</span>
               <a href="mailto:info@studioliberny.com" className="cm-info-email">
                 info@studioliberny.com
@@ -151,9 +152,9 @@ export const Contact = () => {
                   <WhatsAppIcon /> WhatsApp <ArrowIcon />
                 </a>
               </div>
-              </div>
+              </Reveal>
 
-              <div className="cm-steps">
+              <Reveal className="cm-steps" delay={2}>
                 <h2 className="cm-steps-title">What happens next</h2>
                 <ol className="cm-steps-list">
                   {STEPS.map((step, i) => (
@@ -166,7 +167,7 @@ export const Contact = () => {
                     </li>
                   ))}
                 </ol>
-              </div>
+              </Reveal>
             </div>
 
             <p className="cm-location">
@@ -176,7 +177,7 @@ export const Contact = () => {
           </div>
 
           {/* RIGHT: form card */}
-          <div className="cm-card">
+          <Reveal className="cm-card" delay={2}>
             {status === 'success' ? (
               <div className="cm-success">
                 <p className="cm-success-msg">
@@ -262,7 +263,7 @@ export const Contact = () => {
 
               </form>
             )}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -8,7 +8,7 @@ import ProjectsClosing from './components/ProjectsClosing';
 
 export const ProjectsPage = () => {
   useSEO({
-    title: 'Projects | Brand & Web Design Portfolio | Studio Liberny',
+    title: 'Projects | Studio Liberny',
     description:
       'Selected brand identity and web design projects by Studio Liberny, from visual identities to websites built to perform.',
     path: '/projects',

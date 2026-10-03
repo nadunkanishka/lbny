@@ -5,7 +5,7 @@ import { useSEO } from '@/hooks/useSEO';
 
 export const NotFoundPage = () => {
   useSEO({
-    title: '404 - Page Not Found',
+    title: 'Page Not Found | Studio Liberny',
     description: 'The page you were looking for does not exist or has been moved.',
     noindex: true,
   });

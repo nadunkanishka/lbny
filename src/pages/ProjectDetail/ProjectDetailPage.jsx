@@ -12,7 +12,7 @@ import DetailNext from './components/DetailNext';
 
 const ProjectDetail = ({ project, index, next }) => {
   useSEO({
-    title: `${project.name} | Case Study | Studio Liberny`,
+    title: `${project.name} | Studio Liberny`,
     description: [project.summary, project.result].filter(Boolean).join(' '),
     path: `/projects/${project.slug}`,
   });
