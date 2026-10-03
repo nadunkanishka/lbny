@@ -2,7 +2,9 @@
    Contact page
    ════════════════════════════════════════════ */
 
-.cm-section {
+/* Design tokens, shared with the pricing pop-up (.cm-modal) */
+.cm-section,
+.cm-modal {
   --cm-card-bg: #ffffff;
   --cm-ink: #000000;
   --cm-field-bg: #f4f4f0;
@@ -14,7 +16,9 @@
   --cm-space-m: clamp(0.9rem, 2.2vh, 1.4rem);
   --cm-space-l: clamp(1.5rem, 4vh, 2.5rem);
   --cm-edge: clamp(1.75rem, 4.5vh, 3rem);
+}
 
+.cm-section {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -28,7 +32,8 @@
 }
 
 /* Dark mode: same bold card, flipped. Raised dark surface, soft outline, purple offset shadow. */
-html:not(.light-theme) .cm-section {
+html:not(.light-theme) .cm-section,
+html:not(.light-theme) .cm-modal {
   --cm-card-bg: var(--bg-color);
   --cm-ink: #f3f4f6;
   --cm-field-bg: rgba(255, 255, 255, 0.06);

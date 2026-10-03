@@ -14,16 +14,16 @@
   transform: translateY(var(--lift, 0px));
 }
 
-/* Dark mode: the black cards would melt into the page, so they get the same treatment as
-   the contact form card: a soft outline and a hard purple offset shadow */
-html:not(.light-theme) .pr-card {
+/* Both themes: the black cards get the same treatment as the contact form card:
+   a soft outline and a hard purple offset shadow */
+.pr-card {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.18),
     8px 8px 0 var(--accent-color);
 }
 
 /* The purple card's shadow would blend into it, so it uses the lighter lavender instead */
-html:not(.light-theme) .pr-card--featured {
+.pr-card--featured {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.25),
     8px 8px 0 var(--pr-lavender);
@@ -122,6 +122,16 @@ html:not(.light-theme) .pr-card--featured {
   margin: 0.75rem 0 0;
   font-size: 0.78rem;
   color: rgba(255, 255, 255, 0.78);
+}
+
+.pr-card__cta {
+  margin-top: 1.25rem;
+}
+
+/* The black cards swallow the button's default black shadow, so it flips to light
+   (same colour the buttons use on the dark theme) */
+.pr-card:not(.pr-card--featured) .pr-card__cta {
+  --lb-btn-shadow: #f3f4f6;
 }
 
 @media (hover: hover) and (pointer: fine) {
