@@ -1,5 +1,5 @@
 .pd-body {
-  padding-top: clamp(3rem, 8vh, 6rem);
+  padding-top: clamp(2rem, 5vh, 3.5rem);
 }
 
 /* Label on the left, content on the right: an editorial two-column rhythm */
@@ -69,31 +69,6 @@
   letter-spacing: -0.04em;
 }
 
-/* Optional gallery: full-width images stacked with a slight stagger */
-.pd-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(1rem, 3vw, 2rem);
-  padding: clamp(2rem, 5vh, 3.5rem) 0;
-}
-
-.pd-gallery__item {
-  margin: 0;
-  overflow: hidden;
-  border-radius: 18px;
-}
-
-.pd-gallery__item:nth-child(even) {
-  width: 78%;
-  align-self: flex-end;
-}
-
-.pd-gallery__item img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
 .pd-body__cta {
   padding: clamp(2rem, 5vh, 3.5rem) 0 clamp(3rem, 8vh, 5rem);
 }
@@ -107,7 +82,4 @@
     margin-top: 0;
   }
 
-  .pd-gallery__item:nth-child(even) {
-    width: 100%;
-  }
 }

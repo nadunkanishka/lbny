@@ -1,5 +1,33 @@
+/* The project's colour fills the top; the work breaks out of it across the bottom edge */
 .pd-hero {
+  position: relative;
+}
+
+.pd-hero__field {
+  position: relative;
+  overflow: hidden;
+  background: var(--pj-c);
+  color: #0a0a0a;
   padding-top: clamp(7rem, 12.5vh, 9rem);
+  padding-bottom: clamp(7rem, 16vw, 13rem);
+}
+
+.pd-hero__num {
+  position: absolute;
+  right: clamp(0.5rem, 3vw, 3rem);
+  top: clamp(3.5rem, 8vh, 6rem);
+  font-size: clamp(9rem, 28vw, 26rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(10, 10, 10, 0.22);
+  pointer-events: none;
+  user-select: none;
+}
+
+.pd-hero__inner {
+  position: relative;
 }
 
 .pd-hero__top {
@@ -14,7 +42,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-color);
+  min-height: 44px;
+  color: inherit;
   font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
@@ -27,7 +56,7 @@
 }
 
 .pd-back:focus-visible {
-  outline: 2px solid var(--accent-color);
+  outline: 2px solid #0a0a0a;
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -38,35 +67,82 @@
   }
 }
 
-.pd-hero__index {
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--text-muted);
-}
-
 .pd-title {
   font-size: clamp(3rem, 9.5vw, 9rem);
   line-height: 0.95;
   overflow-wrap: anywhere;
+  color: #0a0a0a;
 }
 
-.pd-hero__figure {
-  margin: clamp(2rem, 5vh, 3.5rem) 0 0;
+.pd-hero__field .lb-mask-heading {
+  color: #0a0a0a;
 }
 
-/* The plate opens from an inset window, as on the About hero */
+.pd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pd-tag {
+  padding: 0.4rem 0.95rem;
+  border: 2px solid #0a0a0a;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Breakout stage */
+.pd-hero__stage {
+  position: relative;
+  z-index: 2;
+  margin-top: calc(-1 * clamp(5rem, 12vw, 10rem));
+  padding-bottom: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.pd-cover,
+.pd-logo-tile {
+  margin: 0;
+  overflow: hidden;
+  border: 2px solid var(--pd-line);
+  border-radius: 22px;
+  box-shadow: 10px 10px 0 var(--pd-shadow);
+}
+
+.pd-cover {
+  aspect-ratio: 16 / 8;
+  background: var(--pd-paper);
+}
+
+.pd-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-logo-tile {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 7;
+  background: #fff;
+}
+
+.pd-logo-tile img {
+  max-width: 38%;
+  max-height: 58%;
+  object-fit: contain;
+}
+
+/* Fallback when a project has no images yet: the generated plate */
 .pd-hero__plate {
   aspect-ratio: 21 / 9;
   border-radius: 22px;
-  clip-path: inset(12% 12% 12% 12% round 22px);
-  opacity: 0;
-  transition: clip-path 1100ms var(--pj-ease), opacity 500ms ease-out;
-}
-
-.pd-hero__figure.is-visible .pd-hero__plate {
-  clip-path: inset(0 0 0 0 round 22px);
-  opacity: 1;
+  border: 2px solid var(--pd-line);
+  box-shadow: 10px 10px 0 var(--pd-shadow);
 }
 
 .pd-hero__plate .pj-plate__num {
@@ -83,15 +159,26 @@
 }
 
 @media (max-width: 640px) {
-  .pd-hero__plate {
+  .pd-cover,
+  .pd-logo-tile {
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 var(--pd-shadow);
+  }
+
+  .pd-cover {
     aspect-ratio: 4 / 3;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
+  .pd-logo-tile {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pd-logo-tile img {
+    max-width: 58%;
+  }
+
   .pd-hero__plate {
-    transition: none !important;
-    clip-path: none !important;
-    opacity: 1 !important;
+    aspect-ratio: 4 / 3;
+    box-shadow: 6px 6px 0 var(--pd-shadow);
   }
 }

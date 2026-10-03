@@ -1,8 +1,18 @@
+/* Backdrop colour for buttons on the current surface: dark on light, light on dark.
+   Follows the page theme by default; sections with a fixed colour override it. */
+:root {
+  --lb-surface-shadow: #f3f4f6;
+}
+
+html.light-theme {
+  --lb-surface-shadow: #0a0a0a;
+}
+
 .lb-btn {
   --lb-btn-bg: #dff36b;
   --lb-btn-ink: #0a0a0a;
   --lb-btn-offset: 5px;
-  --lb-btn-shadow: #000;
+  --lb-btn-shadow: var(--lb-surface-shadow, #0a0a0a);
 
   display: inline-flex;
   align-items: center;
@@ -28,7 +38,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Secondary: full black, brand-purple shadow */
+/* Secondary: full black (white in dark mode), brand-purple backdrop */
 .lb-btn--secondary {
   --lb-btn-bg: #000;
   --lb-btn-ink: #fff;
@@ -79,15 +89,10 @@
   cursor: not-allowed;
 }
 
-/* Dark mode: a black shadow disappears into the page, so the offset shadow flips to light */
-html:not(.light-theme) .lb-btn {
-  --lb-btn-shadow: #f3f4f6;
-}
-
+/* Dark mode: the secondary button flips to white */
 html:not(.light-theme) .lb-btn--secondary {
   --lb-btn-bg: #fff;
   --lb-btn-ink: #0a0a0a;
-  --lb-btn-shadow: var(--accent-color, #8b5cf6);
 }
 
 @media (max-width: 600px) {

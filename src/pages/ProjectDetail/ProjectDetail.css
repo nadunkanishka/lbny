@@ -1,5 +1,209 @@
 /* Project page shell. Tokens (--pj-*) and .pj-wrap come from Projects.css. */
 .page-wrapper.project-detail {
+  /* frames and tiles: hard ink outline + offset shadow, the same language as the contact card and buttons */
+  --pd-line: #0a0a0a;
+  --pd-shadow: #0a0a0a;
+  --pd-paper: #ffffff;
+  --stage-pad: clamp(3.5rem, 9vw, 7.5rem);
+  --hang: clamp(4rem, 9vw, 8rem); /* how far the phone row overhangs its band */
+
+  /* figure numbers (FIG. 01, 02 ...) count up through the whole page, in DOM order */
+  counter-reset: pdfig;
+
   /* the "next project" band meets the footer */
   padding-bottom: 0;
+}
+
+html:not(.light-theme) .page-wrapper.project-detail {
+  --pd-line: rgba(255, 255, 255, 0.24);
+  --pd-shadow: var(--accent-color);
+  --pd-paper: #14151c;
+}
+
+.pd-accent {
+  color: var(--accent-color);
+}
+
+/* ═══════════ Colour stages: full-bleed bands that re-point the tokens for their colour ═══════════ */
+.pd-stage {
+  position: relative;
+  padding-block: var(--stage-pad);
+}
+
+.pd-stage--ink,
+.pd-stage--lavender,
+.pd-stage--lime,
+.pd-stage--project {
+  --text-muted: rgba(10, 10, 10, 0.62);
+  --text-soft: rgba(10, 10, 10, 0.7);
+  --border-color: rgba(10, 10, 10, 0.2);
+  --text-color: #0a0a0a;
+  --pd-line: #0a0a0a;
+  --pd-shadow: #0a0a0a;
+  --pd-paper: #ffffff;
+  color: var(--text-color);
+}
+
+.pd-stage--ink {
+  --text-color: #f3f4f6;
+  --text-muted: rgba(243, 244, 246, 0.62);
+  --text-soft: rgba(243, 244, 246, 0.72);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --pd-line: rgba(255, 255, 255, 0.3);
+  --pd-shadow: #dff36b;
+  --pd-paper: #15161d;
+  background: #0a0a0a;
+}
+
+/* Uncoloured blocks sit on the page; a hairline separates neighbours */
+.pd-stage--paper + .pd-stage--paper {
+  border-top: 1px solid var(--border-color);
+}
+
+.pd-stage--lavender { background: #d9c2fa; }
+.pd-stage--lime { background: #dff36b; }
+.pd-stage--project { background: var(--pj-c); }
+
+/* The phone row overhangs the bottom edge; whatever follows makes room for it */
+.pd-hang {
+  padding-bottom: 0;
+}
+
+.pd-hang + .pd-stage {
+  padding-top: calc(var(--stage-pad) + var(--hang));
+}
+
+.pd-hang + :not(.pd-stage) {
+  padding-top: var(--hang);
+}
+
+/* ═══════════ Section head: running head + big title ═══════════ */
+.pd-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-bottom: clamp(1.75rem, 4.5vh, 3rem);
+}
+
+.pd-head__run {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pd-head__run b {
+  color: var(--text-color);
+}
+
+.pd-head__run i {
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.35;
+}
+
+.pd-head__title {
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  line-height: 0.98;
+  color: var(--text-color);
+}
+
+.pd-stage .lb-mask-heading {
+  color: var(--text-color);
+}
+
+/* ═══════════ Catalogue captions and print crop marks ═══════════ */
+.pd-fig {
+  display: flex;
+  gap: 0.7rem;
+  margin: 0.8rem 0 0;
+  padding-top: 0.55rem;
+  border-top: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  counter-increment: pdfig;
+}
+
+.pd-fig::before {
+  content: 'Fig. ' counter(pdfig, decimal-leading-zero);
+  flex-shrink: 0;
+  color: var(--text-color);
+}
+
+/* Same numbering for the small labels on the brand board tiles */
+.pd-figtag {
+  counter-increment: pdfig;
+}
+
+.pd-figtag::before {
+  content: 'Fig. ' counter(pdfig, decimal-leading-zero) ' · ';
+}
+
+.pd-crop {
+  position: relative;
+}
+
+.pd-crop::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  pointer-events: none;
+  color: var(--text-color);
+  opacity: 0.55;
+  background:
+    linear-gradient(currentColor, currentColor) 0 0 / 14px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 0 / 1.5px 14px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 0 / 14px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 0 / 1.5px 14px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 100% / 14px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 100% / 1.5px 14px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 100% / 14px 1.5px no-repeat,
+    linear-gradient(currentColor, currentColor) 100% 100% / 1.5px 14px no-repeat;
+}
+
+@media (max-width: 900px) {
+  .pd-crop::after {
+    display: none;
+  }
+}
+
+/* ═══════════ Empty image slot (dev / ?slots only) ═══════════ */
+.pd-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  min-height: 7rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 2px dashed var(--pd-line);
+  border-radius: inherit;
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(124, 58, 237, 0.07) 14px 15px);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.pd-slot__name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.pd-slot__hint {
+  max-width: 24rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: var(--text-muted);
 }

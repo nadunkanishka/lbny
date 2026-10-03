@@ -1,0 +1,189 @@
+/* An uneven board, like a brand sheet pinned to a wall: tiles of different sizes, not equal cards */
+.pd-board {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+
+.pd-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 2px solid var(--pd-line);
+  border-radius: 22px;
+  background: var(--pd-paper);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.pd-tile__label {
+  position: absolute;
+  top: 1rem;
+  left: 1.1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.pd-tile--logo {
+  grid-column: 1 / span 8;
+  grid-row: span 2;
+  min-height: clamp(16rem, 32vw, 26rem);
+  overflow: visible; /* room for the crop marks */
+  background: var(--pj-c);
+  color: #0a0a0a;
+  box-shadow: 8px 8px 0 var(--pd-shadow);
+}
+
+.pd-tile--reversed {
+  grid-column: 9 / span 4;
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.pd-tile--variant {
+  grid-column: span 3;
+  min-height: 9rem;
+}
+
+.pd-tile__logo {
+  width: min(62%, 22rem);
+  max-height: 60%;
+  object-fit: contain;
+}
+
+.pd-tile--reversed .pd-tile__logo {
+  width: min(70%, 12rem);
+}
+
+.pd-tile--variant img {
+  width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* Palette: tall slabs, weighted, with the hex printed on them */
+.pd-tile--palette {
+  grid-column: 1 / -1;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.pd-swatches {
+  display: flex;
+  min-height: clamp(10rem, 18vw, 14rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pd-tile--palette > .pd-tile__label {
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #fff;
+}
+
+.pd-swatch {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.15rem;
+  padding: 1rem 1.1rem;
+  background: var(--sw);
+  color: var(--sw-ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.pd-swatch + .pd-swatch {
+  border-left: 2px solid var(--pd-line);
+}
+
+.pd-swatch__hex {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+.pd-tile--type {
+  grid-column: 9 / span 4;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 1.25rem;
+}
+
+.pd-type__aa {
+  font-size: clamp(6rem, 12vw, 10rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+}
+
+.pd-type__list {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
+.pd-type__list span {
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .pd-tile--logo {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    min-height: 16rem;
+  }
+
+  .pd-tile--reversed {
+    grid-column: 1 / -1;
+    min-height: 11rem;
+  }
+
+  .pd-tile--type {
+    grid-column: 1 / -1;
+  }
+
+  .pd-tile--variant {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 640px) {
+  .pd-tile {
+    border-radius: 18px;
+  }
+
+  .pd-swatches {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .pd-swatch {
+    min-height: 4.5rem;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .pd-swatch + .pd-swatch {
+    border-left: 0;
+    border-top: 2px solid var(--pd-line);
+  }
+
+  .pd-tile--palette {
+    padding-top: 2.6rem;
+  }
+}

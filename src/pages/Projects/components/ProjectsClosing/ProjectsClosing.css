@@ -1,5 +1,6 @@
 /* Lavender band, same in both themes (matches the Pricing closing band) */
 .pj-closing {
+  --lb-surface-shadow: #0a0a0a; /* lavender in both themes: dark button backdrop */
   margin-top: clamp(3rem, 8vh, 6rem);
   background: var(--pj-lavender);
   color: #0a0a0a;

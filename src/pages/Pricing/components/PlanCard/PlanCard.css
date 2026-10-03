@@ -128,10 +128,9 @@
   margin-top: 1.25rem;
 }
 
-/* The black cards swallow the button's default black shadow, so it flips to light
-   (same colour the buttons use on the dark theme) */
-.pr-card:not(.pr-card--featured) .pr-card__cta {
-  --lb-btn-shadow: #f3f4f6;
+/* The cards are black / purple in both themes, so buttons on them get the light backdrop */
+.pr-card {
+  --lb-surface-shadow: #f3f4f6;
 }
 
 @media (hover: hover) and (pointer: fine) {

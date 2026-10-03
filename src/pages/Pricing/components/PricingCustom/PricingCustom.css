@@ -1,5 +1,6 @@
 /* ═══════════ Different kind of project (lavender, same in both themes) ═══════════ */
 .pr-custom {
+  --lb-surface-shadow: #0a0a0a; /* lavender in both themes: dark button backdrop */
   background: var(--pr-lavender);
   color: #0a0a0a;
   padding: clamp(4rem, 9vh, 6.5rem) 0;

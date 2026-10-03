@@ -4,8 +4,8 @@
    ═══════════════════════════════════════════════ */
 
 .stats-section {
+  --lb-surface-shadow: #f3f4f6; /* always black: light button backdrop */
   width: 100%;
-  min-height: 100dvh;
   background-color: #0a0a0a;
   color: #ffffff;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -17,14 +17,13 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(4rem, 8vh, 7rem) clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(4rem, 9vh, 6.5rem) clamp(1.5rem, 5vw, 4rem);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: clamp(1.75rem, 3.5vh, 3rem);
-  min-height: 100dvh;
 }
 
 /* ── Header ── */
