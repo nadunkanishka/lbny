@@ -22,8 +22,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(2.5rem, 5vh, 4.5rem);
+  justify-content: center;
+  gap: clamp(1.75rem, 3.5vh, 3rem);
   min-height: 100dvh;
 }
 
@@ -64,8 +64,9 @@
 .stats-section__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(0.5rem, 1vw, 1rem);
   width: 100%;
+  max-width: 980px;
 }
 
 /* ── Individual Stat (no box: lime text on black, centered) ── */
@@ -109,6 +110,7 @@
   letter-spacing: -0.04em;
   line-height: 1;
   color: #DFF36B;
+  font-variant-numeric: tabular-nums; /* digits keep their width while counting */
 }
 
 /* Suffix (+ / %) matches the number size */

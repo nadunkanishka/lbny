@@ -93,7 +93,7 @@ html:not(.light-theme) .client-logo-img {
   filter: grayscale(100%) invert(1);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (min-width: 601px) and (hover: hover) and (pointer: fine) {
   html:not(.light-theme) .client-logo-wrapper:hover .client-logo-img {
     opacity: 1;
     filter: grayscale(0%) invert(1);
@@ -106,7 +106,7 @@ html.light-theme .client-logo-img {
   filter: grayscale(100%);
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (min-width: 601px) and (hover: hover) and (pointer: fine) {
   html.light-theme .client-logo-wrapper:hover .client-logo-img {
     opacity: 1;
     filter: grayscale(0%);
@@ -142,11 +142,24 @@ html.light-theme .client-logo-img {
     gap: 0.5rem;
   }
 
+  /* Small, even vertical gap between logos */
   .client-logo-wrapper {
-    padding: 1.25rem 0.5rem;
+    padding: 1.75rem 0.5rem;
   }
-  
+
+  /* No hover effect on mobile: logos are always solid black (white in dark mode) */
   .client-logo-img {
     max-width: 140px;
+    opacity: 1;
+    transition: none;
+    cursor: default;
+  }
+
+  html.light-theme .client-logo-img {
+    filter: brightness(0);
+  }
+
+  html:not(.light-theme) .client-logo-img {
+    filter: brightness(0) invert(1);
   }
 }

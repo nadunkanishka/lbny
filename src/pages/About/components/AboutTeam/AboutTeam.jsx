@@ -5,7 +5,8 @@ import './AboutTeam.css';
 
 export const AboutTeam = ({ team = TEAM }) => {
   // Team coverflow (mobile): the active member sits centred, neighbours tilt away at the sides
-  const [active, setActive] = useState(0);
+  // It opens on the founder (the desktop grid order is unchanged)
+  const [active, setActive] = useState(() => Math.max(0, team.findIndex((m) => /founder/i.test(m.role))));
   const touchX = useRef(null);
   const step = (dir) => setActive((a) => (a + dir + team.length) % team.length);
 
