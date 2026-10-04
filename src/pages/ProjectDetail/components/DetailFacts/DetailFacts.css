@@ -77,7 +77,7 @@
 /* Drawn title block, like the corner of a technical drawing */
 .pd-titleblock {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 0;
   border: 2px solid var(--pd-line);
   border-radius: 14px;
@@ -114,6 +114,7 @@
   }
 
   .pd-titleblock__cell:nth-child(3) {
+    grid-column: 1 / -1;
     border-left: 0;
   }
 

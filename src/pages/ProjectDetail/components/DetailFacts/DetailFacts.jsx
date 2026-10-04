@@ -8,11 +8,10 @@ import './DetailFacts.css';
  * Black band: the result as a marker-highlighted line, optional counting-up metrics
  * (project.metrics = [{ value, suffix, label }]), then the facts as a drawn title block.
  */
-export const DetailFacts = ({ project, index, total, slots }) => {
+export const DetailFacts = ({ project, slots }) => {
   const metrics = project.metrics ?? [];
   const facts = [
     ['Client', project.name],
-    ['Project no.', `${String(index + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`],
     ['Discipline', project.disciplines.join(', ')],
     ['Services', project.services.join(', ')],
   ];

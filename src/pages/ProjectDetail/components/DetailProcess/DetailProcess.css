@@ -114,3 +114,49 @@
     display: none;
   }
 }
+
+/* Mobile: one step at a time. The buttons switch to the next / previous step of the process. */
+.pd-strip__count {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .pd-strip {
+    display: block;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .pd-step {
+    display: none;
+  }
+
+  .pd-step.is-active {
+    display: block;
+  }
+
+  .pd-step__label {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .pd-strip__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .pd-strip__count {
+    display: block;
+    margin-right: auto;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-color);
+  }
+
+  .pd-strip__btn[data-end] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}

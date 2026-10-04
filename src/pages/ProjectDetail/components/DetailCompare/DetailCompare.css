@@ -109,14 +109,25 @@
 }
 
 @media (max-width: 640px) {
+  /* keep the image's own 16:10 so the sides aren't cropped; smaller chips and knob so they don't cover it */
   .pd-compare {
-    aspect-ratio: 4 / 3;
     border-radius: 16px;
     box-shadow: 5px 5px 0 var(--pd-shadow);
   }
 
+  .pd-compare__chip {
+    top: 0.6rem;
+    padding: 0.2rem 0.55rem;
+    border-width: 1.5px;
+    font-size: 0.6rem;
+  }
+
+  .pd-compare__chip--before { left: 0.6rem; }
+  .pd-compare__chip--after { right: 0.6rem; }
+
   .pd-compare__knob {
     width: 2.75rem;
     height: 2.75rem;
+    box-shadow: 2px 2px 0 #0a0a0a;
   }
 }

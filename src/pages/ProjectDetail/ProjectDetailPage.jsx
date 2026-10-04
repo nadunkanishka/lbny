@@ -4,7 +4,7 @@ import NotFoundPage from '@/pages/NotFound';
 import { useSEO } from '@/hooks/useSEO';
 import '../Projects/Projects.css';
 import './ProjectDetail.css';
-import { getProject, PROJECTS } from '../Projects/data';
+import { getProject } from '../Projects/data';
 import { getProjectAssets, showSlots } from './assets';
 import DetailHero from './components/DetailHero';
 import DetailFacts from './components/DetailFacts';
@@ -26,7 +26,7 @@ const ProjectDetail = ({ project, index, next }) => {
     <PageShell className="projects-page project-detail" grid={false}>
       <div className="pd-page" style={{ '--pj-c': project.color }}>
         <DetailHero project={project} index={index} assets={assets} slots={slots} />
-        <DetailFacts project={project} index={index} total={PROJECTS.length} slots={slots} />
+        <DetailFacts project={project} slots={slots} />
         <DetailBody project={project} assets={assets} slots={slots} />
       </div>
       <DetailNext project={next} />

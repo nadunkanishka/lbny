@@ -39,7 +39,6 @@ const heroVisual = (project, index, assets, slots) => {
 export const DetailHero = ({ project, index, assets, slots }) => (
   <header className="pd-hero" style={{ '--pj-c': project.color }}>
     <div className="pd-hero__field">
-      <span className="pd-hero__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
       <div className="pj-wrap pd-hero__inner">
         <Reveal as="div" className="pd-hero__top">
           <Link to="/projects" className="pd-back">
