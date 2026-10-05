@@ -12,12 +12,16 @@
 }
 
 .pj-head__lead {
-  max-width: 24rem;
+  max-width: 30rem; /* wide enough for two lines: the intro, then the hint */
   margin: 0;
   text-align: right;
   font-size: 0.95rem;
   line-height: 1.45;
   color: var(--text-color);
+}
+
+:where(.pj-head__lead) > span {
+  display: block;
 }
 
 /* Hover wording only where there is a cursor to hover with */
@@ -31,7 +35,7 @@
   }
 
   .pj-hint--touch {
-    display: inline;
+    display: block;
   }
 }
 

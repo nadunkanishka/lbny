@@ -19,8 +19,8 @@ export const DetailBody = ({ project, assets, slots }) => {
 
   const hasScreens = assets.desktop.length > 0 || assets.mobile.length > 0 || (slots && isWeb);
   const hasBrand = assets.logo.length > 0 || Boolean(project.brand) || (slots && isBrand);
-  const hasCompare = assets.before.length > 0 || assets.after.length > 0 || slots;
-  const hasProcess = assets.process.length > 0 || slots;
+  const hasCompare = assets.before.length > 0 || assets.after.length > 0 || (slots && isBrand);
+  const hasProcess = assets.process.length > 0 || (slots && isBrand);
   const hasMockups = assets.mockup.length > 0 || (slots && isBrand);
   const hasQuote = Boolean(project.quote) || slots;
 

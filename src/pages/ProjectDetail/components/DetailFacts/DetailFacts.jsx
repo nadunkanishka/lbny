@@ -11,7 +11,8 @@ import './DetailFacts.css';
 export const DetailFacts = ({ project, slots }) => {
   const metrics = project.metrics ?? [];
   const facts = [
-    ['Client', project.name],
+    ['Client', project.client ?? project.name],
+    ...(project.country ? [['Country', project.country]] : []),
     ['Discipline', project.disciplines.join(', ')],
     ['Services', project.services.join(', ')],
   ];
@@ -48,7 +49,7 @@ export const DetailFacts = ({ project, slots }) => {
           )
         )}
 
-        <Reveal as="dl" delay={2} className="pd-titleblock">
+        <Reveal as="dl" delay={2} className="pd-titleblock" style={{ '--cols': facts.length }}>
           {facts.map(([term, value]) => (
             <div className="pd-titleblock__cell" key={term}>
               <dt>{term}</dt>

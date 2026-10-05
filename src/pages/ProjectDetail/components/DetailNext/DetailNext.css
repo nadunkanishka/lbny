@@ -37,6 +37,7 @@
 }
 
 .pd-next__arrow {
+  align-self: center;
   display: grid;
   place-items: center;
   width: clamp(3rem, 6vw, 5rem);

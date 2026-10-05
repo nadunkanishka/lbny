@@ -45,6 +45,7 @@
 }
 
 .pd-scope__item {
+  position: relative;
   display: flex;
   align-items: baseline;
   gap: 1.25rem;
@@ -67,6 +68,20 @@
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
+}
+
+/* Desktop: the number hangs in the gutter so the service names line up with the copy above */
+@media (min-width: 761px) {
+  .pd-scope__num {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.9rem;
+  }
+}
+
+/* The quote band already supplies the space above the first block */
+.pd-quote + .pj-wrap > .pd-block:first-child {
+  padding-top: 0;
 }
 
 .pd-body__cta {

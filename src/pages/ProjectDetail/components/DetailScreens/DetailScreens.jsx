@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/ui/Motion';
+import { siteHref } from '@/pages/Projects/data';
 import BrowserFrame from '../BrowserFrame';
 import PhoneFrame from '../PhoneFrame';
 import SectionHead from '../SectionHead';
@@ -26,6 +27,7 @@ export const DetailScreens = ({ project, assets, slots, number, tone = 'paper' }
               scroll
               src={d.src}
               url={project.url}
+              href={siteHref(project)}
               slotName={`${d.key}.webp`}
               alt={`${project.name} website, page ${i + 1}`}
             />

@@ -36,7 +36,7 @@
   grid-row: span 2;
   min-height: clamp(16rem, 32vw, 26rem);
   overflow: visible; /* room for the crop marks */
-  background: var(--pj-c);
+  background: #fff;
   color: #0a0a0a;
   box-shadow: 8px 8px 0 var(--pd-shadow);
 }
@@ -53,8 +53,8 @@
 }
 
 .pd-tile__logo {
-  width: min(62%, 22rem);
-  max-height: 60%;
+  width: min(80%, 36rem);
+  max-height: 78%;
   object-fit: contain;
 }
 
@@ -116,12 +116,13 @@
 .pd-tile--type {
   grid-column: 9 / span 4;
   align-items: flex-start;
-  justify-content: flex-end;
-  gap: 1.25rem;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding-top: clamp(3.25rem, 5vw, 4rem); /* clear the absolute label */
 }
 
 .pd-type__aa {
-  font-size: clamp(6rem, 12vw, 10rem);
+  font-size: clamp(5rem, 9vw, 7.5rem);
   font-weight: 800;
   line-height: 0.85;
   letter-spacing: -0.06em;
@@ -129,14 +130,26 @@
 
 .pd-type__list {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.9rem;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
   font-size: 0.9rem;
 }
 
+.pd-type__list li {
+  line-height: 1.35;
+}
+
+.pd-type__list strong,
 .pd-type__list span {
+  display: block;
+}
+
+.pd-type__list span {
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
   color: var(--text-muted);
 }
 

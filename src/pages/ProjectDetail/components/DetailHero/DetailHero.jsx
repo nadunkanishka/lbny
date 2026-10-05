@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Reveal, MaskLines } from '@/components/ui/Motion';
+import Button from '@/components/ui/Button';
+import { siteHref } from '@/pages/Projects/data';
 import ProjectPlate from '@/pages/Projects/components/ProjectPlate';
 import BrowserFrame from '../BrowserFrame';
 import AssetSlot from '../AssetSlot';
@@ -16,7 +18,7 @@ const heroVisual = (project, index, assets, slots) => {
     );
   }
   if (assets.desktop[0]) {
-    return <BrowserFrame src={assets.desktop[0].src} url={project.url} alt={`${project.name} website`} />;
+    return <BrowserFrame src={assets.desktop[0].src} url={project.url} href={siteHref(project)} alt={`${project.name} website`} />;
   }
   if (assets.logo[0]) {
     return (
@@ -56,6 +58,13 @@ export const DetailHero = ({ project, index, assets, slots }) => (
           {project.disciplines.map((d) => (
             <li key={d} className="pd-tag">{d}</li>
           ))}
+          {siteHref(project) && (
+            <li>
+              <Button href={siteHref(project)} target="_blank" rel="noopener noreferrer" size="sm">
+                Visit {project.url}
+              </Button>
+            </li>
+          )}
         </Reveal>
       </div>
     </div>

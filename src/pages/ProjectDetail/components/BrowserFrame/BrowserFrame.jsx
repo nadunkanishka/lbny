@@ -6,7 +6,7 @@ import './BrowserFrame.css';
  * Flat browser window. With `scroll`, the (tall) screenshot travels through the window as the
  * page scrolls past it, so the whole site is visible without a click. Transform only.
  */
-export const BrowserFrame = ({ src, alt = '', url, scroll = false, slotName = 'desktop-1.webp', className = '' }) => {
+export const BrowserFrame = ({ src, alt = '', url, href, scroll = false, slotName = 'desktop-1.webp', className = '' }) => {
   const frameRef = useRef(null);
   const viewportRef = useRef(null);
   const shotRef = useRef(null);
@@ -55,16 +55,26 @@ export const BrowserFrame = ({ src, alt = '', url, scroll = false, slotName = 'd
     };
   }, [scroll, src]);
 
+  // A screenshot shorter than the window would leave blank space under it: shrink the window to fit
+  const fitShort = ({ currentTarget: img }) => {
+    const { naturalWidth: w, naturalHeight: h } = img;
+    if (w && h / w < 10 / 16) viewportRef.current.style.aspectRatio = `${w} / ${h}`;
+  };
+
   return (
     <div className={`pd-crop ${className}`.trim()}>
       <div ref={frameRef} className="pd-browser">
-        <div className="pd-browser__bar" aria-hidden="true">
-          <span className="pd-browser__dots"><i /><i /><i /></span>
-          {url && <span className="pd-browser__url">{url}</span>}
+        <div className="pd-browser__bar">
+          <span className="pd-browser__dots" aria-hidden="true"><i /><i /><i /></span>
+          {url && (href ? (
+            <a className="pd-browser__url" href={href} target="_blank" rel="noopener noreferrer">{url}</a>
+          ) : (
+            <span className="pd-browser__url">{url}</span>
+          ))}
         </div>
         <div ref={viewportRef} className="pd-browser__viewport">
           {src ? (
-            <img ref={shotRef} className="pd-browser__shot" src={src} alt={alt} loading="lazy" decoding="async" />
+            <img ref={shotRef} className="pd-browser__shot" src={src} alt={alt} loading="lazy" decoding="async" onLoad={fitShort} />
           ) : (
             <AssetSlot
               name={slotName}

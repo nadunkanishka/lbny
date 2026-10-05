@@ -1,7 +1,6 @@
 import PageShell from '@/components/layout/PageShell';
 import { useSEO } from '@/hooks/useSEO';
 import './Projects.css';
-import { PROJECTS } from './data';
 import ProjectsHero from './components/ProjectsHero';
 import ProjectIndex from './components/ProjectIndex';
 import ProjectsClosing from './components/ProjectsClosing';
@@ -16,7 +15,7 @@ export const ProjectsPage = () => {
 
   return (
     <PageShell className="projects-page" grid={false}>
-      <ProjectsHero count={PROJECTS.length} />
+      <ProjectsHero />
       <ProjectIndex />
       <ProjectsClosing />
     </PageShell>

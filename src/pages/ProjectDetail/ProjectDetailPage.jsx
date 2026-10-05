@@ -29,7 +29,7 @@ const ProjectDetail = ({ project, index, next }) => {
         <DetailFacts project={project} slots={slots} />
         <DetailBody project={project} assets={assets} slots={slots} />
       </div>
-      <DetailNext project={next} />
+      {next.slug !== project.slug && <DetailNext project={next} />}
     </PageShell>
   );
 };

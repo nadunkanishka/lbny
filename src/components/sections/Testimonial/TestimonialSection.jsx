@@ -4,11 +4,6 @@ import './TestimonialSection.css';
 
 const testimonials = [
   {
-    company: 'Zeal by Roche',
-    quote: 'The website they built for us wasn’t just beautiful - it actually performs. We saw a 20% increase in orders within the first month, and the feedback from our customers has been amazing.',
-    author: 'Nivanka Roche - Founder'
-  },
-  {
     company: 'Priya Products',
     quote: 'They completely nailed our branding - from the visual identity to the tone of voice. Since launch, we’ve seen a clear uptick in client engagement and have gotten compliments on our new look almost daily.',
     author: 'Priyangi Kariawasam - Managing Director'

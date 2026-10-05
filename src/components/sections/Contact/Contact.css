@@ -553,3 +553,14 @@ html:not(.light-theme) .cm-social-pill--instagram {
     padding: 0.28rem 0.85rem;
   }
 }
+
+/* Touch screens only: keep the 44px minimum target without enlarging the desktop look */
+@media (pointer: coarse) {
+  .cm-social-pill {
+    min-height: 44px;
+  }
+
+  .cm-info-email {
+    padding-block: 0.5rem;
+  }
+}
