@@ -27,7 +27,7 @@
   --btn-border: rgba(255, 255, 255, 0.28);
   --btn-text: rgba(255, 255, 255, 0.78);
   --btn-border-hover: rgba(255, 255, 255, 0.65);
-  --btn-text-hover: #ffffff;
+  --btn-text-hover: #fff;
   --divider-color: rgba(255, 255, 255, 0.08);
 }
 
@@ -36,7 +36,7 @@ html.light-theme {
   --text-color: #0f1015;
   --text-muted: #64748b;
   --text-soft: rgba(15, 16, 21, 0.66);
-  --card-bg: #ffffff;
+  --card-bg: #fff;
   --card-bg-strong: rgba(255, 255, 255, 0.86);
   --border-color: rgba(0, 0, 0, 0.08);
   --grid-color: rgba(0, 0, 0, 0.03);
@@ -161,4 +161,27 @@ body::before {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Skip link: hidden until focused by keyboard */
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: #dff36b;
+  color: #0a0a0a;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+main:focus {
+  outline: none;
 }

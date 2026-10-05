@@ -17,9 +17,10 @@ const ProjectDetail = ({ project, index, next }) => {
 
   useSEO({
     title: `${project.name} | Studio Liberny`,
-    description: [project.summary, project.result].filter(Boolean).join(' '),
+    description: [project.summary, project.result, `See the screens, brand and approach behind the ${project.name} website by Studio Liberny.`].filter(Boolean).join(' '),
     path: `/projects/${project.slug}`,
-    image: (assets.cover ?? assets.desktop[0])?.src,
+    // Social platforms can't render SVG previews, so only raster covers are used; otherwise the default og-image
+    image: [assets.cover, assets.desktop[0]].find((a) => a && !/\.svg(\?|$)/i.test(a.src))?.src,
   });
 
   return (

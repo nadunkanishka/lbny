@@ -3,7 +3,7 @@
   /* frames and tiles: hard ink outline + offset shadow, the same language as the contact card and buttons */
   --pd-line: #0a0a0a;
   --pd-shadow: #0a0a0a;
-  --pd-paper: #ffffff;
+  --pd-paper: #fff;
   --stage-pad: clamp(3.5rem, 9vw, 7.5rem);
   --hang: clamp(4rem, 9vw, 8rem); /* how far the phone row overhangs its band */
 
@@ -40,7 +40,7 @@ html:not(.light-theme) .page-wrapper.project-detail {
   --text-color: #0a0a0a;
   --pd-line: #0a0a0a;
   --pd-shadow: #0a0a0a;
-  --pd-paper: #ffffff;
+  --pd-paper: #fff;
   color: var(--text-color);
 }
 

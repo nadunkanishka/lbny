@@ -6,7 +6,7 @@
 
 .footer {
   background-color: #0a0a0a;
-  color: #ffffff;
+  color: #fff;
   width: 100%;
   min-height: 100vh;
   min-height: 100dvh;
@@ -65,7 +65,7 @@
   line-height: 1.05;
   letter-spacing: -0.03em;
   margin: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 .footer__headline-accent {
@@ -216,7 +216,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   line-height: 1.7;
   transition: color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -324,7 +324,7 @@
 
 @media (hover: hover) and (pointer: fine) {
   .footer__legal-link:hover {
-    color: #ffffff;
+    color: #fff;
   }
 }
 

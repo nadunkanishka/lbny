@@ -20,7 +20,7 @@ export const AboutHero = ({ photo = HERO_PHOTO }) => {
       <figure ref={photoRef} className={`ab-hero__figure ${photoVisible ? 'is-visible' : ''}`}>
         <div className="ab-hero__frame">
           {photo ? (
-            <img src={photo} alt="Creative direction meets technical thinking at Studio Liberny" className="ab-hero__img" width="1400" height="788" fetchpriority="high" decoding="async" />
+            <img src={photo} alt="Creative direction meets technical thinking at Studio Liberny" className="ab-hero__img" width="1400" height="788" fetchPriority="high" decoding="async" />
           ) : (
             <div className="ab-hero__img ab-placeholder" role="img" aria-label="Studio photo placeholder" />
           )}

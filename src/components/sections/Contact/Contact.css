@@ -5,8 +5,8 @@
 /* Design tokens, shared with the pricing pop-up (.cm-modal) */
 .cm-section,
 .cm-modal {
-  --cm-card-bg: #ffffff;
-  --cm-ink: #000000;
+  --cm-card-bg: #fff;
+  --cm-ink: #000;
   --cm-field-bg: #f4f4f0;
   --cm-field-border: rgba(0, 0, 0, 0.09);
   --cm-error: #c8102e;

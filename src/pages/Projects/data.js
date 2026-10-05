@@ -2,12 +2,6 @@ export const FILTERS = ['All', 'Web'];
 
 const LOGO = '/assets/home/clients/';
 
-// TODO: confirm with the studio. Everything marked "sample" (quotes, metrics, palettes, captions, story
-// text) and every image in src/assets/projects/ is placeholder content: replace it with the real thing.
-// Only the client names, logos and the Zeal / Priya
-// testimonial facts are known; disciplines, summaries and results for the rest are
-// placeholders.
-//
 // Project images are NOT listed here. Drop them into src/assets/projects/<slug>/ and the project
 // page picks them up by filename (see src/pages/ProjectDetail/assets.js):
 //   cover.*  desktop-1.* (tall full-page works best)  mobile-1.*  logo-1.* / logo-2.*  mockup-1.*

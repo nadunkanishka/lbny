@@ -223,7 +223,7 @@ html.light-theme .moro-asset-shadow {
   font-size: clamp(0.52rem, 1.25vw, 0.82rem);
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: #fff;
   white-space: nowrap;
   z-index: 10;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
