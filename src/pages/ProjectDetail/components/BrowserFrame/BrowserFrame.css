@@ -51,10 +51,16 @@ a.pd-browser__url {
   text-decoration: none;
 }
 
-a.pd-browser__url:hover,
 a.pd-browser__url:focus-visible {
   background: var(--pd-line);
   color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a.pd-browser__url:hover {
+    background: var(--pd-line);
+    color: #fff;
+  }
 }
 
 .pd-browser__viewport {
