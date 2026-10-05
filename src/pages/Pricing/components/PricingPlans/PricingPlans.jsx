@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { Reveal, MaskLines } from '@/components/ui/Motion';
+import Modal from '@/components/ui/Modal';
+import { ContactForm } from '@/components/sections/Contact';
 import CoverflowNav from '@/components/ui/CoverflowNav';
 import { useCoverflow } from '@/hooks/useCoverflow';
 import { PLANS } from '../../data';
@@ -8,6 +11,7 @@ import './PricingPlans.css';
 export const PricingPlans = ({ plans = PLANS }) => {
   // Mobile: the plans become a coverflow carousel (same effect as the team on the About page)
   const { active, setActive, step, offsetOf, swipeHandlers } = useCoverflow(plans.length);
+  const [selectedPlan, setSelectedPlan] = useState(null);
 
   return (
     <section className="pr-plans pr-wrap">
@@ -30,6 +34,7 @@ export const PricingPlans = ({ plans = PLANS }) => {
             index={i}
             offset={offsetOf(i)}
             onSelect={() => setActive(i)}
+            onGetStarted={() => setSelectedPlan(plan)}
           />
         ))}
       </div>
@@ -47,6 +52,21 @@ export const PricingPlans = ({ plans = PLANS }) => {
         All starting prices are in USD. Final scope and fees are agreed before work begins.<br />
         Timelines depend on content readiness and feedback.
       </Reveal>
+
+      {selectedPlan && (
+        <Modal
+          className="cm-modal"
+          title="Tell us about your project"
+          onClose={() => setSelectedPlan(null)}
+        >
+          <ContactForm
+            key={selectedPlan.kicker}
+            initialService={selectedPlan.service}
+            initialBudget={selectedPlan.budget}
+            planName={selectedPlan.title.join(' ')}
+          />
+        </Modal>
+      )}
     </section>
   );
 };

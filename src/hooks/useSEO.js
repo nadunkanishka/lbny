@@ -24,7 +24,7 @@ export function useSEO({ title, description, path, image, noindex = false } = {}
       : DEFAULT_TITLE;
     const fullDescription = description || DEFAULT_DESCRIPTION;
     const canonicalUrl = `${BASE_URL}${path || window.location.pathname}`;
-    const socialImage = image || DEFAULT_IMAGE;
+    const socialImage = image ? (image.startsWith('/') ? `${BASE_URL}${image}` : image) : DEFAULT_IMAGE;
     const robotsContent = noindex ? 'noindex, nofollow' : 'index, follow';
 
     // Title

@@ -8,7 +8,7 @@ import PricingCustom from './components/PricingCustom';
 
 export const PricingPage = () => {
   useSEO({
-    title: 'Pricing: Brand Identity from $150 | Studio Liberny',
+    title: 'Pricing | Studio Liberny',
     description:
       'Clear starting prices for brand identity and web development. From $150 for a Startup BrandKit. Final scope and fees are agreed before work begins.',
     path: '/pricing',

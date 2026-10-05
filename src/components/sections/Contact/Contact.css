@@ -2,9 +2,11 @@
    Contact page
    ════════════════════════════════════════════ */
 
-.cm-section {
-  --cm-card-bg: #ffffff;
-  --cm-ink: #000000;
+/* Design tokens, shared with the pricing pop-up (.cm-modal) */
+.cm-section,
+.cm-modal {
+  --cm-card-bg: #fff;
+  --cm-ink: #000;
   --cm-field-bg: #f4f4f0;
   --cm-field-border: rgba(0, 0, 0, 0.09);
   --cm-error: #c8102e;
@@ -14,7 +16,9 @@
   --cm-space-m: clamp(0.9rem, 2.2vh, 1.4rem);
   --cm-space-l: clamp(1.5rem, 4vh, 2.5rem);
   --cm-edge: clamp(1.75rem, 4.5vh, 3rem);
+}
 
+.cm-section {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -28,7 +32,8 @@
 }
 
 /* Dark mode: same bold card, flipped. Raised dark surface, soft outline, purple offset shadow. */
-html:not(.light-theme) .cm-section {
+html:not(.light-theme) .cm-section,
+html:not(.light-theme) .cm-modal {
   --cm-card-bg: var(--bg-color);
   --cm-ink: #f3f4f6;
   --cm-field-bg: rgba(255, 255, 255, 0.06);
@@ -50,6 +55,13 @@ html:not(.light-theme) .cm-card {
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+/* Inputs must be 16px on touch devices or iOS zooms the page on focus */
+@media (pointer: coarse) {
+  .cm-input {
+    font-size: 16px;
+  }
 }
 
 /* ── Headline ── */
@@ -119,7 +131,7 @@ html:not(.light-theme) .cm-card {
 .cm-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.7rem;
+  gap: 0.75rem;
   margin-top: var(--cm-space-m);
 }
 
@@ -127,7 +139,7 @@ html:not(.light-theme) .cm-card {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.55rem 1.1rem 0.55rem 0.9rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.68rem;
   font-weight: 700;
@@ -321,7 +333,7 @@ html:not(.light-theme) .cm-social-pill--instagram {
   height: auto;
   min-height: 4.5rem;
   flex: 1;
-  padding: 0.85rem 1rem;
+  padding: 0.75rem 1rem;
   resize: vertical;
   line-height: 1.5;
 }
@@ -453,7 +465,7 @@ html:not(.light-theme) .cm-social-pill--instagram {
 
   .cm-card {
     order: 3;
-    margin: 0.25rem 8px 0.5rem 0; /* room for the offset shadow */
+    margin: 0.25rem 0.5rem 0.5rem 0; /* room for the offset shadow */
   }
 
   .cm-steps {
@@ -481,18 +493,18 @@ html:not(.light-theme) .cm-social-pill--instagram {
   }
 
   .cm-card {
-    padding: 1.25rem 1.1rem;
+    padding: 1.25rem 1rem;
     border-radius: 22px;
     box-shadow: 5px 5px 0 var(--cm-shadow-color, var(--cm-ink));
   }
 
   .cm-social-pill {
-    padding: 0.5rem 0.9rem 0.5rem 0.75rem;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
   }
 
   .cm-pill {
     font-size: 0.85rem;
-    padding: 0.5rem 0.95rem;
+    padding: 0.5rem 1rem;
   }
 
   .cm-submit-btn {
@@ -526,7 +538,7 @@ html:not(.light-theme) .cm-social-pill--instagram {
   }
 
   .cm-card {
-    padding: 0.9rem 1.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .cm-input {
@@ -538,6 +550,17 @@ html:not(.light-theme) .cm-social-pill--instagram {
   }
 
   .cm-pill {
-    padding: 0.28rem 0.85rem;
+    padding: 0.25rem 0.75rem;
+  }
+}
+
+/* Touch screens only: keep the 44px minimum target without enlarging the desktop look */
+@media (pointer: coarse) {
+  .cm-social-pill {
+    min-height: 44px;
+  }
+
+  .cm-info-email {
+    padding-block: 0.5rem;
   }
 }

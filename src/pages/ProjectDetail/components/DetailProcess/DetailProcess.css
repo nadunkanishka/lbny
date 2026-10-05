@@ -1,0 +1,162 @@
+.pd-strip {
+  display: flex;
+  gap: clamp(0.9rem, 2vw, 1.25rem);
+  margin: 0 calc(-1 * clamp(1.5rem, 4vw, 3rem));
+  padding: 0 clamp(1.5rem, 4vw, 3rem) 1.25rem;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: clamp(1.5rem, 4vw, 3rem);
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pd-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.pd-step {
+  flex: 0 0 min(30rem, 78%);
+  scroll-snap-align: start;
+}
+
+.pd-step__media {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 2px solid var(--pd-line);
+  border-radius: 20px;
+  background: var(--pd-paper);
+  box-shadow: 6px 6px 0 var(--pd-shadow);
+}
+
+.pd-step__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-step__media .pd-slot {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.pd-step__label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.25rem 0 0;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pd-step__label b {
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  color: var(--text-color);
+}
+
+.pd-strip__nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pd-strip__btn {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 2px solid var(--pd-line);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 160ms ease-out, color 160ms ease-out, transform 140ms var(--pj-ease);
+}
+
+.pd-strip__btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.pd-strip__btn:active {
+  transform: scale(0.95);
+}
+
+.pd-strip__btn:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pd-strip__btn:hover {
+    background: var(--text-color);
+    border-color: var(--text-color);
+    color: var(--bg-color, var(--pd-paper));
+  }
+}
+
+/* Touch users just swipe */
+@media (hover: none) {
+  .pd-strip__nav {
+    display: none;
+  }
+}
+
+/* Mobile: one step at a time. The buttons switch to the next / previous step of the process. */
+.pd-strip__count {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .pd-strip {
+    display: block;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .pd-step {
+    display: none;
+  }
+
+  .pd-step.is-active {
+    display: block;
+  }
+
+  .pd-step__label {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .pd-strip__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .pd-strip__count {
+    display: block;
+    margin-right: auto;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-color);
+  }
+
+  .pd-strip__btn[data-end] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}

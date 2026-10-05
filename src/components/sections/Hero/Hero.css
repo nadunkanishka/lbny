@@ -62,7 +62,7 @@ html.light-theme .hero__top-meta {
   text-transform: uppercase;
   letter-spacing: 1.2px;
   font-size: clamp(0.65rem, 1.8vw, 0.8rem);
-  padding: 0.35rem 0.95rem;
+  padding: 0.25rem 1rem;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -223,7 +223,7 @@ html.light-theme .moro-asset-shadow {
   font-size: clamp(0.52rem, 1.25vw, 0.82rem);
   font-weight: 700;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: #fff;
   white-space: nowrap;
   z-index: 10;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -237,10 +237,12 @@ html.light-theme .hero__micro-pill {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
 }
 
-.hero__micro-pill:hover {
-  transform: scale(1.08);
-  border-color: rgba(139, 92, 246, 0.65);
-  box-shadow: 0 14px 40px rgba(139, 92, 246, 0.45);
+@media (hover: hover) and (pointer: fine) {
+  .hero__micro-pill:hover {
+    transform: scale(1.08);
+    border-color: rgba(139, 92, 246, 0.65);
+    box-shadow: 0 14px 40px rgba(139, 92, 246, 0.45);
+  }
 }
 
 .micro-dot {
@@ -314,7 +316,7 @@ html:not(.light-theme) .hero__headline-accent {
 
 .hero__description {
   font-size: clamp(0.95rem, 1.2vw, 1.2rem);
-  font-weight: 450;
+  font-weight: 500;
   color: #4b5563;
   max-width: 620px;
   margin: 0;
@@ -417,7 +419,7 @@ html:not(.light-theme) .hero__description {
 
   .hero__bottom-content {
     margin-top: 0;
-    gap: 0.85rem;
+    gap: 0.75rem;
   }
 
   .hero__description {

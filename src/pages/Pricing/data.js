@@ -11,6 +11,8 @@ export const PLANS = [
       'Two revision rounds',
     ],
     price: '$150',
+    service: 'Brand identity',
+    budget: '$150–$300',
     timeline: 'Typical timeline: up to 2 weeks',
   },
   {
@@ -25,6 +27,8 @@ export const PLANS = [
       'Five revision rounds',
     ],
     price: '$300',
+    service: 'Brand identity',
+    budget: '$300–$600',
     timeline: 'Typical timeline: up to 2–4 weeks',
     featured: true,
   },
@@ -40,6 +44,8 @@ export const PLANS = [
       'CMS or ecommerce requirements scoped individually',
     ],
     price: '$600',
+    service: 'Website',
+    budget: '$600+',
     timeline: 'Typical timeline: up to 4–8 weeks',
   },
 ];

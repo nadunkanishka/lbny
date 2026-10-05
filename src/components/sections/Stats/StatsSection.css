@@ -4,10 +4,10 @@
    ═══════════════════════════════════════════════ */
 
 .stats-section {
+  --lb-surface-shadow: #f3f4f6; /* always black: light button backdrop */
   width: 100%;
-  min-height: 100dvh;
   background-color: #0a0a0a;
-  color: #ffffff;
+  color: #fff;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   display: flex;
   align-items: center;
@@ -17,14 +17,13 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(4rem, 8vh, 7rem) clamp(1.5rem, 5vw, 4rem);
+  padding: clamp(4rem, 9vh, 6.5rem) clamp(1.5rem, 5vw, 4rem);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: clamp(2.5rem, 5vh, 4.5rem);
-  min-height: 100dvh;
+  justify-content: center;
+  gap: clamp(1.75rem, 3.5vh, 3rem);
 }
 
 /* ── Header ── */
@@ -44,7 +43,7 @@
   line-height: 1.06;
   letter-spacing: -0.04em;
   margin: 0;
-  color: #ffffff;
+  color: #fff;
 }
 
 .stats-section__headline-accent {
@@ -64,8 +63,9 @@
 .stats-section__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1rem, 2vw, 1.5rem);
+  gap: clamp(0.5rem, 1vw, 1rem);
   width: 100%;
+  max-width: 980px;
 }
 
 /* ── Individual Stat (no box: lime text on black, centered) ── */
@@ -84,8 +84,10 @@
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.stats-card:hover {
-  transform: translateY(-6px);
+@media (hover: hover) and (pointer: fine) {
+  .stats-card:hover {
+    transform: translateY(-6px);
+  }
 }
 
 .stats-card:active {
@@ -107,6 +109,7 @@
   letter-spacing: -0.04em;
   line-height: 1;
   color: #DFF36B;
+  font-variant-numeric: tabular-nums; /* digits keep their width while counting */
 }
 
 /* Suffix (+ / %) matches the number size */

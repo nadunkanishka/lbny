@@ -1,0 +1,52 @@
+.pd-quote__inner {
+  position: relative;
+}
+
+.pd-quote__mark {
+  position: absolute;
+  top: -0.2em;
+  left: clamp(0.5rem, 3vw, 2rem);
+  font-size: clamp(9rem, 22vw, 18rem);
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--pj-c);
+  opacity: 0.45;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pd-quote__fig {
+  position: relative;
+  margin: 0;
+  padding-top: clamp(1rem, 4vw, 3rem);
+}
+
+.pd-quote__text {
+  max-width: 62rem;
+  min-height: 1.08em; /* an empty testimonial keeps the section's shape */
+  margin: 0;
+  font-size: clamp(1.9rem, 5.2vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.pd-quote__by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  padding-top: 1rem;
+  border-top: 4px solid var(--pj-c);
+  font-size: 0.85rem;
+}
+
+.pd-quote__by b {
+  font-weight: 800;
+}
+
+.pd-quote__by span {
+  color: var(--text-muted);
+}

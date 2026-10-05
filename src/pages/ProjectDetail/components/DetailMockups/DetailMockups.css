@@ -1,0 +1,115 @@
+/* Repeating rhythm of 5: one wide, one tall-ish, three squares. The caption sits under each image. */
+.pd-mock-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.25rem) clamp(0.75rem, 1.6vw, 1.25rem);
+}
+
+.pd-mock {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+}
+
+.pd-mock:nth-child(5n + 1) { grid-column: span 4; }
+.pd-mock:nth-child(5n + 2) { grid-column: span 2; }
+.pd-mock:nth-child(5n + 3),
+.pd-mock:nth-child(5n + 4),
+.pd-mock:nth-child(5n + 5) { grid-column: span 2; }
+
+.pd-mock__media {
+  position: relative;
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  border: 2px solid var(--pd-line);
+  border-radius: 20px;
+  background: var(--pd-paper);
+}
+
+.pd-mock:nth-child(5n + 1) .pd-mock__media { aspect-ratio: 16 / 10; box-shadow: 8px 8px 0 var(--pd-shadow); }
+.pd-mock:nth-child(5n + 3) .pd-mock__media,
+.pd-mock:nth-child(5n + 4) .pd-mock__media,
+.pd-mock:nth-child(5n + 5) .pd-mock__media { aspect-ratio: 1; }
+
+.pd-mock__btn {
+  display: block;
+  flex: 1;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  background: none;
+  cursor: zoom-in;
+  font: inherit;
+  color: inherit;
+}
+
+.pd-mock__btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-mock__btn:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+.pd-mock__slot {
+  flex: 1;
+  border: 0;
+  border-radius: 18px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pd-mock__btn img {
+    transition: transform 400ms var(--pj-ease);
+  }
+
+  .pd-mock__btn:hover img {
+    transform: scale(1.03);
+  }
+}
+
+@media (max-width: 760px) {
+  .pd-mock-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pd-mock:nth-child(5n + 1) { grid-column: 1 / -1; }
+  .pd-mock:nth-child(5n + 2),
+  .pd-mock:nth-child(5n + 3),
+  .pd-mock:nth-child(5n + 4),
+  .pd-mock:nth-child(5n + 5) { grid-column: span 1; }
+
+  .pd-mock:nth-child(5n + 2) .pd-mock__media { aspect-ratio: 1; }
+
+  .pd-mock__media {
+    border-radius: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pd-mock__btn img {
+    transition: none !important;
+  }
+}
+
+/* Lightbox (reuses the shared Modal) */
+.lb-modal__panel.pd-lightbox {
+  max-width: min(1100px, 100%);
+}
+
+.pd-lightbox__img {
+  display: block;
+  width: 100%;
+  max-height: 80dvh;
+  object-fit: contain;
+  border: 2px solid #0a0a0a;
+  border-radius: 18px;
+  background: #fff;
+}

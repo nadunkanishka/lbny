@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@/components/ui/Button';
+import { Reveal } from '@/components/ui/Motion';
 import './Hero.css';
 
 export const Hero = () => {
@@ -18,7 +19,7 @@ export const Hero = () => {
 
 
       {/* Center Stage Area: Title Wordmark & Logo Layered on the Exact Same Center Axis */}
-      <div className="hero__asset-stage">
+      <Reveal variant="scale" className="hero__asset-stage">
         {/* Title Wordmark Container (Layered Behind Logo) */}
         <div className="hero__title-container">
           <div className="hero__title-asset-wrapper">
@@ -68,22 +69,22 @@ export const Hero = () => {
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
 
       {/* Headline, Subtitle & CTA Group */}
       <div className="hero__bottom-content">
-        <h1 className="hero__headline">
+        <Reveal as="h1" delay={1} className="hero__headline">
           Make it <span className="hero__headline-accent">matter.</span>
-        </h1>
+        </Reveal>
 
-        <p className="hero__description">
+        <Reveal as="p" delay={2} className="hero__description">
           We shape brand identities and digital experiences that make an idea impossible to ignore.
-        </p>
+        </Reveal>
 
-        <div className="hero__cta-group">
+        <Reveal delay={3} className="hero__cta-group">
           <Button to="/projects" variant="secondary" arrow={false}>Explore Projects</Button>
           <Button to="/about">About Us</Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

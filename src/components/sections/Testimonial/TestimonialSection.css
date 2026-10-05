@@ -35,7 +35,7 @@
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
-  color: #000000;
+  color: #000;
   margin: 0;
   padding-left: clamp(0rem, 5vw, 6rem);
   /* Align roughly with the edge of the card */
@@ -57,7 +57,7 @@
   height: clamp(50px, 6vw, 70px);
   border-radius: 50%;
   background-color: #DFF36B;
-  border: 2px solid #000000;
+  border: 2px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,10 +70,12 @@
     background-color 0.2s ease;
 }
 
-.testimonial-section__btn:hover {
-  background-color: #f5ffb3;
-  transform: scale(1.08);
-  box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .testimonial-section__btn:hover {
+    background-color: #f5ffb3;
+    transform: scale(1.08);
+    box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+  }
 }
 
 .testimonial-section__btn:active {
@@ -99,7 +101,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 2px solid #000000;
+  border: 2px solid #000;
   /* Whole-card entry animation — re-triggers every time key changes */
   animation: cardSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -121,7 +123,7 @@
 .testimonial-card__company {
   font-size: clamp(2rem, 3.6vw, 2.75rem);
   font-weight: 800;
-  color: #000000;
+  color: #000;
   margin: 0;
   letter-spacing: -0.025em;
   line-height: 1.15;
@@ -157,14 +159,14 @@
 .testimonial-card__quote-mark {
   font-size: clamp(2.4rem, 4vw, 3.25rem);
   font-weight: 800;
-  color: #000000;
+  color: #000;
   line-height: 0.85;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   user-select: none;
   pointer-events: none;
   align-self: flex-start;
   margin-left: clamp(0.5rem, 1.5vw, 1.5rem);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
   animation: testimonialFadeUp 0.4s 0.18s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -172,7 +174,7 @@
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   font-weight: 500;
   line-height: 1.55;
-  color: #000000;
+  color: #000;
   margin: 0 auto;
   width: 100%;
   max-width: 580px;
@@ -185,7 +187,7 @@
 .testimonial-card__author {
   font-size: clamp(1rem, 1.3vw, 1.15rem);
   font-weight: 500;
-  color: #000000;
+  color: #000;
   margin: 0;
   text-align: center;
   animation: testimonialFadeUp 0.45s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;

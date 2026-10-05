@@ -1,0 +1,176 @@
+/* The project's colour fills the top; the work breaks out of it across the bottom edge */
+.pd-hero {
+  position: relative;
+}
+
+.pd-hero__field {
+  position: relative;
+  padding-top: clamp(7rem, 12.5vh, 9rem);
+  padding-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.pd-hero__inner {
+  position: relative;
+}
+
+.pd-hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.pd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  color: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pd-back svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 200ms var(--pj-ease);
+}
+
+.pd-back:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pd-back:hover svg {
+    transform: translateX(-4px);
+  }
+}
+
+.pd-title {
+  font-size: clamp(3rem, 9.5vw, 9rem);
+  line-height: 0.95;
+  overflow-wrap: anywhere;
+  color: var(--text-color);
+}
+
+.pd-hero__field .lb-mask-heading {
+  color: var(--text-color);
+}
+
+.pd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: clamp(1.25rem, 3vh, 2rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pd-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 42px;
+  padding: 0 1.25rem;
+  border: 2px solid var(--text-color);
+  border-radius: 9999px;
+  box-shadow: 3px 3px 0 var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+/* Breakout stage */
+.pd-hero__stage {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+  padding-bottom: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+.pd-cover,
+.pd-logo-tile {
+  margin: 0;
+  overflow: hidden;
+  border: 2px solid var(--pd-line);
+  border-radius: 22px;
+  box-shadow: 10px 10px 0 var(--pd-shadow);
+}
+
+.pd-cover {
+  aspect-ratio: 16 / 8;
+  background: var(--pd-paper);
+}
+
+.pd-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pd-logo-tile {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 7;
+  background: #fff;
+}
+
+.pd-logo-tile img {
+  max-width: 38%;
+  max-height: 58%;
+  object-fit: contain;
+}
+
+/* Fallback when a project has no images yet: the generated plate */
+.pd-hero__plate {
+  aspect-ratio: 21 / 9;
+  border-radius: 22px;
+  border: 2px solid var(--pd-line);
+  box-shadow: 10px 10px 0 var(--pd-shadow);
+}
+
+.pd-hero__plate .pj-plate__num {
+  font-size: clamp(8rem, 22vw, 20rem);
+}
+
+.pd-hero__plate .pj-plate__logo {
+  width: min(36%, 28rem);
+  max-height: 40%;
+}
+
+.pd-hero__plate .pj-plate__word {
+  font-size: clamp(2rem, 4.5vw, 4.5rem);
+}
+
+@media (max-width: 640px) {
+  .pd-cover,
+  .pd-logo-tile {
+    border-radius: 16px;
+    box-shadow: 6px 6px 0 var(--pd-shadow);
+  }
+
+  .pd-logo-tile {
+    aspect-ratio: 4 / 3;
+  }
+
+  .pd-logo-tile img {
+    max-width: 58%;
+  }
+
+  .pd-hero__plate {
+    aspect-ratio: 4 / 3;
+    box-shadow: 6px 6px 0 var(--pd-shadow);
+  }
+}
+
+/* The generated plate shows the project number; the page doesn't */
+.pd-hero__plate .pj-plate__num {
+  display: none;
+}

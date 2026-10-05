@@ -1,0 +1,145 @@
+/* The result, in marker */
+.pd-result {
+  margin-bottom: clamp(2rem, 5vh, 3.25rem);
+}
+
+.pd-result__label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pd-result__text {
+  margin: 0;
+  max-width: 62rem;
+  font-size: clamp(2rem, 5.2vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+
+.pd-result__text mark {
+  padding: 0.02em 0.22em;
+  border-radius: 0.2em;
+  background: #dff36b;
+  color: #0a0a0a;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Counting-up numbers */
+.pd-metrics,
+.pd-metrics-slot {
+  margin: 0 0 clamp(2rem, 5vh, 3.25rem);
+}
+
+.pd-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+  border-top: 2px solid var(--pd-line);
+}
+
+.pd-metric {
+  flex: 1 1 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.pd-metric + .pd-metric {
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--pd-line);
+}
+
+.pd-metric__num {
+  font-size: clamp(3.25rem, 8vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  color: #dff36b;
+}
+
+.pd-metric__label {
+  max-width: 16rem;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--text-soft);
+}
+
+/* Drawn title block, like the corner of a technical drawing */
+.pd-titleblock {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  margin: 0;
+  border: 2px solid var(--pd-line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pd-titleblock__cell {
+  padding: 1rem 1.25rem 1rem;
+}
+
+.pd-titleblock__cell + .pd-titleblock__cell {
+  border-left: 2px solid var(--pd-line);
+}
+
+.pd-titleblock__cell dt {
+  margin-bottom: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pd-titleblock__cell dd {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .pd-titleblock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pd-titleblock__cell:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  .pd-titleblock__cell:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .pd-titleblock__cell:nth-child(n + 3) {
+    border-top: 2px solid var(--pd-line);
+  }
+}
+
+@media (max-width: 520px) {
+  .pd-metric + .pd-metric {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 2px solid var(--pd-line);
+  }
+
+  .pd-titleblock {
+    grid-template-columns: 1fr;
+  }
+
+  .pd-titleblock__cell + .pd-titleblock__cell,
+  .pd-titleblock__cell:nth-child(n + 3) {
+    border-left: 0;
+    border-top: 2px solid var(--pd-line);
+  }
+}

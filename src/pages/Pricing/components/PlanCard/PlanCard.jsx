@@ -1,8 +1,9 @@
+import Button from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Motion';
 import './PlanCard.css';
 
 /** One pricing plan. `offset` is its position relative to the active card in the mobile coverflow. */
-export const PlanCard = ({ plan, index, offset, onSelect }) => (
+export const PlanCard = ({ plan, index, offset, onSelect, onGetStarted }) => (
   <Reveal
     as="article"
     delay={index + 1}
@@ -28,6 +29,14 @@ export const PlanCard = ({ plan, index, offset, onSelect }) => (
           <span className="pr-card__amount">{plan.price}</span>
         </p>
         <p className="pr-card__timeline">{plan.timeline}</p>
+        <Button
+          size="sm"
+          className="pr-card__cta"
+          // On the mobile carousel a side card's click bubbles up to bring it to the center instead
+          onClick={offset === 0 ? onGetStarted : undefined}
+        >
+          Select options
+        </Button>
       </div>
     </div>
   </Reveal>

@@ -67,7 +67,7 @@ Page content (copy, plans, team) lives in a `data.js` next to the page.
 
 ## Routes
 
-`/`, `/about`, `/projects`, `/pricing`, `/contact`, `/terms`, `/privacy`, and a catch-all 404.
+`/`, `/about`, `/projects`, `/projects/:slug`, `/pricing`, `/contact`, `/terms`, `/privacy`, and a catch-all 404.
 
 ## Deployment
 

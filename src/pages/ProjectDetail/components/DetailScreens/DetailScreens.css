@@ -1,0 +1,76 @@
+.pd-screens__desktop + .pd-screens__desktop {
+  margin-top: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+/* Phones: a staggered row hanging over the bottom edge of the band (see .pd-hang) */
+.pd-phones {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  padding-right: clamp(0rem, 6%, 5rem);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: calc(-1 * var(--hang, 0px));
+}
+
+.pd-phones__item:nth-child(2) {
+  translate: 0 clamp(-2.5rem, -3vw, -1rem);
+}
+
+.pd-phones__item:nth-child(3) {
+  translate: 0 clamp(0.5rem, 2vw, 2rem);
+}
+
+/* Phones: a tilted, overlapping cluster so all three show at once.
+   Tilt is on the inner .pd-phone, so it doesn't fight the item's own translate. */
+@media (max-width: 760px) {
+  .page-wrapper.project-detail {
+    --hang: 0px;
+  }
+
+  .pd-hang {
+    padding-bottom: var(--stage-pad);
+  }
+
+  .pd-phones {
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 1.5rem calc(-1 * clamp(1.5rem, 4vw, 3rem)) 0;
+    padding: 2.5rem 0 3rem;
+    overflow: hidden;
+  }
+
+  .pd-phones__item {
+    flex: 0 0 auto;
+    width: 29vw;
+    translate: none !important;
+  }
+
+  .pd-phones__item + .pd-phones__item {
+    margin-left: -3vw;
+  }
+
+  .pd-phones__item:nth-child(1) { z-index: 1; }
+  .pd-phones__item:nth-child(2) { z-index: 3; }
+  .pd-phones__item:nth-child(3) { z-index: 2; }
+
+  .pd-phones .pd-phone {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.25rem;
+    border-width: 1.5px;
+    border-radius: 1.2rem;
+    box-shadow: 4px 6px 0 var(--pd-shadow);
+  }
+
+  .pd-phones .pd-phone__screen {
+    border-radius: 0.95rem;
+  }
+
+  .pd-phones__item:nth-child(1) .pd-phone { transform: translateY(1rem) rotate(-7deg); }
+  .pd-phones__item:nth-child(2) .pd-phone { transform: translateY(-0.75rem) rotate(2deg); }
+  .pd-phones__item:nth-child(3) .pd-phone { transform: translateY(1.5rem) rotate(8deg); }
+}

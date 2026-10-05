@@ -4,7 +4,7 @@ import { useSEO } from '@/hooks/useSEO';
 
 export const ContactPage = () => {
   useSEO({
-    title: 'Contact Studio Liberny | Start Your Brand or Website Project',
+    title: 'Contact | Studio Liberny',
     description:
       'Tell us about your brand or website project. Studio Liberny replies within one working day. Based in Colombo, working worldwide.',
     path: '/contact',
