@@ -5,7 +5,7 @@
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://api.emailjs.com; base-uri 'self'; object-src 'none'; form-action 'self'; frame-ancestors 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: blob:; connect-src 'self' https://api.emailjs.com; base-uri 'self'; object-src 'none'; form-action 'self'; frame-ancestors 'self'
 
 # The HTML shell must never be cached long, or a deploy won't reach returning visitors
 /
@@ -19,6 +19,9 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
 /*.png

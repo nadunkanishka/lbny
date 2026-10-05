@@ -21,7 +21,7 @@ export const PROJECTS = [
     name: 'Essa Art Studio',
     client: 'Essa Almohannadi',
     country: 'Qatar',
-    logo: `${LOGO}essa-art-studio.png`,
+    logo: `${LOGO}essa-art-studio.webp`,
     color: '#cfe0b4',
     disciplines: ['Web'],
     services: ['Web design'],

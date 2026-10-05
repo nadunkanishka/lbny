@@ -3,12 +3,12 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import './ClientsSection.css';
 
 const clients = [
-  { name: 'Zeal by Roche', src: '/assets/home/clients/zeal-by-roche-new.png' },
-  { name: 'Hummingbirds Learning Center', src: '/assets/home/clients/hummingbirds.png' },
-  { name: 'Hypervoid', src: '/assets/home/clients/hypervoid.png' },
-  { name: 'Maha Guru Center', src: '/assets/home/clients/maha-guru-center.png' },
-  { name: 'The Fabulous Getaway', src: '/assets/home/clients/the-fabulous-getaway.png' },
-  { name: 'Essa Art Studio', src: '/assets/home/clients/essa-art-studio.png' }
+  { name: 'Zeal by Roche', src: '/assets/home/clients/zeal-by-roche-new.webp' },
+  { name: 'Hummingbirds Learning Center', src: '/assets/home/clients/hummingbirds.webp' },
+  { name: 'Hypervoid', src: '/assets/home/clients/hypervoid.webp' },
+  { name: 'Maha Guru Center', src: '/assets/home/clients/maha-guru-center.webp' },
+  { name: 'The Fabulous Getaway', src: '/assets/home/clients/the-fabulous-getaway.webp' },
+  { name: 'Essa Art Studio', src: '/assets/home/clients/essa-art-studio.webp' }
 ];
 
 export const ClientsSection = () => {

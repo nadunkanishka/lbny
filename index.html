@@ -17,12 +17,10 @@
   <!-- Google Search Console verification (token only, without the "google-site-verification=" prefix) -->
   <meta name="google-site-verification" content="PqE60uZt5R4Gpj-dCf-6iYXgehi4kXYYUwZ0eWux--4" />
 
-  <!-- Preconnect to Google Fonts for Core Web Vitals optimization -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400..800&display=swap"
-    rel="stylesheet" />
+  <!-- Plus Jakarta Sans is self-hosted (see @font-face in src/index.css): no render-blocking Google Fonts request.
+       The logo is the LCP element and React only renders it after the JS loads, so it is preloaded here. -->
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/brand/icon-purple.svg" as="image" fetchpriority="high" />
 
   <!-- Primary Meta Tags -->
   <title>Studio Liberny | Brand Identity & Web Design Studio</title>

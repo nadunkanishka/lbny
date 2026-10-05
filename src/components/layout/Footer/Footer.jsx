@@ -25,7 +25,7 @@ export default function Footer() {
             <Link
               to="/contact"
               className="footer__cta-circle"
-              aria-label="Start a project with Studio Liberny"
+              aria-label="Start a project with us"
             >
               <span className="footer__cta-ripple" aria-hidden="true" />
               <div className="footer__cta-arrow-box" aria-hidden="true">
@@ -75,8 +75,8 @@ export default function Footer() {
           {/* ── Contact row ── */}
           <div className="footer__contact-row">
             <div className="footer__contact-left">
-              <a href="tel:+94779760339" className="footer__contact-item" aria-label="Call Studio Liberny">+94 77 976 0339</a>
-              <a href="mailto:info@studioliberny.com" className="footer__contact-item" aria-label="Email Studio Liberny">info@studioliberny.com</a>
+              <a href="tel:+94779760339" className="footer__contact-item" aria-label="Call +94 77 976 0339">+94 77 976 0339</a>
+              <a href="mailto:info@studioliberny.com" className="footer__contact-item" aria-label="Email info@studioliberny.com">info@studioliberny.com</a>
             </div>
             <div className="footer__contact-right">
               <span className="footer__contact-item">Colombo, Sri Lanka</span>

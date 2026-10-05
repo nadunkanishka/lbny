@@ -8,6 +8,7 @@ export const Logo = ({ size = 32, className = '' }) => {
         alt="Studio Liberny Logo"
         width={size}
         height={size}
+        fetchPriority="high"
         className="rekorder-logo-img"
         style={{ objectFit: 'contain', width: '100%', height: '100%' }}
       />
