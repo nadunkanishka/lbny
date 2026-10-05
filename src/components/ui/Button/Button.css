@@ -18,7 +18,7 @@ html.light-theme {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  padding: 0.95rem 2.1rem;
+  padding: 1rem 2rem;
   background: var(--lb-btn-bg);
   color: var(--lb-btn-ink);
   font-family: inherit;
@@ -97,6 +97,6 @@ html:not(.light-theme) .lb-btn--secondary {
 
 @media (max-width: 600px) {
   .lb-btn:not(.lb-btn--sm) {
-    padding: 0.85rem 1.6rem;
+    padding: 0.75rem 1.5rem;
   }
 }

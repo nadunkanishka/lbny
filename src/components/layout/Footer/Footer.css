@@ -38,7 +38,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 32px;
+  gap: 2rem;
   margin-top: auto;
   margin-bottom: clamp(20px, 3vh, 36px);
 }
@@ -54,7 +54,7 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #DFF36B;
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
   line-height: 1;
 }
 
@@ -85,7 +85,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
   width: 156px;
   height: 156px;
   border-radius: 50%;
@@ -206,7 +206,7 @@
 .footer__nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   margin-bottom: clamp(24px, 3vh, 44px);
 }
 
@@ -266,7 +266,7 @@
 .footer__wordmark-wrap {
   width: 100%;
   margin: 0;
-  padding: 8px 0 0;
+  padding: 0.5rem 0 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -311,7 +311,7 @@
 .footer__legal {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 2rem;
 }
 
 .footer__legal-link {
@@ -368,7 +368,7 @@
   .footer__eyebrow {
     font-size: 12px;
     letter-spacing: 0.14em;
-    margin: 0 0 10px;
+    margin: 0 0 0.5rem;
   }
 
   .footer__headline {
@@ -384,7 +384,7 @@
   .footer__cta-circle {
     width: 110px;
     height: 110px;
-    gap: 5px;
+    gap: 0.25rem;
   }
 
   .footer__cta-label {
@@ -408,7 +408,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 20px;
+    gap: 1.25rem;
     margin-bottom: clamp(28px, 4vh, 36px);
     width: 100%;
     box-sizing: border-box;
@@ -485,7 +485,7 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 0.75rem;
     padding-top: clamp(12px, 1.8vh, 16px);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
@@ -499,7 +499,7 @@
   .footer__legal {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
   }
 }
 
@@ -507,7 +507,7 @@
   .footer__middle {
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   .footer__contact-row,

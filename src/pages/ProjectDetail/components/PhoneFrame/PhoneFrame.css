@@ -1,7 +1,7 @@
 .pd-phone {
   margin: 0;
   width: clamp(9.5rem, 21vw, 15rem);
-  padding: 0.45rem;
+  padding: 0.5rem;
   border: 2px solid var(--pd-line);
   border-radius: 2.1rem;
   background: var(--pd-paper);

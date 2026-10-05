@@ -54,7 +54,7 @@ html:not(.light-theme) .faq-section__title-accent {
 
 .faq-section__intro {
   font-size: clamp(1rem, 1.25vw, 1.25rem);
-  font-weight: 450;
+  font-weight: 500;
   line-height: 1.6;
   color: var(--text-muted);
   margin: 0;

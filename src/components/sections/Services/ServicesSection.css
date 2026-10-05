@@ -60,7 +60,7 @@ html:not(.light-theme) .services-section__title-accent {
 
 .services-section__lead {
   font-size: clamp(1rem, 1.2vw, 1.18rem);
-  font-weight: 450;
+  font-weight: 500;
   line-height: 1.62;
   color: var(--text-muted);
   margin: 0;
