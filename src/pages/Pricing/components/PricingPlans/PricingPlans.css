@@ -13,7 +13,7 @@
 }
 
 .pr-title {
-  font-size: clamp(2.6rem, 5.2vw, 4.75rem);
+  font-size: var(--font-size-h1);
 }
 
 .pr-head__lead {

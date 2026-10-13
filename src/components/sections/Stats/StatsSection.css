@@ -38,7 +38,7 @@
 }
 
 .stats-section__headline {
-  font-size: clamp(3rem, 6vw, 5.6rem);
+  font-size: var(--font-size-h2);
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.04em;

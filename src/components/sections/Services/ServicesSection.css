@@ -35,7 +35,7 @@
 }
 
 .services-section__title {
-  font-size: clamp(2.85rem, 5.8vw, 5rem);
+  font-size: var(--font-size-h2);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;

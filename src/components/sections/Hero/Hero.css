@@ -297,7 +297,7 @@ html.light-theme .micro-dot {
 
 /* Make it matter. Headline */
 .hero__headline {
-  font-size: clamp(3.2rem, 6.8vw, 5.8rem);
+  font-size: var(--font-size-h1);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;

@@ -5,7 +5,7 @@
 }
 
 .ab-team .lb-mask-heading {
-  font-size: clamp(2.4rem, 4.6vw, 4.25rem);
+  font-size: var(--font-size-h2);
 }
 
 .ab-team__lead {

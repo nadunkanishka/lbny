@@ -29,7 +29,7 @@
 }
 
 .faq-section__title {
-  font-size: clamp(2.8rem, 5.6vw, 5rem);
+  font-size: var(--font-size-h2);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;

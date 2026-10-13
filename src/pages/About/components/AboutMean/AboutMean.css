@@ -9,7 +9,7 @@
 }
 
 .ab-mean .lb-mask-heading {
-  font-size: clamp(2.2rem, 4.2vw, 3.75rem);
+  font-size: var(--font-size-h2);
 }
 
 .ab-mean__small {
