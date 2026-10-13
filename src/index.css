@@ -20,6 +20,14 @@
 }
 
 :root {
+  /* Type scale for running text. Body copy is 16px (1rem; the root font size is left at the browser default).
+     Lead is the one larger size for intro / statement paragraphs. Headings, nav, buttons, labels, captions
+     and fine print keep their own sizes. */
+  --font-size-body: 1rem;
+  --line-height-body: 1.6;
+  --font-size-lead: 1.25rem;
+  --line-height-lead: 1.5;
+
   --grid-unit: 50px;
   --bg-color: #090a0f;
   --text-color: #f3f4f6;
@@ -103,6 +111,7 @@ input, textarea, select {
 }
 
 html, body {
+  font-size: var(--font-size-body);
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);

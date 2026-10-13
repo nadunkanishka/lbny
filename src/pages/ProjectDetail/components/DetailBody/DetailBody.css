@@ -32,8 +32,8 @@
 .pd-copy {
   margin: 0;
   max-width: 40rem;
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-  line-height: 1.5;
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-lead);
   color: var(--text-soft);
 }
 

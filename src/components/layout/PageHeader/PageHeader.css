@@ -48,12 +48,12 @@ html.light-theme .page-badge {
 }
 
 .page-subtitle {
-  font-size: 1.2rem;
+  font-size: var(--font-size-lead);
   font-weight: 500;
   color: #a1a1aa;
   max-width: 680px;
   margin: 0;
-  line-height: 1.6;
+  line-height: var(--line-height-lead);
 }
 
 html.light-theme .page-subtitle {

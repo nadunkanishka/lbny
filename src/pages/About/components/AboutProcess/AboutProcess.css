@@ -23,8 +23,8 @@
   justify-self: end;
   max-width: 24rem;
   text-align: right;
-  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
-  line-height: 1.4;
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-lead);
   color: #fff;
 }
 
@@ -91,8 +91,8 @@
 .ab-process__text {
   margin: 0;
   max-width: 34rem;
-  font-size: 0.95rem;
-  line-height: 1.55;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: rgba(255, 255, 255, 0.82);
 }
 

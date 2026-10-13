@@ -59,9 +59,9 @@ html:not(.light-theme) .services-section__title-accent {
 }
 
 .services-section__lead {
-  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  font-size: var(--font-size-body);
   font-weight: 500;
-  line-height: 1.62;
+  line-height: var(--line-height-body);
   color: var(--text-muted);
   margin: 0;
 }
@@ -222,9 +222,9 @@ html:not(.light-theme) .service-card::after {
 
 /* Card Description */
 .service-card__description {
-  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  font-size: var(--font-size-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: var(--line-height-body);
   color: var(--text-muted);
   max-width: 380px;
   margin: 0;

@@ -69,8 +69,8 @@
 
 .pd-metric__label {
   max-width: 16rem;
-  font-size: 0.9rem;
-  line-height: 1.35;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-soft);
 }
 
@@ -103,9 +103,9 @@
 
 .pd-titleblock__cell dd {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--font-size-body);
   font-weight: 700;
-  line-height: 1.3;
+  line-height: var(--line-height-body);
 }
 
 @media (max-width: 900px) {

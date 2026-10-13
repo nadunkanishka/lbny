@@ -18,9 +18,9 @@
 .ab-close__text {
   margin: 0;
   max-width: 34rem;
-  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  font-size: var(--font-size-lead);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: var(--line-height-lead);
   letter-spacing: -0.015em;
   color: var(--text-color);
 }

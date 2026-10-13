@@ -10,8 +10,8 @@
 
 .ab-team__lead {
   margin: 1.25rem 0 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-color);
 }
 
@@ -63,8 +63,8 @@
 .ab-member__text {
   margin: 1rem 0 0;
   max-width: 18rem;
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-muted);
 }
 

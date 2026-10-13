@@ -15,7 +15,7 @@
 .pj-closing__text {
   max-width: 40rem;
   margin: 1.75rem 0 2rem;
-  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
-  line-height: 1.3;
+  font-size: var(--font-size-lead);
+  line-height: var(--line-height-lead);
   letter-spacing: -0.015em;
 }
