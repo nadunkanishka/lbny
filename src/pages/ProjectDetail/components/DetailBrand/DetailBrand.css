@@ -135,7 +135,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 0.9rem;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }
 
 .pd-type__list li {

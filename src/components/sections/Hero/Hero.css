@@ -297,7 +297,7 @@ html.light-theme .micro-dot {
 
 /* Make it matter. Headline */
 .hero__headline {
-  font-size: clamp(3.2rem, 6.8vw, 5.8rem);
+  font-size: var(--font-size-h1);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -315,12 +315,12 @@ html:not(.light-theme) .hero__headline-accent {
 }
 
 .hero__description {
-  font-size: clamp(0.95rem, 1.2vw, 1.2rem);
+  font-size: var(--font-size-body);
   font-weight: 500;
   color: #4b5563;
   max-width: 620px;
   margin: 0;
-  line-height: 1.55;
+  line-height: var(--line-height-body);
   padding: 0 0.5rem;
   box-sizing: border-box;
 }

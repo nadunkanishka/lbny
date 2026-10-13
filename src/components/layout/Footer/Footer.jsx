@@ -1,7 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import wordmarkSvg from '@/assets/brand/wordmark-white.svg';
+import Button from '@/components/ui/Button';
 import './Footer.css';
+
+const NAV = [
+  { to: '/about', label: 'About us' },
+  { to: '/projects', label: 'Projects' },
+  { to: '/pricing', label: 'Pricing' },
+  { to: '/terms', label: 'Terms & Conditions' },
+  { to: '/privacy', label: 'Privacy Policy' },
+];
+
+/** Social icons: paths from the Figma footer (22px grid, drawn at their original coordinates). */
+const Instagram = () => (
+  <svg viewBox="313 286 22 22" width="22" height="22" fill="currentColor" aria-hidden="true">
+    <path d="M324.006 287.981C326.947 287.981 327.295 287.994 328.452 288.046C329.527 288.093 330.107 288.273 330.494 288.424C331.006 288.622 331.376 288.862 331.758 289.245C332.145 289.632 332.382 289.997 332.579 290.508C332.73 290.895 332.91 291.48 332.958 292.55C333.009 293.71 333.022 294.058 333.022 296.994C333.022 299.933 333.009 300.281 332.958 301.437C332.91 302.512 332.73 303.092 332.579 303.479C332.382 303.99 332.141 304.36 331.758 304.742C331.371 305.129 331.006 305.366 330.494 305.563C330.107 305.714 329.523 305.894 328.452 305.941C327.291 305.993 326.943 306.006 324.006 306.006C321.066 306.006 320.717 305.993 319.561 305.941C318.486 305.894 317.906 305.714 317.519 305.563C317.007 305.366 316.637 305.125 316.255 304.742C315.868 304.356 315.631 303.99 315.433 303.479C315.283 303.092 315.102 302.508 315.055 301.437C315.004 300.277 314.991 299.929 314.991 296.994C314.991 294.054 315.004 293.706 315.055 292.55C315.102 291.475 315.283 290.895 315.433 290.508C315.631 289.997 315.872 289.627 316.255 289.245C316.642 288.858 317.007 288.622 317.519 288.424C317.906 288.273 318.49 288.093 319.561 288.046C320.717 287.994 321.066 287.981 324.006 287.981ZM324.006 286C321.018 286 320.644 286.013 319.471 286.064C318.301 286.116 317.497 286.305 316.801 286.576C316.074 286.86 315.459 287.233 314.849 287.848C314.234 288.458 313.86 289.073 313.576 289.795C313.305 290.495 313.116 291.295 313.064 292.464C313.013 293.641 313 294.015 313 297.002C313 299.989 313.013 300.363 313.064 301.536C313.116 302.705 313.305 303.509 313.576 304.205C313.86 304.931 314.234 305.546 314.849 306.156C315.459 306.767 316.074 307.145 316.796 307.424C317.497 307.695 318.297 307.884 319.466 307.936C320.64 307.987 321.014 308 324.002 308C326.99 308 327.364 307.987 328.538 307.936C329.707 307.884 330.511 307.695 331.208 307.424C331.93 307.145 332.545 306.767 333.156 306.156C333.766 305.546 334.144 304.931 334.424 304.209C334.695 303.509 334.884 302.71 334.936 301.541C334.987 300.367 335 299.993 335 297.006C335 294.02 334.987 293.646 334.936 292.472C334.884 291.303 334.695 290.5 334.424 289.803C334.153 289.073 333.779 288.458 333.164 287.848C332.554 287.238 331.939 286.86 331.217 286.58C330.516 286.309 329.716 286.12 328.547 286.069C327.369 286.013 326.995 286 324.006 286Z" />
+    <path d="M324 291C320.687 291 318 293.687 318 297C318 300.313 320.687 303 324 303C327.313 303 330 300.313 330 297C330 293.687 327.313 291 324 291ZM324 300.892C321.851 300.892 320.108 299.149 320.108 297C320.108 294.851 321.851 293.108 324 293.108C326.149 293.108 327.892 294.851 327.892 297C327.892 299.149 326.149 300.892 324 300.892Z" />
+    <path d="M331 291C331 291.554 330.55 292 330 292C329.446 292 329 291.55 329 291C329 290.446 329.45 290 330 290C330.55 290 331 290.45 331 291Z" />
+  </svg>
+);
+
+const WhatsApp = () => (
+  <svg viewBox="357 286 22 22" width="22" height="22" fill="currentColor" aria-hidden="true">
+    <path d="M357 308L358.554 302.351C357.595 300.697 357.091 298.822 357.092 296.9C357.095 290.89 362.009 286 368.046 286C370.976 286.001 373.726 287.137 375.795 289.197C377.863 291.258 379.001 293.997 379 296.91C378.997 302.921 374.083 307.811 368.046 307.811C366.213 307.81 364.407 307.353 362.807 306.484L357 308ZM363.076 304.51C364.62 305.422 366.093 305.969 368.042 305.97C373.06 305.97 377.148 301.905 377.151 296.908C377.152 291.901 373.084 287.842 368.05 287.841C363.028 287.841 358.943 291.905 358.942 296.901C358.941 298.941 359.541 300.468 360.55 302.066L359.63 305.41L363.076 304.51ZM373.564 299.502C373.496 299.388 373.313 299.32 373.039 299.184C372.765 299.047 371.42 298.388 371.168 298.297C370.918 298.206 370.735 298.161 370.552 298.434C370.37 298.706 369.845 299.32 369.686 299.502C369.526 299.683 369.366 299.706 369.092 299.569C368.819 299.433 367.936 299.146 366.891 298.217C366.078 297.495 365.528 296.603 365.369 296.33C365.209 296.058 365.352 295.91 365.488 295.774C365.612 295.653 365.762 295.456 365.899 295.297C366.038 295.139 366.083 295.026 366.175 294.843C366.267 294.662 366.221 294.502 366.152 294.366C366.083 294.23 365.536 292.889 365.309 292.343C365.086 291.813 364.86 291.884 364.693 291.876L364.168 291.867C363.985 291.867 363.689 291.934 363.438 292.208C363.188 292.481 362.48 293.139 362.48 294.48C362.48 295.821 363.461 297.116 363.597 297.298C363.735 297.479 365.527 300.231 368.273 301.411C368.926 301.692 369.436 301.859 369.833 301.985C370.489 302.192 371.085 302.163 371.557 302.093C372.083 302.015 373.176 301.434 373.405 300.798C373.633 300.161 373.633 299.615 373.564 299.502Z" />
+  </svg>
+);
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,107 +32,38 @@ export default function Footer() {
   return (
     <footer className="footer" aria-label="Site footer">
       <div className="footer__inner">
-
-        {/* ── Top row ── */}
-        <div className="footer__top">
-          <div className="footer__top-left">
-            <p className="footer__eyebrow">The next idea starts here</p>
-
-            <h2 className="footer__headline">
-              Let&rsquo;s make<br />
-              something <em className="footer__headline-accent">matter.</em>
-            </h2>
-          </div>
-
-          <div className="footer__top-right">
-            <Link
-              to="/contact"
-              className="footer__cta-circle"
-              aria-label="Start a project with us"
-            >
-              <span className="footer__cta-ripple" aria-hidden="true" />
-              <div className="footer__cta-arrow-box" aria-hidden="true">
-                <svg
-                  className="footer__cta-arrow footer__cta-arrow--base"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-                <svg
-                  className="footer__cta-arrow footer__cta-arrow--hover"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-              </div>
-              <span className="footer__cta-label">Start a project<br />with us</span>
-            </Link>
+        <div className="footer__brand">
+          <Link to="/" className="footer__logo-link" aria-label="Studio Liberny home">
+            <img className="footer__logo footer__logo--light" src="/assets/brand/footer-logo.webp" alt="Studio Liberny" width="199" height="54" />
+            <img className="footer__logo footer__logo--dark" src="/assets/brand/footer-logo-dark.webp" alt="" width="199" height="54" aria-hidden="true" />
+          </Link>
+          <p className="footer__tagline">A brand people remember. A website people want to use. A clear direction for what comes next.</p>
+          <a href="mailto:info@studioliberny.com" className="footer__contact">info@studioliberny.com</a>
+          <span className="footer__contact footer__contact--static">Colombo, Sri Lanka</span>
+          <div className="footer__social">
+            <a href="https://instagram.com/studioliberny" target="_blank" rel="noopener noreferrer" aria-label="Studio Liberny on Instagram"><Instagram /></a>
+            <a href="https://wa.me/94779760339" target="_blank" rel="noopener noreferrer" aria-label="Chat with Studio Liberny on WhatsApp"><WhatsApp /></a>
           </div>
         </div>
 
-        {/* ── Middle: Nav & Contact ── */}
-        <div className="footer__middle">
-          {/* ── Nav links ── */}
-          <nav className="footer__nav" aria-label="Footer navigation">
-            <Link to="/about" className="footer__nav-link">About us</Link>
-            <Link to="/projects" className="footer__nav-link">Projects</Link>
-            <Link to="/pricing" className="footer__nav-link">Pricing</Link>
-          </nav>
-
-          {/* ── Contact row ── */}
-          <div className="footer__contact-row">
-            <div className="footer__contact-left">
-              <a href="tel:+94779760339" className="footer__contact-item" aria-label="Call +94 77 976 0339">+94 77 976 0339</a>
-              <a href="mailto:info@studioliberny.com" className="footer__contact-item" aria-label="Email info@studioliberny.com">info@studioliberny.com</a>
-            </div>
-            <div className="footer__contact-right">
-              <span className="footer__contact-item">Colombo, Sri Lanka</span>
-            </div>
-          </div>
+        <div className="footer__cta">
+          <h2 className="footer__headline">
+            Interested in<br />
+            working <span className="footer__headline-accent">with us?</span>
+          </h2>
+          <Button to="/contact" size="sm" arrow={false}>Let&rsquo;s chat</Button>
         </div>
 
+        <p className="footer__copy">&copy; {currentYear} Studio Liberny. All rights reserved</p>
+
+        <nav className="footer__nav" aria-label="Footer navigation">
+          {NAV.map((item) => (
+            <Link key={item.to} to={item.to} className="footer__nav-link">{item.label}</Link>
+          ))}
+        </nav>
       </div>
 
-      {/* ── Giant wordmark (full-bleed edge-to-edge) ── */}
-      <div className="footer__wordmark-wrap" aria-hidden="true">
-        <img
-          src={wordmarkSvg}
-          alt="Studio Liberny"
-          className="footer__wordmark-img"
-          draggable="false"
-          width="1800"
-          height="450"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-
-      <div className="footer__inner footer__inner--bottom">
-        {/* ── Bottom bar ── */}
-        <div className="footer__bottom">
-          <p className="footer__copy">&copy; {currentYear} Studio Liberny</p>
-          <div className="footer__legal">
-            <Link to="/terms" className="footer__legal-link">Terms &amp; Conditions</Link>
-            <Link to="/privacy" className="footer__legal-link">Privacy Policy</Link>
-          </div>
-        </div>
-      </div>
+      <div className="footer__wordmark" aria-hidden="true" />
     </footer>
   );
 }

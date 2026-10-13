@@ -109,7 +109,7 @@ html:not(.light-theme) .page-wrapper.project-detail {
 }
 
 .pd-head__title {
-  font-size: clamp(2.6rem, 7vw, 6rem);
+  font-size: var(--font-size-h2);
   line-height: 0.98;
   color: var(--text-color);
 }

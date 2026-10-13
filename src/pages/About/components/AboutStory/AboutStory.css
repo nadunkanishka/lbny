@@ -10,8 +10,8 @@
 
 .ab-story__text p {
   margin: 0 0 1.25rem;
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-color);
 }
 

@@ -18,7 +18,8 @@ export const DetailBody = ({ project, assets, slots }) => {
   const isBrand = project.disciplines.includes('Brand identity');
 
   const hasScreens = assets.desktop.length > 0 || assets.mobile.length > 0 || (slots && isWeb);
-  const hasBrand = assets.logo.length > 0 || Boolean(project.brand) || (slots && isBrand);
+  // The identity board is for brand-identity projects only; web projects keep their logo for the hero and previews
+  const hasBrand = isBrand && (assets.logo.length > 0 || Boolean(project.brand) || slots);
   const hasCompare = assets.before.length > 0 || assets.after.length > 0 || (slots && isBrand);
   const hasProcess = assets.process.length > 0 || (slots && isBrand);
   const hasMockups = assets.mockup.length > 0 || (slots && isBrand);

@@ -72,7 +72,7 @@ html:not(.light-theme) .cm-card {
 
 .cm-title {
   margin: 0 0 var(--cm-space-l);
-  font-size: clamp(2rem, min(14cqw, 9vh), 5rem);
+  font-size: clamp(2rem, min(14cqw, 9vh), 3.75rem);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.04em;
@@ -183,9 +183,9 @@ html:not(.light-theme) .cm-social-pill--instagram {
 
 .cm-location {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: var(--font-size-body);
   font-weight: 700;
-  line-height: 1.15;
+  line-height: var(--line-height-body);
   letter-spacing: -0.01em;
   color: var(--text-color);
 }
@@ -246,8 +246,8 @@ html:not(.light-theme) .cm-social-pill--instagram {
 
 .cm-step-text {
   margin: 0.15rem 0 0;
-  font-size: clamp(0.82rem, 1.7vh, 0.95rem);
-  line-height: 1.5;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-muted);
 }
 
@@ -426,9 +426,9 @@ html:not(.light-theme) .cm-social-pill--instagram {
 
 .cm-success-msg {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: var(--font-size-lead);
   font-weight: 600;
-  line-height: 1.6;
+  line-height: var(--line-height-lead);
   color: var(--text-color);
 }
 
@@ -456,7 +456,7 @@ html:not(.light-theme) .cm-social-pill--instagram {
     order: 1;
     margin-bottom: 0;
     /* cqw doesn't work once .cm-info is display: contents, so size from the viewport */
-    font-size: clamp(2.2rem, 10.5vw, 4.5rem);
+    font-size: clamp(2.2rem, 10.5vw, 3.75rem);
   }
 
   .cm-contact {

@@ -8,14 +8,14 @@
 }
 
 .ab-hero__title {
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: var(--font-size-h1);
 }
 
 .ab-hero__lead {
   max-width: 30rem;
   margin: 1.5rem 0 0;
-  font-size: 1.05rem;
-  line-height: 1.5;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-soft);
 }
 
