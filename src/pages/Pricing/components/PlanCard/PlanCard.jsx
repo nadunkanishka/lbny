@@ -2,14 +2,18 @@ import Button from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Motion';
 import './PlanCard.css';
 
+// Cards only act as a carousel on phones (matches the 640px breakpoint in PlanCard.css);
+// on larger screens every card is fully visible, so its button must open the form on the first click.
+const isCoverflow = () => window.matchMedia('(max-width: 640px)').matches;
+
 /** One pricing plan. `offset` is its position relative to the active card in the mobile coverflow. */
-export const PlanCard = ({ plan, index, offset, onSelect, onGetStarted }) => (
+export const PlanCard = ({ plan, price, index, offset, onSelect, onGetStarted }) => (
   <Reveal
     as="article"
     delay={index + 1}
     className={`pr-slot${offset === 0 ? ' is-active' : ''}`}
     style={{ '--o': offset, '--abs': Math.abs(offset), zIndex: 10 - Math.abs(offset) }}
-    onClick={offset !== 0 ? onSelect : undefined}
+    onClick={offset !== 0 && isCoverflow() ? onSelect : undefined}
   >
     <div className={`pr-card${plan.featured ? ' pr-card--featured' : ''}`}>
       <p className="pr-card__kicker">{plan.kicker}</p>
@@ -26,14 +30,14 @@ export const PlanCard = ({ plan, index, offset, onSelect, onGetStarted }) => (
       <div className="pr-card__foot">
         <p className="pr-card__price">
           <span className="pr-card__from">From</span>
-          <span className="pr-card__amount">{plan.price}</span>
+          <span className="pr-card__amount">{price ?? plan.price}</span>
         </p>
         <p className="pr-card__timeline">{plan.timeline}</p>
         <Button
           size="sm"
           className="pr-card__cta"
           // On the mobile carousel a side card's click bubbles up to bring it to the center instead
-          onClick={offset === 0 ? onGetStarted : undefined}
+          onClick={offset === 0 || !isCoverflow() ? onGetStarted : undefined}
         >
           Select options
         </Button>

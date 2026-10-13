@@ -29,7 +29,7 @@
 }
 
 .faq-section__title {
-  font-size: clamp(2.8rem, 5.6vw, 5rem);
+  font-size: var(--font-size-h2);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -53,9 +53,9 @@ html:not(.light-theme) .faq-section__title-accent {
 }
 
 .faq-section__intro {
-  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  font-size: var(--font-size-body);
   font-weight: 500;
-  line-height: 1.6;
+  line-height: var(--line-height-body);
   color: var(--text-muted);
   margin: 0;
   max-width: 28rem;
@@ -181,8 +181,8 @@ html:not(.light-theme) .faq-item__icon::after {
 
 .faq-item__answer {
   padding-bottom: clamp(1.5rem, 2.5vw, 2rem);
-  font-size: clamp(1rem, 1.15vw, 1.15rem);
-  line-height: 1.6;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-muted);
   max-width: 600px;
 }

@@ -8,15 +8,15 @@
 }
 
 .pj-title {
-  font-size: clamp(3rem, 8vw, 7.5rem);
+  font-size: var(--font-size-h2);
 }
 
 .pj-head__lead {
   max-width: 30rem; /* wide enough for two lines: the intro, then the hint */
   margin: 0;
   text-align: right;
-  font-size: 0.95rem;
-  line-height: 1.45;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
   color: var(--text-color);
 }
 

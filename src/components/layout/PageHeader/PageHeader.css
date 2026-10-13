@@ -39,7 +39,7 @@ html.light-theme .page-badge {
 
 .page-title {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-size: var(--font-size-h2);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1.5px;
@@ -48,12 +48,12 @@ html.light-theme .page-badge {
 }
 
 .page-subtitle {
-  font-size: 1.2rem;
+  font-size: var(--font-size-lead);
   font-weight: 500;
   color: #a1a1aa;
   max-width: 680px;
   margin: 0;
-  line-height: 1.6;
+  line-height: var(--line-height-lead);
 }
 
 html.light-theme .page-subtitle {

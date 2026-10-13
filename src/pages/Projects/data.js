@@ -21,7 +21,7 @@ export const PROJECTS = [
     name: 'Essa Art Studio',
     client: 'Essa Almohannadi',
     country: 'Qatar',
-    logo: `${LOGO}essa-art-studio.png`,
+    logo: `${LOGO}essa-art-studio.webp`,
     color: '#cfe0b4',
     disciplines: ['Web'],
     services: ['Web design'],
@@ -29,7 +29,7 @@ export const PROJECTS = [
     url: 'essaartstudio.com',
     brand: { palette: [{ name: 'Primary Light', hex: '#FEFFFA', weight: 2 }, { name: 'Primary Dark', hex: '#070707', weight: 2 }, { name: 'Accent Green', hex: '#37451C' }], fonts: [{ name: 'Helvetica Now Display Medium', role: 'Headings and key messages' }, { name: 'Helvetica Now Display Regular', role: 'Body text' }, { name: 'Helvetica Now Display Medium Italic', role: 'Accents, used sparingly' }] },
     quote: { text: '', name: 'Essa Almohannadi', role: 'Artist, Essa Art Studio' },
-    metrics: [{ value: 5, suffix: '', label: 'Pages designed' }, { value: 3, suffix: 'x', label: 'Faster than before' }],
+    metrics: [{ value: 5, suffix: '', label: 'Pages designed' }, { value: 100, suffix: '%', label: 'Mobile-first design' }],
     story: [{ title: 'The approach', text: 'Essa’s signature is the brand, so the website steps back and lets it lead. A black and white foundation with a single green accent, generous white space and typography-led layouts give the artwork a quiet, gallery-style stage. Everything is built mobile first, so the work reads just as well on a phone as on a desktop.' }],
   },
 ];

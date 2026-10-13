@@ -38,7 +38,7 @@ export const TestimonialSection = () => {
     <section className="testimonial-section" ref={sectionRef}>
       <div className="testimonial-section__inner">
         <h2 className={`testimonial-section__title reveal reveal--left ${sectionVisible ? 'is-visible' : ''}`}>
-          In their<br />own words.
+          In their own words.
         </h2>
 
         <div className={`testimonial-section__slider reveal reveal--scale reveal-d2 ${sectionVisible ? 'is-visible' : ''}`}>

@@ -51,7 +51,7 @@
 }
 
 .pd-title {
-  font-size: clamp(3rem, 9.5vw, 9rem);
+  font-size: var(--font-size-h2);
   line-height: 0.95;
   overflow-wrap: anywhere;
   color: var(--text-color);

@@ -38,7 +38,7 @@
 }
 
 .stats-section__headline {
-  font-size: clamp(3rem, 6vw, 5.6rem);
+  font-size: var(--font-size-h2);
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.04em;
@@ -51,9 +51,9 @@
 }
 
 .stats-section__subtext {
-  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-size: var(--font-size-body);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   color: rgba(255, 255, 255, 0.55);
   max-width: 580px;
   margin: 0;
