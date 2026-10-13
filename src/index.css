@@ -64,7 +64,7 @@
 }
 
 html.light-theme {
-  --bg-color: #f8f9fc;
+  --bg-color: #f5f5f0;
   --text-color: #0f1015;
   --text-muted: #64748b;
   --text-soft: rgba(15, 16, 21, 0.66);

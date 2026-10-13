@@ -41,7 +41,7 @@ export const Navbar = () => {
     document.documentElement.classList.toggle('light-theme', !isDarkMode);
     window.localStorage.setItem('studio-liberny-theme', isDarkMode ? 'dark' : 'light');
     // Browser / status bar colour follows the app's own theme (same values as --bg-color)
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDarkMode ? '#090a0f' : '#f8f9fc');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDarkMode ? '#090a0f' : '#f5f5f0');
   }, [isDarkMode]);
 
   // PillNav-style animations: hover circle + label roll on the desktop links, and a load-in

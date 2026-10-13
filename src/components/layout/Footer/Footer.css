@@ -1,6 +1,6 @@
 /* Footer: white in light mode, inverted in dark mode. Layout follows the Figma design. */
 .footer {
-  --ft-bg: #fff;
+  --ft-bg: var(--bg-color);
   --ft-ink: #0a0a0a;
   --ft-soft: rgba(10, 10, 10, 0.5);
   --ft-accent: #7c3aed;
