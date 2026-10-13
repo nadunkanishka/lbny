@@ -28,7 +28,8 @@
   --font-size-lead: 1.25rem;
   --line-height-lead: 1.5;
 
-  /* Headings: h1 is 80px and every section h2 is 60px from tablet up; both scale down on phones. */
+  /* Headings: only the Home and About page titles are 80px (--font-size-h1). Every other page title and section
+     heading is 60px (--font-size-h2). Both scale down on phones. */
   --font-size-h1: clamp(2.8rem, 12.5vw, 5rem);
   --font-size-h2: clamp(2.5rem, 11vw, 3.75rem);
 
