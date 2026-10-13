@@ -44,20 +44,6 @@ export const PricingPlans = ({ plans = PLANS }) => {
         </Reveal>
       </div>
 
-      <div className="pr-currency" role="group" aria-label="Currency">
-        {['USD', 'LKR'].map((c) => (
-          <button
-            key={c}
-            type="button"
-            className="pr-currency__btn"
-            aria-pressed={currency === c}
-            onClick={() => chooseCurrency(c)}
-          >
-            {c}
-          </button>
-        ))}
-      </div>
-
       <div className="pr-grid" {...swipeHandlers}>
         {plans.map((plan, i) => (
           <PlanCard
@@ -81,13 +67,29 @@ export const PricingPlans = ({ plans = PLANS }) => {
         itemLabel="plan"
       />
 
-      <Reveal as="p" className="pr-note">
-        {currency === 'LKR'
-          ? `LKR prices are approximate, converted at today's rate (1 USD ≈ Rs ${Math.round(rate)}). `
-          : 'All starting prices are in USD. '}
-        Final scope and fees are agreed before work begins.<br />
-        Timelines depend on content readiness and feedback.
-      </Reveal>
+      <div className="pr-foot">
+        <Reveal as="p" className="pr-note">
+          {currency === 'LKR'
+            ? `LKR prices are approximate, converted at today's rate (1 USD ≈ Rs ${Math.round(rate)}). `
+            : 'All starting prices are in USD. '}
+          Final scope and fees are agreed before work begins.<br />
+          Timelines depend on content readiness and feedback.
+        </Reveal>
+        <div className="pr-currency" role="group" aria-label="Currency" data-currency={currency}>
+          <span className="pr-currency__thumb" aria-hidden="true" />
+          {['USD', 'LKR'].map((c) => (
+            <button
+              key={c}
+              type="button"
+              className="pr-currency__btn"
+              aria-pressed={currency === c}
+              onClick={() => chooseCurrency(c)}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {selectedPlan && (
         <Modal
