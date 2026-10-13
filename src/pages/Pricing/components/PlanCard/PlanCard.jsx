@@ -30,7 +30,7 @@ export const PlanCard = ({ plan, price, index, offset, onSelect, onGetStarted })
       <div className="pr-card__foot">
         <p className="pr-card__price">
           <span className="pr-card__from">From</span>
-          <span className={`pr-card__amount${(price ?? plan.price).length > 6 ? ' pr-card__amount--long' : ''}`}>{price ?? plan.price}</span>
+          <span className="pr-card__amount">{price ?? plan.price}</span>
         </p>
         <p className="pr-card__timeline">{plan.timeline}</p>
         <Button
