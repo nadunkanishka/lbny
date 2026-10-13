@@ -140,7 +140,7 @@
 @media (max-width: 640px) {
   .pr-foot {
     flex-direction: column-reverse;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .pr-foot .pr-note {
