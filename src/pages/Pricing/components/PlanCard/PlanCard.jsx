@@ -7,7 +7,7 @@ import './PlanCard.css';
 const isCoverflow = () => window.matchMedia('(max-width: 640px)').matches;
 
 /** One pricing plan. `offset` is its position relative to the active card in the mobile coverflow. */
-export const PlanCard = ({ plan, index, offset, onSelect, onGetStarted }) => (
+export const PlanCard = ({ plan, price, index, offset, onSelect, onGetStarted }) => (
   <Reveal
     as="article"
     delay={index + 1}
@@ -30,7 +30,7 @@ export const PlanCard = ({ plan, index, offset, onSelect, onGetStarted }) => (
       <div className="pr-card__foot">
         <p className="pr-card__price">
           <span className="pr-card__from">From</span>
-          <span className="pr-card__amount">{plan.price}</span>
+          <span className={`pr-card__amount${(price ?? plan.price).length > 6 ? ' pr-card__amount--long' : ''}`}>{price ?? plan.price}</span>
         </p>
         <p className="pr-card__timeline">{plan.timeline}</p>
         <Button

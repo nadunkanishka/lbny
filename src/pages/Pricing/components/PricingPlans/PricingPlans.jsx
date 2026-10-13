@@ -4,6 +4,7 @@ import Modal from '@/components/ui/Modal';
 import { ContactForm } from '@/components/sections/Contact';
 import CoverflowNav from '@/components/ui/CoverflowNav';
 import { useCoverflow } from '@/hooks/useCoverflow';
+import { useUsdToLkr, formatPrice } from '@/hooks/useUsdToLkr';
 import { PLANS } from '../../data';
 import PlanCard from '../PlanCard';
 import './PricingPlans.css';
@@ -12,6 +13,23 @@ export const PricingPlans = ({ plans = PLANS }) => {
   // Mobile: the plans become a coverflow carousel (same effect as the team on the About page)
   const { active, setActive, step, offsetOf, swipeHandlers } = useCoverflow(plans.length);
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [currency, setCurrency] = useState(() => {
+    try {
+      return localStorage.getItem('lb-currency') === 'LKR' ? 'LKR' : 'USD';
+    } catch {
+      return 'USD';
+    }
+  });
+  const { rate } = useUsdToLkr();
+
+  const chooseCurrency = (c) => {
+    setCurrency(c);
+    try {
+      localStorage.setItem('lb-currency', c);
+    } catch {
+      /* ignore */
+    }
+  };
 
   return (
     <section className="pr-plans pr-wrap">
@@ -26,11 +44,26 @@ export const PricingPlans = ({ plans = PLANS }) => {
         </Reveal>
       </div>
 
+      <div className="pr-currency" role="group" aria-label="Currency">
+        {['USD', 'LKR'].map((c) => (
+          <button
+            key={c}
+            type="button"
+            className="pr-currency__btn"
+            aria-pressed={currency === c}
+            onClick={() => chooseCurrency(c)}
+          >
+            {c}
+          </button>
+        ))}
+      </div>
+
       <div className="pr-grid" {...swipeHandlers}>
         {plans.map((plan, i) => (
           <PlanCard
             key={plan.kicker}
             plan={plan}
+            price={formatPrice(plan.usd, currency, rate)}
             index={i}
             offset={offsetOf(i)}
             onSelect={() => setActive(i)}
@@ -49,7 +82,10 @@ export const PricingPlans = ({ plans = PLANS }) => {
       />
 
       <Reveal as="p" className="pr-note">
-        All starting prices are in USD. Final scope and fees are agreed before work begins.<br />
+        {currency === 'LKR'
+          ? `LKR prices are approximate, converted at today's rate (1 USD ≈ Rs ${Math.round(rate)}). `
+          : 'All starting prices are in USD. '}
+        Final scope and fees are agreed before work begins.<br />
         Timelines depend on content readiness and feedback.
       </Reveal>
 

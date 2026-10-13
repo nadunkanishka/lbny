@@ -182,3 +182,8 @@
     transition: none !important;
   }
 }
+
+/* Longer LKR amounts ("Rs 180,000") get a smaller size so they fit the card */
+.pr-card__amount--long {
+  font-size: clamp(2rem, 3.2vw, 2.9rem);
+}
