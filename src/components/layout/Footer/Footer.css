@@ -1,523 +1,210 @@
-/* ═══════════════════════════════════════════════
-   Footer — Studio Liberny
-   Full Page Height (100dvh) · 1:1 Recreation
-   Colors: #DFF36B (lime) · #D9C2FA (lavender)
-   ═══════════════════════════════════════════════ */
-
+/* Footer: white in light mode, inverted in dark mode. Layout follows the Figma design. */
 .footer {
-  background-color: #0a0a0a;
-  color: #fff;
-  width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --ft-bg: #fff;
+  --ft-ink: #0a0a0a;
+  --ft-soft: rgba(10, 10, 10, 0.5);
+  --ft-accent: #7c3aed;
+  --lb-surface-shadow: #0a0a0a;
   position: relative;
   overflow: hidden;
+  background: var(--ft-bg);
+  color: var(--ft-ink);
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* ── Upper main container ── */
+html:not(.light-theme) .footer {
+  --ft-bg: #090a0f;
+  --ft-ink: #f3f4f6;
+  --ft-soft: rgba(243, 244, 246, 0.55);
+  --ft-accent: #a78bfa;
+  --lb-surface-shadow: #f3f4f6;
+}
+
 .footer__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'brand cta'
+    'copy  nav';
+  align-items: start;
+  gap: clamp(2rem, 4vw, 3rem) 2rem;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: clamp(36px, 5vh, 68px) clamp(24px, 5vw, 64px) 0;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: space-between;
 }
 
-/* ── Top row ── */
-.footer__top {
+/* ── Left: brand block ── */
+.footer__brand {
+  grid-area: brand;
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-top: auto;
-  margin-bottom: clamp(20px, 3vh, 36px);
+  gap: 0.75rem;
 }
 
-.footer__top-left {
-  max-width: 820px;
-}
-
-/* Eyebrow label — increased size */
-.footer__eyebrow {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #DFF36B;
-  margin: 0 0 1rem;
-  line-height: 1;
-}
-
-/* Main headline — increased size */
-.footer__headline {
-  font-size: var(--font-size-h2);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin: 0;
-  color: #fff;
-}
-
-.footer__headline-accent {
-  color: #D9C2FA;
-  font-style: normal;
-}
-
-/* ── CTA Circle Button & Animations ── */
-.footer__top-right {
-  position: relative;
-  flex-shrink: 0;
-}
-
-.footer__cta-circle {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 156px;
-  height: 156px;
-  border-radius: 50%;
-  background-color: #DFF36B;
-  color: #0a0a0a;
-  text-decoration: none;
-  text-align: center;
-  flex-shrink: 0;
-  cursor: pointer;
-  transform-origin: center center;
-  animation: footerCtaFloat 4s ease-in-out infinite;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.3s ease,
-    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Ripple aura ring */
-.footer__cta-ripple {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(223, 243, 107, 0.4);
-  pointer-events: none;
-  animation: footerRipple 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-/* Floating animation at rest */
-@keyframes footerCtaFloat {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-/* Expanding ripple animation */
-@keyframes footerRipple {
-  0% {
-    transform: scale(0.96);
-    opacity: 0.8;
-  }
-
-  60% {
-    transform: scale(1.15);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(1.15);
-    opacity: 0;
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .footer__cta-circle:hover {
-    animation-play-state: paused;
-    transform: scale(1.09) rotate(3deg);
-    background-color: #ebff77;
-    box-shadow: 0 12px 35px rgba(223, 243, 107, 0.28);
-  }
-}
-
-.footer__cta-circle:active {
-  transform: scale(0.95);
-  box-shadow: 0 4px 12px rgba(223, 243, 107, 0.15);
-}
-
-/* Dual-arrow slide transition */
-.footer__cta-arrow-box {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-}
-
-.footer__cta-arrow {
-  position: absolute;
-  inset: 0;
-  display: block;
-  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.footer__cta-arrow--base {
-  transform: translate(0, 0);
-}
-
-.footer__cta-arrow--hover {
-  transform: translate(-120%, 120%);
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .footer__cta-circle:hover .footer__cta-arrow--base {
-    transform: translate(120%, -120%);
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .footer__cta-circle:hover .footer__cta-arrow--hover {
-    transform: translate(0, 0);
-  }
-}
-
-/* CTA label text — increased size */
-.footer__cta-label {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  line-height: 1.35;
-  display: block;
-}
-
-/* ── Nav links — increased size ── */
-.footer__nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: clamp(24px, 3vh, 44px);
-}
-
-.footer__nav-link {
+.footer__logo-link {
   display: inline-block;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  line-height: 1.7;
-  transition: color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  width: fit-content;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .footer__nav-link:hover {
-    color: #DFF36B;
-    transform: translateX(4px);
-  }
-}
-
-/* ── Contact row — increased size ── */
-.footer__contact-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: clamp(12px, 2vh, 24px);
-}
-
-.footer__contact-left {
-  display: flex;
-  align-items: center;
-  gap: clamp(24px, 4vw, 48px);
-}
-
-.footer__contact-item {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  color: #DFF36B;
-  text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  line-height: 1;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .footer__contact-item:hover {
-    opacity: 0.8;
-    transform: translateY(-1px);
-  }
-}
-
-/* ── Giant Wordmark (Full-Bleed & Never Cut Off) ── */
-.footer__wordmark-wrap {
-  width: 100%;
-  margin: 0;
-  padding: 0.5rem 0 0;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  box-sizing: border-box;
   line-height: 0;
 }
 
-.footer__wordmark-img {
+.footer__logo {
   display: block;
-  width: 100%;
+  width: 199px;
   height: auto;
-  max-height: 32vh;
-  object-fit: contain;
-  object-position: bottom center;
-  user-select: none;
-  pointer-events: none;
 }
 
-/* ── Bottom container & bar ── */
-.footer__inner--bottom {
-  flex: none;
-  padding-top: 0;
-  padding-bottom: clamp(16px, 2.5vh, 28px);
+.footer__logo--dark { display: none; }
+html:not(.light-theme) .footer__logo--light { display: none; }
+html:not(.light-theme) .footer__logo--dark { display: block; }
+
+.footer__tagline {
+  max-width: 21rem;
+  margin: 0.25rem 0 0.75rem;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: 600;
+  color: var(--ft-soft);
 }
 
-.footer__bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: clamp(12px, 2vh, 20px);
-}
-
-.footer__copy {
-  font-size: 13px;
+.footer__contact {
+  color: var(--ft-accent);
+  font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
-  margin: 0;
-}
-
-.footer__legal {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.footer__legal-link {
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
-  transition: color 0.2s ease;
+}
+
+.footer__contact:focus-visible,
+.footer__social a:focus-visible,
+.footer__nav-link:focus-visible {
+  outline: 2px solid var(--ft-accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  color: var(--ft-soft);
+}
+
+.footer__social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: -0.5rem 0 0 -0.5rem;
+  color: inherit;
+}
+
+/* ── Right: call to action ── */
+.footer__cta {
+  grid-area: cta;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.5rem;
+  text-align: right;
+}
+
+.footer__headline {
+  margin: 0;
+  font-size: var(--font-size-h2);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.footer__headline-accent {
+  color: var(--ft-accent);
+}
+
+/* ── Bottom row ── */
+.footer__copy {
+  grid-area: copy;
+  align-self: center;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.footer__nav {
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem 3rem;
+}
+
+.footer__nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .footer__legal-link:hover {
-    color: #fff;
+  .footer__nav-link:hover,
+  .footer__contact:hover {
+    color: var(--ft-accent);
+  }
+
+  .footer__social a:hover {
+    color: var(--ft-ink);
   }
 }
 
-/* ── Middle: Nav & Contact group ── */
-.footer__middle {
-  display: flex;
-  flex-direction: column;
+/* ── Giant cropped wordmark ── */
+.footer__wordmark {
+  width: 100%;
+  aspect-ratio: 2048 / 227;
+  background: url('/assets/brand/footer-wordmark.webp') center top / 100% auto no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  user-select: none;
 }
 
-/* ── Responsive adjustments ── */
-@media (max-width: 900px) {
-  .footer {
-    min-height: auto;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: visible;
-    padding-top: 0;
-  }
+html:not(.light-theme) .footer__wordmark {
+  filter: invert(1);
+  opacity: 0.1;
+}
 
+/* ── Tablet / phone: single column ── */
+@media (max-width: 860px) {
   .footer__inner {
-    flex: none;
-    display: flex;
-    flex-direction: column;
-    padding: clamp(68px, 9vh, 92px) clamp(20px, 5vw, 32px) 0;
-    box-sizing: border-box;
-    justify-content: flex-start;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'brand'
+      'cta'
+      'nav'
+      'copy';
   }
 
-  .footer__top {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: clamp(16px, 2.5vh, 24px);
-    margin-top: 0;
-    margin-bottom: clamp(28px, 4vh, 36px);
-  }
-
-  .footer__eyebrow {
-    font-size: 12px;
-    letter-spacing: 0.14em;
-    margin: 0 0 0.5rem;
-  }
-
-  .footer__headline {
-    font-size: var(--font-size-h2);
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-  }
-
-  .footer__top-right {
-    display: flex;
-  }
-
-  .footer__cta-circle {
-    width: 110px;
-    height: 110px;
-    gap: 0.25rem;
-  }
-
-  .footer__cta-label {
-    font-size: 10.5px;
-    line-height: 1.25;
-    letter-spacing: 0.08em;
-  }
-
-  .footer__cta-arrow-box {
-    width: 24px;
-    height: 24px;
-  }
-
-  /* ── Middle 2-column layout on mobile ──
-     Every nav link and contact item shares the same fixed row height,
-     so rows line up perfectly across both columns. */
-  .footer__middle {
-    --footer-row-h: 34px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1.25rem;
-    margin-bottom: clamp(28px, 4vh, 36px);
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .footer__nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: 0;
-    flex-shrink: 0;
-  }
-
-  .footer__nav-link {
-    display: flex;
-    align-items: center;
-    height: var(--footer-row-h);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    line-height: 1;
-  }
-
-  .footer__contact-row {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 0;
-    padding-bottom: 0;
-    text-align: right;
-  }
-
-  .footer__contact-left,
-  .footer__contact-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0;
-  }
-
-  .footer__contact-item {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: var(--footer-row-h);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    white-space: nowrap;
-  }
-
-  /* ── Wordmark with breathing room ── */
-  .footer__wordmark-wrap {
-    width: 100%;
-    padding: clamp(12px, 2vh, 20px) 0 clamp(8px, 1.5vh, 16px);
-    margin-top: 0;
-  }
-
-  .footer__wordmark-img {
-    max-height: clamp(52px, 12vh, 85px);
-  }
-
-  /* ── Bottom bar ── */
-  .footer__inner--bottom {
-    flex: none;
-    padding: 0 clamp(20px, 5vw, 32px) clamp(20px, 3vh, 32px);
-  }
-
-  .footer__bottom {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    padding-top: clamp(12px, 1.8vh, 16px);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .footer__copy,
-  .footer__legal-link {
-    font-size: 11.5px;
-    letter-spacing: 0.04em;
-  }
-
-  .footer__legal {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 360px) {
-  .footer__middle {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-
-  .footer__contact-row,
-  .footer__contact-left,
-  .footer__contact-right {
+  .footer__cta {
     align-items: flex-start;
     text-align: left;
   }
 
-  .footer__contact-item {
+  .footer__nav {
     justify-content: flex-start;
+    gap: 0 1.5rem;
+  }
+
+  .footer__copy {
+    align-self: start;
+    line-height: 1.6;
   }
 }
